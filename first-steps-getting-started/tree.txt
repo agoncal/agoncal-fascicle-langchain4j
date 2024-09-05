@@ -1,0 +1,14 @@
+.
+├─ src
+│  ├─ main
+│  │  ├─ java
+│  │  │  └─ org/agoncal/fascicle/langchain4j/gettingstarted
+│  │  │       ├─ Musician.java
+│  │  │       └─ MusicianAssistant.java
+│  │  └─ resources
+│  │     └─ tinylog.properties
+│  └─ test
+│     └─ java
+│        └─ org/agoncal/fascicle/langchain4j/gettingstarted
+│             └─ MusicianAssistantTest.java
+└─ pom.xml

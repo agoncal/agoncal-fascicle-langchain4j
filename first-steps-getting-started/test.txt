@@ -1,0 +1,35 @@
+[INFO] ------------------------------------------------------
+[INFO] Building LangChain4j :: First Steps :: Getting Started
+[INFO] ------------------------------------------------------
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile)
+[INFO]
+[INFO] --- surefire:3.2.2:test (default-test)
+[INFO]
+[INFO] -----------
+[INFO]  T E S T S
+[INFO] -----------
+[INFO] Running org.agoncal.fascicle.langchain4j.gettingstarted.MusicianAssistantTest
+
+[INFO] Found Docker environment with Docker accessed via Unix socket
+[INFO] Docker host IP address is localhost
+
+[INFO] Connected to docker:
+  Server Version: 26.1.4
+  API Version: 1.45
+  Operating System: Docker Desktop
+  Total Memory: 7840 MB
+
+[INFO] Creating container for image: testcontainers/ryuk:0.6.0
+
+[INFO] Creating container for image: langchain4j/ollama-tinyllama:latest
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.61 s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] --------------
+[INFO] BUILD SUCCESS
+[INFO] --------------

@@ -1,0 +1,17 @@
+- method: POST
+- url: https://api.openai.com/v1/chat/completions
+- headers: [Authorization: Bearer sk-f5...HY], [User-Agent: langchain4j-openai]
+- body: {
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert in Jazz music. Reply with only the names of the artists, albums, etc. Be very concise. If a list is given, separate the items with commas. "
+    },
+    {
+      "role": "user",
+      "content": "List the top 3 albums of Miles Davis."
+    }
+  ],
+  "temperature": 0.3
+}

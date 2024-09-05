@@ -1,0 +1,23 @@
+- status code: 200
+- headers: [content-type: application/json], [openai-version: 2020-10-01]
+- body: {
+  "id": "chatcmpl-9YVbGfh7CwB9IdF9rNU",
+  "object": "chat.completion",
+  "created": 1718011650,
+  "model": "gpt-4o-2024-05-13",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Kind of Blue, Bitches Brew, Sketches of Spain"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 30,
+    "completion_tokens": 50,
+    "total_tokens": 80
+  },
+}
