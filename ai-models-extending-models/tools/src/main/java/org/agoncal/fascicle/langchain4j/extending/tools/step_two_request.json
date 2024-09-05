@@ -1,0 +1,24 @@
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "user",
+      "content": "When was the PRIVACY document updated?"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "lastUpdatePrivacy"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "content": "\"2013-03-09\""
+    }
+  ]
+}

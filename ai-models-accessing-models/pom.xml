@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.langchain4j.ai-models</groupId>
+  <artifactId>accessing-models</artifactId>
+  <version>1.0</version>
+  <name>LangChain4j :: AI Models :: Accessing Models</name>
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>org.agoncal.fascicle</groupId>
+    <artifactId>langchain4j</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <modules>
+    <module>azure-open-ai</module>
+    <module>amazon-bedrock</module>
+    <module>hugging-face</module>
+    <module>mistral-ai</module>
+    <module>ollama</module>
+    <module>open-ai</module>
+    <module>vertex-ai</module>
+    <module>vertex-ai-gemini</module>
+  </modules>
+
+</project>
