@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.langchain4j.rag</groupId>
+  <artifactId>handling-embeddings</artifactId>
+  <version>1.0</version>
+  <name>LangChain4j :: RAG :: Handling Embeddings</name>
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>org.agoncal.fascicle</groupId>
+    <artifactId>langchain4j</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <modules>
+    <module>embedding-local</module>
+    <module>embedding-ollama</module>
+    <module>embedding-openai</module>
+    <module>store-azure-ai-search</module>
+    <module>store-elasticsearch</module>
+    <module>store-mongodb</module>
+    <module>store-neo4j</module>
+    <module>store-pgvector</module>
+    <module>store-qdrant</module>
+    <module>store-redis</module>
+  </modules>
+
+</project>
