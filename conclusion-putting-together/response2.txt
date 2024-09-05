@@ -1,0 +1,23 @@
+- status code: 200
+- headers: [content-type: application/json], [openai-processing-ms: 3445]
+- body: {
+  "id": "chatcmpl-9cTB7wkjEI9RNy",
+  "object": "chat.completion",
+  "model": "gpt-4o-2024-05-13",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hi Antonio,\n\nThe terms and conditions of the company were last updated on June 19, 2014. Here is a brief overview:\n\n**DISCLAIMER:**\n- The services are provided \"as-is\" and \"as-available.\"\n- Use of the services is at your own risk.\n- We disclaim all warranties, express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.\n- We are not responsible for errors, personal injury, unauthorized access, transmission interruptions, bugs, viruses, or any content errors.\n- We do not endorse or assume responsibility for any third-party products or services advertised through our services.\n\nFor more detailed information, please refer to the full terms and conditions document."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 728,
+    "completion_tokens": 154,
+    "total_tokens": 882
+  },
+}

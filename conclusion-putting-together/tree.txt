@@ -1,0 +1,19 @@
+.
+├─ src
+│  └─ main
+│    ├─ docker
+│    │  └─ qdrant.yml
+│    ├─ java
+│    │  └─ org/agoncal/fascicle/langchain4j/puttingtogether
+│    │     ├── ChatAssistant.java
+│    │     ├── ChatService.java
+│    │     ├── ChatTools.java
+│    │     └── DocumentIngestor.java
+│    └── resources
+│       ├── acceptable-use-policy.pdf
+│       ├── disclaimer.pdf
+│       ├── end-user-license-agreement.pdf
+│       ├── privacy.pdf
+│       ├── terms.pdf
+│       └── tinylog.properties
+└── pom.xml

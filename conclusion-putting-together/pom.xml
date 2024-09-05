@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- tag::adocHeader[] -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.langchain4j.conclusion</groupId>
+  <artifactId>putting-together</artifactId>
+  <version>1.0</version>
+  <!-- tag::adocSkip[] -->
+  <name>LangChain4j :: Conclusion :: Putting It All Together</name>
+  <!-- end::adocSkip[] -->
+
+  <properties>
+    <!-- Java -->
+    <maven.compiler.release>17</maven.compiler.release>
+    <!-- Langchain4j -->
+    <version.langchain4j>0.33.0</version.langchain4j>
+    <version.tinylog>2.6.2</version.tinylog>
+    <!-- Maven Plugins -->
+    <version.exec.plugin>3.1.1</version.exec.plugin>
+    <!-- Project -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+  <!-- end::adocHeader[] -->
+  <!-- tag::adocDependencyManagement[] -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>dev.langchain4j</groupId>
+        <artifactId>langchain4j-bom</artifactId>
+        <version>${version.langchain4j}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <!-- end::adocDependencyManagement[] -->
+  <!-- tag::adocDependencies[] -->
+  <dependencies>
+    <!-- LangChain4j -->
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-open-ai</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-document-parser-apache-pdfbox</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-embeddings-all-minilm-l6-v2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-qdrant</artifactId>
+    </dependency>
+    <!-- Other -->
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>slf4j-tinylog</artifactId>
+      <version>${version.tinylog}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>tinylog-impl</artifactId>
+      <version>${version.tinylog}</version>
+    </dependency>
+    <!-- end::adocDependencies[] -->
+  </dependencies>
+
+  <!-- tag::adocBuild[] -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${version.exec.plugin}</version>
+        <configuration>
+          <mainClass>org.agoncal.fascicle.langchain4j.puttingtogether.ChatService</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <!-- end::adocBuild[] -->
+
+  <profiles>
+    <!-- tag::adocProfile[] -->
+    <profile>
+      <id>ingest</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>${version.exec.plugin}</version>
+            <configuration>
+              <mainClass>org.agoncal.fascicle.langchain4j.puttingtogether.DocumentIngestor</mainClass>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- end::adocProfile[] -->
+  </profiles>
+</project>
