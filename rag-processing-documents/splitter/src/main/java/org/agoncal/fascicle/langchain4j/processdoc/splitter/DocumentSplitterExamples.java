@@ -52,7 +52,9 @@ public class DocumentSplitterExamples {
 
     Document document = FileSystemDocumentLoader.loadDocument(documentPath);
 
+    // tag::adocOverlap[]
     DocumentSplitter splitter = new DocumentBySentenceSplitter(1000, 50);
+    // end::adocOverlap[]
 
     List<TextSegment> segments = splitter.split(document);
 
