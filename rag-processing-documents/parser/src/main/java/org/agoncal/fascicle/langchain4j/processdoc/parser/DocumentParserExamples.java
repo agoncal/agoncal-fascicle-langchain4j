@@ -66,8 +66,10 @@ public class DocumentParserExamples {
     log.info(document.text().trim().substring(0, 100));
   }
 
+  // tag::adocToStream[]
   private static InputStream toStream(String fileName) {
     InputStream fileStream = DocumentParserExamples.class.getClassLoader().getResourceAsStream(fileName);
     return fileStream;
   }
+  // end::adocToStream[]
 }
