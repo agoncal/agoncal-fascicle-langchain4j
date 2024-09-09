@@ -6,8 +6,7 @@ org.agoncal.fascicle.langchain4j.first-steps:getting-started:jar:1.0
 |  +- org.jsoup:jsoup:jar:1.16.1:compile
 |  \- org.slf4j:slf4j-api:jar:2.0.7:compile
 +- dev.langchain4j:langchain4j-open-ai:jar:{langchain4j-version}:compile
-|  +- dev.ai4j:openai4j:jar:0.17.0:compile
-|  |  +- com.squareup.retrofit2:converter-gson:jar:2.9.0:compile
+|  +- dev.ai4j:openai4j:jar:0.20.0:compile
 |  |  \- com.squareup.okhttp3:okhttp-sse:jar:4.12.0:compile
 |  \- com.knuddels:jtokkit:jar:1.1.0:compile
 +- org.tinylog:slf4j-tinylog:jar:2.6.2:compile
