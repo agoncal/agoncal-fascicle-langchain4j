@@ -20,6 +20,8 @@ public class AuthorService {
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
   public static void main(String[] args) {
+    String authorName = args[0];
+
     ChatLanguageModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
@@ -28,7 +30,7 @@ public class AuthorService {
 
     AuthorAssistant assistant = AiServices.create(AuthorAssistant.class, model);
 
-    String answer = assistant.getAuthorBiography(args[0]);
+    String answer = assistant.getAuthorBiography(authorName);
     System.out.println(answer);
     // tag::adocSkip[]
     exit(0);
