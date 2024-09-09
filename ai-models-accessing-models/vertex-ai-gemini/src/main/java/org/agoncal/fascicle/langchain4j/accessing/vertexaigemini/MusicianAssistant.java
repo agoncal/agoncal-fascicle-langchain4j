@@ -18,20 +18,21 @@ public class MusicianAssistant {
     musicianAssistant.useVertexAiGeminiChatModel();
   }
 
-  private static final String AZURE_OPENAI_KEY = System.getenv("AZURE_OPENAI_KEY");
-  private static final String AZURE_OPENAI_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
-  private static final String AZURE_OPENAI_DEPLOYMENT_NAME = System.getenv("AZURE_OPENAI_DEPLOYMENT_NAME");
+  private static final String GCP_LOCATION = System.getenv("GCP_LOCATION");
+  private static final String GCP_PROJECT_ID = System.getenv("GCP_PROJECT_ID");
+  public static final String GEMINI_1_5_PRO = "gemini-1.5-pro-001";
 
-  private static final String PROMPT = "When was the first Beatles album released?";
-
-  // ###############################
-  // ### AZURE OPENAI CHAT MODEL ###
-  // ###############################
+  // ###################################
+  // ### VERTEX AI GEMINI CHAT MODEL ###
+  // ###################################
   public void useVertexAiGeminiChatModel() {
-    System.out.println("### useAzureOpenAiChatModel");
+    System.out.println("### useVertexAiChatModelBuilder");
 
     // tag::adocSnippet[]
     VertexAiGeminiChatModel model = VertexAiGeminiChatModel.builder()
+      .project(GCP_PROJECT_ID)
+      .location(GCP_LOCATION)
+      .modelName(GEMINI_1_5_PRO)
       .temperature(0.3f)
       .build();
     // end::adocSnippet[]

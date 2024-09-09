@@ -35,6 +35,7 @@ public class MusicianAssistant {
     // tag::adocSnippet[]
     BedrockTitanChatModel model = BedrockTitanChatModel.builder()
       .temperature(0.9)
+      .region(Region.US_EAST_1)
       .model(TitanTextExpressV1.getValue())
       .build();
     // end::adocSnippet[]

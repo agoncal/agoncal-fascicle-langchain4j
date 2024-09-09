@@ -113,7 +113,7 @@ public class MusicianAssistant {
     // tag::adocChatModel[]
     OllamaChatModel model = OllamaChatModel.builder()
       .baseUrl("http://localhost:11434")
-      .modelName("llama3")
+      .modelName("llama3.1")
       .temperature(0.9)
       .maxRetries(2)
       .build();

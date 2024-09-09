@@ -15,30 +15,30 @@ public class MusicianAssistant {
   public static void main(String[] args) {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
-    musicianAssistant.useVertexAiLanguageModelBuilder();
+    musicianAssistant.useVertexAiGeminiChatModel();
   }
 
-  private static final String AZURE_OPENAI_KEY = System.getenv("AZURE_OPENAI_KEY");
-  private static final String AZURE_OPENAI_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
-  private static final String AZURE_OPENAI_DEPLOYMENT_NAME = System.getenv("AZURE_OPENAI_DEPLOYMENT_NAME");
-
-  private static final String PROMPT = "When was the first Beatles album released?";
+  private static final String GCP_LOCATION = System.getenv("GCP_LOCATION");
+  private static final String GCP_PROJECT_ID = System.getenv("GCP_PROJECT_ID");
+  public static final String GEMINI_1_5_PRO = "gemini-1.5-pro-001";
 
   // ###################################
-  // ### AZURE OPENAI LANGUAGE MODEL ###
+  // ### VERTEX AI GEMINI CHAT MODEL ###
   // ###################################
-  public void useVertexAiLanguageModelBuilder() {
-    System.out.println("### useVertexAiLanguageModelBuilder");
+  public void useVertexAiGeminiChatModel() {
+    System.out.println("### useVertexAiChatModelBuilder");
 
     // tag::adocSnippet[]
     VertexAiGeminiChatModel model = VertexAiGeminiChatModel.builder()
-      .project("langchain4j-fascicle-project")
-      .location("us-central1")
-      .modelName("gemini-1.0-pro")
+      .project(GCP_PROJECT_ID)
+      .location(GCP_LOCATION)
+      .modelName(GEMINI_1_5_PRO)
       .temperature(0.3f)
       .build();
     // end::adocSnippet[]
 
-    String completion = model.generate(PROMPT);
+    String completion = model.generate("When was the first Rolling Stones album released?");
+
+    System.out.println(completion);
   }
 }

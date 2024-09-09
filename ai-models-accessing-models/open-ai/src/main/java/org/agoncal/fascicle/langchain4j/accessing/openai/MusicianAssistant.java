@@ -16,6 +16,7 @@ import dev.langchain4j.model.moderation.Moderation;
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
 import dev.langchain4j.model.openai.OpenAiImageModel;
 import dev.langchain4j.model.openai.OpenAiLanguageModel;
@@ -204,6 +205,21 @@ public class MusicianAssistant {
     // tag::adocSimpleConf[]
     OpenAiChatModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
     // end::adocSimpleConf[]
+
+    String content = model.generate("What inspired the author to start writing?");
+
+    System.out.println(content);
+  }
+
+  public void useOpenAiSimpleConf2() {
+    System.out.println("### useOpenAiSimpleConf2");
+
+    // tag::adocSimpleConf2[]
+    OpenAiChatModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
+    // end::adocSimpleConf2[]
 
     String content = model.generate("What inspired the author to start writing?");
 
