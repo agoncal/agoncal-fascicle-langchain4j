@@ -25,6 +25,8 @@ public class MusicianAssistant {
   // end::adocOpenAIKey[]
 
   public static void main(String[] args) {
+    String firstName = args[0];
+    String lastName = args[1];
 
     ChatLanguageModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
@@ -37,7 +39,7 @@ public class MusicianAssistant {
       .build();
     // end::adocLogs[]
 
-    Musician musician = new MusicianAssistant().generateTopThreeAlbums(model, args[0], args[1]);
+    Musician musician = new MusicianAssistant().generateTopThreeAlbums(model, firstName, lastName);
 
     System.out.println(musician);
     exit(0);
