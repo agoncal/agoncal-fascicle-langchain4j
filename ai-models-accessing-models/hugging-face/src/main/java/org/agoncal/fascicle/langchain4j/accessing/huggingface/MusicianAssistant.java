@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.langchain4j.accessing.huggingface;
 
 import dev.langchain4j.model.huggingface.HuggingFaceChatModel;
+import static dev.langchain4j.model.huggingface.HuggingFaceModelName.TII_UAE_FALCON_7B_INSTRUCT;
 
 // tag::adocSkip[]
 
@@ -31,6 +32,7 @@ public class MusicianAssistant {
     // tag::adocSnippet[]
     HuggingFaceChatModel model = HuggingFaceChatModel.builder()
       .accessToken(HF_API_KEY)
+      .modelId(TII_UAE_FALCON_7B_INSTRUCT)
       .temperature(0.3)
       .build();
     // end::adocSnippet[]
