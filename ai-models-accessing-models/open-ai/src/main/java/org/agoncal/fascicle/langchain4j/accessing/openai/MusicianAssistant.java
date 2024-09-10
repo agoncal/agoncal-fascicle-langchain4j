@@ -376,7 +376,7 @@ public class MusicianAssistant {
     // tag::adocImageTypeOfModel[]
     ImageModel model = OpenAiImageModel.withApiKey(OPENAI_API_KEY);
 
-    Response<Image> response = model.generate("Jazz album cover showing all main Jazz artist, à la Sergent Pepper");
+    Response<Image> response = model.generate("Jazz album cover showing all main Jazz artists, à la Sergent Pepper");
 
     Image content = response.content();
 
