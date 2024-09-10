@@ -258,7 +258,7 @@ public class MusicianAssistant {
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
-      .frequencyPenalty(1.0)
+      .temperature(1.0)
       .build();
 
     String completion = model.generate("In one single sentence, tell me what is the significance of the Beatles in music history?");
@@ -274,7 +274,7 @@ public class MusicianAssistant {
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
-      .frequencyPenalty(0.0)
+      .temperature(0.0)
       .build();
 
     String completion = model.generate("In one single sentence, tell me what is the significance of the Beatles in music history?");
