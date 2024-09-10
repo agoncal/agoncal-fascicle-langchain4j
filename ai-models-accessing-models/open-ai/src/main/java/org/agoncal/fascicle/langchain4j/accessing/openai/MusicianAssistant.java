@@ -42,12 +42,12 @@ public class MusicianAssistant {
   public static void main(String[] args) {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
-    musicianAssistant.useLangChain4jInsteadSDK();
+//    musicianAssistant.useLangChain4jInsteadSDK();
 //    musicianAssistant.useOpenAiLanguageTypeOfModel();
 //    musicianAssistant.useOpenAiLanguageModel();
 //    musicianAssistant.useOpenAiLanguageModelPrompt();
 //    musicianAssistant.useOpenAiLanguageModelBuilder();
-//    musicianAssistant.useOpenAiStreamingLanguageTypeOfModel();
+    musicianAssistant.useOpenAiStreamingLanguageTypeOfModel();
 
 //    musicianAssistant.useOpenAiChatTypeOfModel();
 //    musicianAssistant.useOpenAiChatModelTemperatureOne();
