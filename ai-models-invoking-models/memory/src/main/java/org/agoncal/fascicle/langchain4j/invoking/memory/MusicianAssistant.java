@@ -22,8 +22,8 @@ public class MusicianAssistant {
   public static void main(String[] args) throws InterruptedException {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
-//    musicianAssistant.useNoMemory();
-    musicianAssistant.sendingMultipleMessages();
+    musicianAssistant.useNoMemory();
+//    musicianAssistant.sendingMultipleMessages();
 //    musicianAssistant.useChatMemory();
   }
 
@@ -37,28 +37,23 @@ public class MusicianAssistant {
 
     ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
     // tag::adocNoMemory[]
-    UserMessage msg = UserMessage.from("My name is Antonio");
-    System.out.println(model.generate(msg));
+    System.out.println(model.generate("My name is Antonio"));
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
-    msg = UserMessage.from("My favourite Rock band is the Beatles");
-    System.out.println(model.generate(msg));
+    System.out.println(model.generate("My favourite Rock band is the Beatles"));
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
-    msg = UserMessage.from("When was their first album released?");
-    System.out.println(model.generate(msg));
+    System.out.println(model.generate("When was their first album released?"));
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
-    msg = UserMessage.from("What's the name of the singer?");
-    System.out.println(model.generate(msg));
+    System.out.println(model.generate("What's the name of the singer?"));
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
-    msg = UserMessage.from("What's my name?");
-    System.out.println(model.generate(msg));
+    System.out.println(model.generate("What's my name?"));
     // end::adocNoMemory[]
   }
 
