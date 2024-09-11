@@ -38,22 +38,27 @@ public class MusicianAssistant {
     ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
     // tag::adocNoMemory[]
     System.out.println(model.generate("My name is Antonio"));
+    // Nice to meet you, Antonio! How can I assist you today?
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
     System.out.println(model.generate("My favourite Rock band is the Beatles"));
+    // That's a great choice! The Beatles are a legendary rock band.
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
     System.out.println(model.generate("When was their first album released?"));
+    // Their first album, "Parachutes," was released on July 10, 2000.
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
     System.out.println(model.generate("What's the name of the singer?"));
+    // I'm not sure, could you please provide more context or details?
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
     System.out.println(model.generate("What's my name?"));
+    // I'm sorry, I don't know your name. Can you please tell me?
     // end::adocNoMemory[]
   }
 
