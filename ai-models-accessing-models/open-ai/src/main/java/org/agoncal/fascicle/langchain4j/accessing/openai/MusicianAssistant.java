@@ -11,7 +11,6 @@ import dev.langchain4j.model.chat.StreamingChatLanguageModel;
 import dev.langchain4j.model.image.ImageModel;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.language.LanguageModel;
-import dev.langchain4j.model.language.StreamingLanguageModel;
 import dev.langchain4j.model.moderation.Moderation;
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
@@ -22,7 +21,6 @@ import dev.langchain4j.model.openai.OpenAiImageModel;
 import dev.langchain4j.model.openai.OpenAiLanguageModel;
 import dev.langchain4j.model.openai.OpenAiModerationModel;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
-import dev.langchain4j.model.openai.OpenAiStreamingLanguageModel;
 import dev.langchain4j.model.output.FinishReason;
 import dev.langchain4j.model.output.Response;
 import dev.langchain4j.model.output.TokenUsage;
@@ -47,7 +45,6 @@ public class MusicianAssistant {
 //    musicianAssistant.useOpenAiLanguageModel();
 //    musicianAssistant.useOpenAiLanguageModelPrompt();
 //    musicianAssistant.useOpenAiLanguageModelBuilder();
-    musicianAssistant.useOpenAiStreamingLanguageTypeOfModel();
 
 //    musicianAssistant.useOpenAiChatTypeOfModel();
 //    musicianAssistant.useOpenAiChatModelTemperatureOne();
@@ -56,9 +53,9 @@ public class MusicianAssistant {
 //    musicianAssistant.useTypedUntypedResponseUserMessage();
 //    musicianAssistant.useTypedUntypedResponseImage();
 //    musicianAssistant.useTypedUntypedResponseEmbedding();
-//    musicianAssistant.useOpenAiStreaming();
+    musicianAssistant.useOpenAiStreaming();
 //    musicianAssistant.useOpenAiChatModelBuilder();
-//    musicianAssistant.useOpenAiStreamingChatTypeOfModel();
+    musicianAssistant.useOpenAiStreamingChatTypeOfModel();
 
 //    musicianAssistant.useOpenAiModerationTypeOfModel();
 //    musicianAssistant.useOpenAiImageTypeOfModel();
@@ -151,36 +148,6 @@ public class MusicianAssistant {
     System.out.println(response.content());
     System.out.println(response.finishReason());
     System.out.println(response.tokenUsage());
-  }
-
-  // #######################################
-  // ### OPENAI STREAMING LANGUAGE MODEL ###
-  // #######################################
-  public void useOpenAiStreamingLanguageTypeOfModel() {
-    System.out.println("### useOpenAiStreamingLanguageTypeOfModel");
-
-    // tag::adocStreamingLanguageTypeOfModel[]
-    StreamingLanguageModel model = OpenAiStreamingLanguageModel.withApiKey(OPENAI_API_KEY);
-
-    model.generate("Who are some influential Jazz musicians?",
-      new StreamingResponseHandler<>() {
-
-        @Override
-        public void onNext(String token) {
-          System.out.print(token);
-        }
-
-        @Override
-        public void onComplete(Response<String> response) {
-          System.out.println("Streaming completed: " + response);
-        }
-
-        @Override
-        public void onError(Throwable error) {
-          error.printStackTrace();
-        }
-      });
-    // end::adocStreamingLanguageTypeOfModel[]
   }
 
   // #########################
@@ -302,7 +269,10 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiStreamingChatTypeOfModel");
 
     // tag::adocStreamingChatTypeOfModel[]
-    StreamingChatLanguageModel model = OpenAiStreamingChatModel.withApiKey(OPENAI_API_KEY);
+    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     model.generate("What are some common formats and sizes of video tapes?",
       new StreamingResponseHandler<>() {
@@ -329,7 +299,10 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiStreaming");
 
     // tag::adocStreaming[]
-    StreamingChatLanguageModel model = OpenAiStreamingChatModel.withApiKey(OPENAI_API_KEY);
+    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     model.generate("Who are some influential female musicians?",
       new StreamingResponseHandler<>() {
