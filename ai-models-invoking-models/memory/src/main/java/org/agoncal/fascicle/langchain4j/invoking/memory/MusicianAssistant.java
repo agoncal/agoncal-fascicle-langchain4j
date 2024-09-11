@@ -22,9 +22,9 @@ public class MusicianAssistant {
   public static void main(String[] args) throws InterruptedException {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
-    musicianAssistant.useNoMemory();
+//    musicianAssistant.useNoMemory();
 //    musicianAssistant.sendingMultipleMessages();
-//    musicianAssistant.useChatMemory();
+    musicianAssistant.useChatMemory();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -78,6 +78,7 @@ public class MusicianAssistant {
     UserMessage fifthMsg = UserMessage.from("What's my name?");
 
     System.out.println(model.generate(firstMsg, secondMsg, thirdMsg, forthMsg, fifthMsg));
+    // Your name is Antonio
     // end::adocMultipleMessages[]
   }
 
