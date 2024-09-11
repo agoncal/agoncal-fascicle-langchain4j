@@ -12,21 +12,21 @@
       "type": "function",
       "function": {
         "name": "lastUpdatePrivacy",
-        "description": "The last time the PRIVACY document was updated"
+        "description": "Returns the last time the PRIVACY document was updated"
       }
     },
     {
       "type": "function",
       "function": {
         "name": "lastUpdateTerms",
-        "description": "The last time the TERMS AND CONDITIONS document was updated"
+        "description": "Returns the last time the TERMS AND CONDITIONS document was updated"
       }
     },
     {
       "type": "function",
       "function": {
         "name": "lastEndUserLicenseAgreement",
-        "description": "The last time the END USER LICENSE AGREEMENT document was updated"
+        "description": "Returns the last time the END USER LICENSE AGREEMENT document was updated"
       }
     }
   ]
