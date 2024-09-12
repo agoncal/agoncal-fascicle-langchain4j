@@ -6,6 +6,7 @@ import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
 import dev.langchain4j.model.embedding.onnx.bgesmallen.BgeSmallEnEmbeddingModel;
 import dev.langchain4j.model.output.Response;
+import dev.langchain4j.store.embedding.CosineSimilarity;
 
 // tag::adocSkip[]
 
@@ -21,7 +22,8 @@ public class MusicianAssistant {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
 //    musicianAssistant.textToEmbeddingAllMiniLmL6V2();
-    musicianAssistant.textToEmbeddingBgeSmall();
+//    musicianAssistant.textToEmbeddingBgeSmall();
+    musicianAssistant.cosineSimilarityBetween();
   }
 
   public void textToEmbeddingAllMiniLmL6V2() {
@@ -48,5 +50,26 @@ public class MusicianAssistant {
 
     System.out.println(embedding.content());
     // end::adocTextToEmbeddingBgeSmall[]
+  }
+
+  public void cosineSimilarityBetween() {
+    System.out.println("### cosineSimilarityBetween");
+
+    EmbeddingModel model = new BgeSmallEnEmbeddingModel();
+
+    // tag::adocCosineSimilarityBetween[]
+    Embedding isaacAsimov = model.embed("Isaac Asimov").content();
+    Embedding noraJemisin = model.embed("Nora Jemisin").content();
+    Embedding rollingStones = model.embed("Fender Guitar").content();
+    Embedding table = model.embed("Table").content();
+
+    CosineSimilarity.between(isaacAsimov, noraJemisin);   // 0.7988
+    CosineSimilarity.between(isaacAsimov, rollingStones); // 0.7378
+    CosineSimilarity.between(isaacAsimov, table);         // 0.7632
+    // end::adocCosineSimilarityBetween[]
+
+    System.out.println(CosineSimilarity.between(isaacAsimov, noraJemisin));
+    System.out.println(CosineSimilarity.between(isaacAsimov, rollingStones));
+    System.out.println(CosineSimilarity.between(isaacAsimov, table));
   }
 }

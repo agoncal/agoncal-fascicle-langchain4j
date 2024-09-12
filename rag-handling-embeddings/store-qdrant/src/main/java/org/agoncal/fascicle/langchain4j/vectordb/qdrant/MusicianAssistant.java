@@ -225,7 +225,7 @@ public class MusicianAssistant {
     Embedding embedding2 = embeddingModel.embed(segment2).content();
     embeddingStore.add(embedding2, segment2);
 
-    TextSegment segment3 = TextSegment.from("Blue Moods” (1955): This lesser-known Miles Davis album is a collaboration with Charles Mingus alongside Britt Woodman on trombone and Elvin Jones on drums.");
+    TextSegment segment3 = TextSegment.from("Blue Moods (1955): This lesser-known Miles Davis album is a collaboration with Charles Mingus alongside Britt Woodman on trombone and Elvin Jones on drums.");
     Embedding embedding3 = embeddingModel.embed(segment2).content();
     embeddingStore.add(embedding3, segment3);
     // end::adocInMemoryToQuery1[]
