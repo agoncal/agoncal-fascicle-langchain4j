@@ -34,10 +34,12 @@ public class MusicianAssistant {
 //    musicianAssistant.useQdrantToStoreEmbeddingsSimple();
 //    musicianAssistant.useQdrantToStoreEmbeddingsComplex();
 //    musicianAssistant.useQdrantToStoreListEmbeddings();
-    musicianAssistant.useQdrantToStoreAllListEmbeddings();
+//    musicianAssistant.useQdrantToStoreAllListEmbeddings();
 //    musicianAssistant.useQdrantToStoreJustEmbeddings();
 //    musicianAssistant.useQdrantToRemoveEmbeddings();
-//    musicianAssistant.useInMemoryToQuery();
+//    musicianAssistant.useQdrantToRemoveEmbeddings();
+    musicianAssistant.useQdrantToRemoveAllEmbeddings();
+
   }
 
   public void useQdrantToStoreEmbeddingsConnect() {
@@ -348,6 +350,34 @@ public class MusicianAssistant {
 
     embeddingStore.remove(id);
     // end::adocQdrantToRemoveEmbeddings[]
+
+    Embedding embeddedQuestion = embeddingModel.embed("Which Nora Jemisin won an award?").content();
+    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+
+    System.out.println(embeddingMatch.score());
+    System.out.println(embeddingMatch.embedding().dimension());
+  }
+
+  public void useQdrantToRemoveAllEmbeddings() {
+    System.out.println("### useQdrantToRemoveEmbeddings");
+
+    createCollection();
+
+    EmbeddingStore<TextSegment> embeddingStore =
+      QdrantEmbeddingStore.builder()
+        .collectionName("langchain4j-collection")
+        .host("localhost")
+        .port(6334)
+        .build();
+
+    EmbeddingModel embeddingModel = new AllMiniLmL6V2EmbeddingModel();
+
+    Embedding embedding = embeddingModel.embed("Kind of Blue (1959) ...").content();
+
+    // tag::adocQdrantToRemoveAllEmbeddings[]
+    embeddingStore.removeAll();
+    // end::adocQdrantToRemoveAllEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Nora Jemisin won an award?").content();
     List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
