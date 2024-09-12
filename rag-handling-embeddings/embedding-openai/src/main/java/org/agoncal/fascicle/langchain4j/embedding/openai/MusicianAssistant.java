@@ -6,6 +6,8 @@ import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
 import dev.langchain4j.model.output.Response;
 
+import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDING_3_SMALL;
+
 // tag::adocSkip[]
 
 /**
@@ -28,12 +30,30 @@ public class MusicianAssistant {
     System.out.println("### textToEmbeddingOpenAI");
 
     // tag::adocTextToEmbeddingOpenAI[]
-    EmbeddingModel model = OpenAiEmbeddingModel.withApiKey(OPENAI_API_KEY);
+    EmbeddingModel model = OpenAiEmbeddingModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(TEXT_EMBEDDING_3_SMALL)
+      .build();
 
-    TextSegment segment = TextSegment.from("Isaac Asimov is a writer and a biochemist");
-    Response<Embedding> embedding = model.embed(segment);
+    Response<Embedding> embedding = model.embed("Isaac Asimov is a writer and a biochemist");
 
     System.out.println(embedding.content());
     // end::adocTextToEmbeddingOpenAI[]
+  }
+
+  public void textToEmbeddingOpenAISegment() {
+    System.out.println("### textToEmbeddingOpenAISegment");
+
+    EmbeddingModel model = OpenAiEmbeddingModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(TEXT_EMBEDDING_3_SMALL)
+      .build();
+
+    // tag::adocTextToEmbeddingOpenAISegment[]
+    TextSegment segment = TextSegment.from("Isaac Asimov is a writer and a biochemist");
+    Response<Embedding> embedding = model.embed(segment);
+    // end::adocTextToEmbeddingOpenAISegment[]
+
+    System.out.println(embedding.content());
   }
 }

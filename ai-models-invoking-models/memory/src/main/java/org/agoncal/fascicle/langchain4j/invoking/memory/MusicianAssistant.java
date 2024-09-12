@@ -93,47 +93,47 @@ public class MusicianAssistant {
     // tag::adocChatMemory[]
     ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
 
-    UserMessage firstMessage = UserMessage.from("My name is Antonio");
-    chatMemory.add(firstMessage);
-    AiMessage answer1 = model.generate(chatMemory.messages()).content();
-    System.out.println(answer1.text());
-    chatMemory.add(answer1);
+    UserMessage firstMsg = UserMessage.from("My name is Antonio");
+    chatMemory.add(firstMsg);
+    AiMessage firstAnswer = model.generate(chatMemory.messages()).content();
+    System.out.println(firstAnswer.text());
+    chatMemory.add(firstAnswer);
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
 
-    UserMessage secondMessage = UserMessage.from("My favourite Rock band is the Beatles");
-    chatMemory.add(secondMessage);
-    AiMessage answer2 = model.generate(chatMemory.messages()).content();
-    System.out.println(answer2.text());
-    chatMemory.add(answer2);
+    UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
+    chatMemory.add(secondMsg);
+    AiMessage secondAnswer = model.generate(chatMemory.messages()).content();
+    System.out.println(secondAnswer.text());
+    chatMemory.add(secondAnswer);
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
 
-    UserMessage thirdMessage = UserMessage.from("When was their first album released?");
-    chatMemory.add(thirdMessage);
-    AiMessage answer3 = model.generate(chatMemory.messages()).content();
-    System.out.println(answer3.text());
-    chatMemory.add(answer3);
+    UserMessage thirdMsg = UserMessage.from("When was their first album released?");
+    chatMemory.add(thirdMsg);
+    AiMessage thirdAnswer = model.generate(chatMemory.messages()).content();
+    System.out.println(thirdAnswer.text());
+    chatMemory.add(thirdAnswer);
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
 
-    UserMessage forthMessage = UserMessage.from("What's the name of the singer?");
-    chatMemory.add(forthMessage);
-    AiMessage answer4 = model.generate(chatMemory.messages()).content();
-    System.out.println(answer4.text());
-    chatMemory.add(answer4);
+    UserMessage forthMsg = UserMessage.from("What's the name of the singer?");
+    chatMemory.add(forthMsg);
+    AiMessage forthAnswer = model.generate(chatMemory.messages()).content();
+    System.out.println(forthAnswer.text());
+    chatMemory.add(forthAnswer);
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
 
-    UserMessage fifthMessage = UserMessage.from("What's my name?");
-    chatMemory.add(fifthMessage);
-    AiMessage answer5 = model.generate(chatMemory.messages()).content();
-    System.out.println(answer5.text());
-    chatMemory.add(answer5);
+    UserMessage fifthMsg = UserMessage.from("What's my name?");
+    chatMemory.add(fifthMsg);
+    AiMessage fifthAnswer = model.generate(chatMemory.messages()).content();
+    System.out.println(fifthAnswer.text());
+    chatMemory.add(fifthAnswer);
     // end::adocChatMemory[]
   }
 }
