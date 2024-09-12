@@ -60,16 +60,16 @@ public class MusicianAssistant {
     // tag::adocCosineSimilarityBetween[]
     Embedding isaacAsimov = model.embed("Isaac Asimov").content();
     Embedding noraJemisin = model.embed("Nora Jemisin").content();
-    Embedding rollingStones = model.embed("Fender Guitar").content();
+    Embedding fenderGuitar = model.embed("Fender Guitar").content();
     Embedding table = model.embed("Table").content();
 
     CosineSimilarity.between(isaacAsimov, noraJemisin);   // 0.7988
-    CosineSimilarity.between(isaacAsimov, rollingStones); // 0.7378
+    CosineSimilarity.between(isaacAsimov, fenderGuitar);  // 0.7378
     CosineSimilarity.between(isaacAsimov, table);         // 0.7632
     // end::adocCosineSimilarityBetween[]
 
     System.out.println(CosineSimilarity.between(isaacAsimov, noraJemisin));
-    System.out.println(CosineSimilarity.between(isaacAsimov, rollingStones));
+    System.out.println(CosineSimilarity.between(isaacAsimov, fenderGuitar));
     System.out.println(CosineSimilarity.between(isaacAsimov, table));
   }
 }
