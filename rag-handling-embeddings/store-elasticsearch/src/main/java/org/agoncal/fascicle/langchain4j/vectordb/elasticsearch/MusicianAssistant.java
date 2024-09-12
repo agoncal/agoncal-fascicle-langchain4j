@@ -7,6 +7,8 @@ import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.store.embedding.EmbeddingMatch;
 import dev.langchain4j.store.embedding.EmbeddingStore;
 import dev.langchain4j.store.embedding.elasticsearch.ElasticsearchEmbeddingStore;
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
 
 import java.util.List;
 
@@ -30,10 +32,12 @@ public class MusicianAssistant {
     System.out.println("### useElasticsearchToStoreEmbeddings");
 
     // tag::adocElasticsearchToStoreEmbeddingsConnect[]
+    RestClient client = RestClient.builder(HttpHost.create("http://localhost:9200"))
+      .build();
+
     EmbeddingStore<TextSegment> embeddingStore = ElasticsearchEmbeddingStore.builder()
-      .serverUrl("http://localhost:9200")
+      .restClient(client)
       .indexName("index_lc4j")
-      .dimension(384)
       .build();
     // end::adocElasticsearchToStoreEmbeddingsConnect[]
 
