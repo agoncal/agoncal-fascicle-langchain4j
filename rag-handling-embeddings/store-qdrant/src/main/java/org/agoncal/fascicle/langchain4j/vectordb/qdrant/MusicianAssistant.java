@@ -33,10 +33,11 @@ public class MusicianAssistant {
 
 //    musicianAssistant.useQdrantToStoreEmbeddingsSimple();
 //    musicianAssistant.useQdrantToStoreEmbeddingsComplex();
-//    musicianAssistant.useQdrantToStoreEmbeddings();
+//    musicianAssistant.useQdrantToStoreListEmbeddings();
+    musicianAssistant.useQdrantToStoreAllListEmbeddings();
 //    musicianAssistant.useQdrantToStoreJustEmbeddings();
 //    musicianAssistant.useQdrantToRemoveEmbeddings();
-    musicianAssistant.useInMemoryToQuery();
+//    musicianAssistant.useInMemoryToQuery();
   }
 
   public void useQdrantToStoreEmbeddingsConnect() {
@@ -199,6 +200,44 @@ public class MusicianAssistant {
     Embedding embedding3 = embeddingModel.embed(segment2).content();
     embeddingStore.add(embedding3, segment3);
     // end::adocQdrantToStoreListEmbeddings[]
+
+    Embedding embeddedQuestion = embeddingModel.embed("Which Miles Davis album uses a piano?").content();
+    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+
+    System.out.println(embeddingMatch.score());
+    System.out.println(embeddingMatch.embedded().text());
+  }
+
+  public void useQdrantToStoreAllListEmbeddings() {
+    System.out.println("### useQdrantToStoreListEmbeddings");
+
+    createCollection();
+
+    EmbeddingStore<TextSegment> embeddingStore =
+      QdrantEmbeddingStore.builder()
+        .collectionName("langchain4j-collection")
+        .host("localhost")
+        .port(6334)
+        .build();
+
+    EmbeddingModel embeddingModel = new AllMiniLmL6V2EmbeddingModel();
+
+    TextSegment segment1 = TextSegment.from("Kind of Blue (1959) ...");
+    Embedding embedding1 = embeddingModel.embed(segment1).content();
+
+    TextSegment segment2 = TextSegment.from("Bitches Brew (1970) ...");
+    Embedding embedding2 = embeddingModel.embed(segment2).content();
+
+    TextSegment segment3 = TextSegment.from("Sketches of Spain (1960) ...");
+    Embedding embedding3 = embeddingModel.embed(segment2).content();
+
+    // tag::adocQdrantToStoreAllListEmbeddings[]
+    embeddingStore.addAll(
+      List.of(embedding1, embedding2, embedding3),
+      List.of(segment1, segment2, segment3)
+    );
+    // end::adocQdrantToStoreAllListEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Miles Davis album uses a piano?").content();
     List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
