@@ -47,15 +47,15 @@ public class ChatAssistant {
     List<ToolSpecification> toolSpecifications = ToolSpecifications.toolSpecificationsFrom(tools.getClass());
     // User query
     List<ChatMessage> chatMessages = new ArrayList<>();
-    UserMessage userQuery = UserMessage.from("When was the PRIVACY document updated?");
-    chatMessages.add(userQuery);
+    UserMessage userMessage = UserMessage.from("When was the PRIVACY document updated?");
+    chatMessages.add(userMessage);
     // end::adocStepOne[]
 
     // STEP 2: Model generate function arguments
     System.out.println("#########################################");
     System.out.println("STEP 2: Model generate function arguments");
     // tag::adocStepTwo[]
-    AiMessage aiMessage = model.generate(singletonList(userQuery), toolSpecifications).content();
+    AiMessage aiMessage = model.generate(singletonList(userMessage), toolSpecifications).content();
     List<ToolExecutionRequest> toolExecutionRequests = aiMessage.toolExecutionRequests();
     chatMessages.add(aiMessage);
     // end::adocStepTwo[]
