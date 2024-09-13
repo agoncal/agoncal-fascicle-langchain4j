@@ -1,6 +1,6 @@
 - method: POST
 - url: https://api.openai.com/v1/chat/completions
-- headers: [Authorization: Bearer sk-f5...HY], [User-Agent: langchain4j-openai]
+- headers: [Authorization: Bearer sk-f5...HY]
 - body: {
   "model": "gpt-4o",
   "messages": [

@@ -414,7 +414,7 @@ public class MusicianAssistant {
     // tag::adocDontKnow[]
     SystemMessage systemMsg = new SystemMessage("""
       You are a Vintage Store assistant.
-      You can answer customers' request on any of these vintage items.
+      You can answer customers' requests on any of these vintage items.
       If you don't know the answer, say 'I don't know'.
       """);
     // end::adocDontKnow[]

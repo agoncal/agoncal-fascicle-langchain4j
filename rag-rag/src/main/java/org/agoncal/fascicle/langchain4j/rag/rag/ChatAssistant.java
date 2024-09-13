@@ -85,7 +85,7 @@ public class ChatAssistant {
         // end::adocSimilaritySearch[]
 
         // tag::adocChat[]
-        UserMessage userQuestion = UserMessage.from("Here is the customer's question: " + question);
+        UserMessage userQuestion = UserMessage.from(question);
 
         chatMemory.add(userQuestion);
         AiMessage aiAnswer = model.generate(chatMemory.messages()).content();
@@ -104,7 +104,7 @@ public class ChatAssistant {
         SystemMessage systemMsg = new SystemMessage("""
                 You are a Vintage Store assistant.
                 Vintage Store is a company specialising in the sale of nostalgic items, including paper books, CDs, tapes, and other cherished vintage collectibles.
-                You can answer customers' request on any of these vintage items.
+                You can answer customers' requests on any of these vintage items.
                 If you don't know the answer, say 'I don't know'.
                 """);
 
