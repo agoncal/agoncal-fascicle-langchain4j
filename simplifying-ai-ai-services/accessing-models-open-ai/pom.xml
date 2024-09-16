@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.langchain4j.simpleai.ai-services.accessing-models</groupId>
+  <artifactId>open-ai</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <name>LangChain4j :: Simplifying AI :: AI Services :: Accessing Models :: Open AI</name>
+
+  <parent>
+    <groupId>org.agoncal.fascicle.langchain4j.simpleai</groupId>
+    <artifactId>ai-services</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j</artifactId>
+    </dependency>
+    <!-- tag::adocSnippet[] -->
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-open-ai</artifactId>
+    </dependency>
+    <!-- end::adocSnippet[] -->
+    <!-- Other -->
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>slf4j-tinylog</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>tinylog-impl</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>

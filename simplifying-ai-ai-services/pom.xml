@@ -7,7 +7,7 @@
   <groupId>org.agoncal.fascicle.langchain4j.simpleai</groupId>
   <artifactId>ai-services</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>LangChain4j :: Simplifying AI :: AI Services</name>
 
   <parent>
@@ -16,12 +16,9 @@
     <version>1.0</version>
   </parent>
 
-  <dependencies>
-    <!-- Test -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-    </dependency>
-  </dependencies>
+  <modules>
+    <module>accessing-models-ollama</module>
+    <module>accessing-models-open-ai</module>
+  </modules>
 
 </project>
