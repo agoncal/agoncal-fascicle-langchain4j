@@ -14,7 +14,7 @@ import static java.lang.System.exit;
  * --
  */
 // end::adocSkip[]
-public class CatalogService {
+public class AuthorService {
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
@@ -27,7 +27,7 @@ public class CatalogService {
       .temperature(0.3)
       .build();
 
-    CatalogAssistant assistant = AiServices.create(CatalogAssistant.class, model);
+    AuthorAssistant assistant = AiServices.create(AuthorAssistant.class, model);
 
     String answer = assistant.getAuthorBiography(authorName);
     System.out.println(answer);

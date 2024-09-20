@@ -1,35 +1,28 @@
 package org.agoncal.fascicle.langchain4j.simplifying.accessing.ollama;
-// tag::adocSnippet[]
 
+import static java.lang.System.exit;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.service.AiServices;
-import static java.lang.System.exit;
-
-// tag::adocSkip[]
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-// end::adocSkip[]
-public class CatalogService {
+public class AuthorService {
 
   public static void main(String[] args) {
     String authorName = args[0];
 
     OllamaChatModel model = OllamaChatModel.builder()
       .baseUrl("http://localhost:11434")
-      .modelName("orca-mini")
+      .modelName("phi3:mini")
       .build();
 
-    CatalogAssistant assistant = AiServices.create(CatalogAssistant.class, model);
+    AuthorAssistant assistant = AiServices.create(AuthorAssistant.class, model);
 
-    String answer = assistant.getAuthorBiography(authorName);
+    String answer = assistant.generateAuthorBiography(authorName);
     System.out.println(answer);
-    // tag::adocSkip[]
     exit(0);
-    // end::adocSkip[]
   }
 }
-// end::adocSnippet[]
