@@ -22,6 +22,6 @@ public interface AuthorAssistant {
 
   @UserMessage("Write a short biography about {{it}}?")
   String generateAuthorBioIt(String author);
-  // end::adocSkip[]
+  // end::adocTemplate[]
 }
 // end::adocSnippet[]

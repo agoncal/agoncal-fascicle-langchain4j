@@ -1,7 +1,6 @@
-// tag::adocSkip[]
 package org.agoncal.fascicle.langchain4j.simplifying.accessing.ollama;
 
-// end::adocSkip[]
+// tag::adocSnippet[]
 
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
