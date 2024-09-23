@@ -4,11 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.langchain4j.simpleai.ai-services.accessing-models</groupId>
-  <artifactId>open-ai</artifactId>
+  <groupId>org.agoncal.fascicle.langchain4j.simpleai.ai-services</groupId>
+  <artifactId>tools</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
-  <name>LangChain4j :: Simplifying AI :: AI Services :: Accessing Models :: Open AI</name>
+  <name>LangChain4j :: Simplifying AI :: AI Services :: Tools</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.langchain4j.simpleai</groupId>
@@ -22,12 +21,10 @@
       <groupId>dev.langchain4j</groupId>
       <artifactId>langchain4j</artifactId>
     </dependency>
-    <!-- tag::adocSnippet[] -->
     <dependency>
       <groupId>dev.langchain4j</groupId>
       <artifactId>langchain4j-open-ai</artifactId>
     </dependency>
-    <!-- end::adocSnippet[] -->
     <!-- Other -->
     <dependency>
       <groupId>org.tinylog</groupId>
@@ -37,6 +34,29 @@
       <groupId>org.tinylog</groupId>
       <artifactId>tinylog-impl</artifactId>
     </dependency>
+    <!-- Test -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.wiremock</groupId>
+      <artifactId>wiremock-standalone</artifactId>
+      <version>${version.wiremock}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>org.agoncal.fascicle.langchain4j.firstlook.AuthorService</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

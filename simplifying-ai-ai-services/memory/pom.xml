@@ -4,11 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.langchain4j.simpleai.ai-services.accessing-models</groupId>
-  <artifactId>open-ai</artifactId>
+  <groupId>org.agoncal.fascicle.langchain4j.simpleai.ai-services</groupId>
+  <artifactId>memory</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
-  <name>LangChain4j :: Simplifying AI :: AI Services :: Accessing Models :: Open AI</name>
+  <name>LangChain4j :: Simplifying AI :: AI Services :: Memory</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.langchain4j.simpleai</groupId>
@@ -22,12 +21,10 @@
       <groupId>dev.langchain4j</groupId>
       <artifactId>langchain4j</artifactId>
     </dependency>
-    <!-- tag::adocSnippet[] -->
     <dependency>
       <groupId>dev.langchain4j</groupId>
       <artifactId>langchain4j-open-ai</artifactId>
     </dependency>
-    <!-- end::adocSnippet[] -->
     <!-- Other -->
     <dependency>
       <groupId>org.tinylog</groupId>
@@ -39,4 +36,15 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>org.agoncal.fascicle.langchain4j.firstlook.AuthorService</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
