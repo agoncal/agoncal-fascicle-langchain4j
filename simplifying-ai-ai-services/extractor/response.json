@@ -1,0 +1,19 @@
+{
+  "object": "chat.completion",
+  "model": "gpt-4o-2024-05-13",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"name\": \"Ella Jane Fitzgerald\",\n  \"age\": 79\n}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 194,
+    "completion_tokens": 18,
+    "total_tokens": 212
+  }
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.langchain4j.simpleai.ai-services</groupId>
+  <artifactId>extractor</artifactId>
+  <version>1.0</version>
+  <name>LangChain4j :: Simplifying AI :: AI Services :: Extractor</name>
+
+  <parent>
+    <groupId>org.agoncal.fascicle.langchain4j.simpleai</groupId>
+    <artifactId>ai-services</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <dependencies>
+    <!-- LangChain4j -->
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-open-ai</artifactId>
+    </dependency>
+    <!-- Other -->
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>slf4j-tinylog</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>tinylog-impl</artifactId>
+    </dependency>
+    <!-- Test -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.wiremock</groupId>
+      <artifactId>wiremock-standalone</artifactId>
+      <version>${version.wiremock}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>org.agoncal.fascicle.langchain4j.firstlook.AuthorService</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
