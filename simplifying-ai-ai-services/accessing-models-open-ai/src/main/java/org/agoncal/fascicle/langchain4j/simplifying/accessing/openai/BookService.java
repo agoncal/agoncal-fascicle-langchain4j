@@ -1,12 +1,12 @@
 package org.agoncal.fascicle.langchain4j.simplifying.accessing.openai;
+
 // tag::adocSnippet[]
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import dev.langchain4j.service.AiServices;
-import static java.lang.System.exit;
 
-// tag::adocSkip[]
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static java.lang.System.exit;
 
 /**
  * @author Antonio Goncalves
@@ -14,24 +14,22 @@ import static java.lang.System.exit;
  * --
  */
 // end::adocSkip[]
-public class AuthorService {
+public class BookService {
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
   public static void main(String[] args) {
-    String authorName = args[0];
+    String userMessage = args[0];
 
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
       .temperature(0.3)
-      .logRequests(true)
-      .logResponses(true)
       .build();
 
-    AuthorAssistant assistant = AiServices.create(AuthorAssistant.class, model);
+    BookAssistant assistant = AiServices.create(BookAssistant.class, model);
 
-    String answer = assistant.generateAuthorBiography(authorName);
+    String answer = assistant.chat(userMessage);
     System.out.println(answer);
     // tag::adocSkip[]
     exit(0);

@@ -1,0 +1,14 @@
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert in Science Fiction books.\nKeep your answers short and to the point.\nIf you don't know the answer, say 'I don't know'.\n"
+    },
+    {
+      "role": "user",
+      "content": "Write a short biography about this Sci-Fi author: Isaac Asimov"
+    }
+  ],
+  "temperature": 0.3
+}

@@ -18,7 +18,7 @@ import static java.lang.System.exit;
 public class BookService {
 
   public static void main(String[] args) {
-    String authorName = args[0];
+    String userMessage = args[0];
 
     ChatLanguageModel model = OllamaChatModel.builder()
       .baseUrl("http://localhost:11434")
@@ -27,7 +27,7 @@ public class BookService {
 
     BookAssistant assistant = AiServices.create(BookAssistant.class, model);
 
-    String answer = assistant.chat(authorName);
+    String answer = assistant.chat(userMessage);
     System.out.println(answer);
     // tag::adocSkip[]
     exit(0);
