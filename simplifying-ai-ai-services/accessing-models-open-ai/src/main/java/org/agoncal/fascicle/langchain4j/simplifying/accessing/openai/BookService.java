@@ -19,8 +19,6 @@ public class BookService {
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
   public static void main(String[] args) {
-    String userMessage = args[0];
-
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
@@ -29,8 +27,8 @@ public class BookService {
 
     BookAssistant assistant = AiServices.create(BookAssistant.class, model);
 
-    String answer = assistant.chat(userMessage);
-    System.out.println(answer);
+    String answer = assistant.chat("Give me a short list of good sci-fi books");
+    System.out.println(answer); // Dune; Neuromancer; The Left Hand of Darkness; Foundation
     // tag::adocSkip[]
     exit(0);
     // end::adocSkip[]
