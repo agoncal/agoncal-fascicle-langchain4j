@@ -1,7 +1,5 @@
 package org.agoncal.fascicle.langchain4j.simplifying.tools;
 
-// tag::adocHeader[]
-
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.service.AiServices;
@@ -30,6 +28,7 @@ public class ChatService {
 
   public static void main(String[] args) throws Exception {
 
+    // tag::adocTools[]
     ChatLanguageModel model = OpenAiChatModel.builder()
       .apiKey(System.getenv("OPENAI_API_KEY"))
       .modelName(GPT_4_O)
@@ -51,6 +50,6 @@ public class ChatService {
 
     answer = assistant.chat("And what about the TERMS AND CONDITIONS");
     System.out.println(answer); // Last updated on June 19, 2014
-    // tag::adocSkip[]
+    // end::adocTools[]
   }
 }
