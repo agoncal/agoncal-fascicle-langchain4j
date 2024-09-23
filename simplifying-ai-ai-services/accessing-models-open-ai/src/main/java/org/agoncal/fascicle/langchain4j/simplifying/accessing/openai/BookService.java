@@ -30,7 +30,7 @@ public class BookService {
     BookAssistant assistant = AiServices.create(BookAssistant.class, model);
 
     String answer = assistant.chat("Give me a short list of good sci-fi books");
-    System.out.println(answer); // Dune; Neuromancer; The Left Hand of Darkness; Foundation
+    System.out.println(answer); // Dune; Neuromancer; Foundation
     // tag::adocSkip[]
     exit(0);
     // end::adocSkip[]
