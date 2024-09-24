@@ -5,6 +5,7 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
 
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
 public class MusicianService {
 
@@ -15,8 +16,9 @@ public class MusicianService {
     // tag::adocSnippet[]
     ChatLanguageModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
-      .temperature(0.3)
+      .modelName(GPT_4_O_MINI)
+      .responseFormat("json_schema")
+      .strictJsonSchema(true)
       // tag::adocSkip[]
       .logResponses(true)
       .logRequests(true)

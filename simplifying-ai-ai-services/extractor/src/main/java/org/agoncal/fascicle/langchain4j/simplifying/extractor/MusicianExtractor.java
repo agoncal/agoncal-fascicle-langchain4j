@@ -6,15 +6,11 @@ import dev.langchain4j.service.UserMessage;
 public interface MusicianExtractor {
 
   @UserMessage("""
-    Extract the name and age of the musician described below.
-    Return a JSON document with a "name" and an "age" property,
-    following this structure: {"name": "John Lennon", "age": 40}
-    Return only JSON, without any markdown markup surrounding it.
-    Here is the document describing the person:
+    Extract the information about the musician described below.
+    Here is the document describing the musician:
     ---
     {{it}}
     ---
-    JSON:
     """)
   Musician extractMusician(String text);
 
