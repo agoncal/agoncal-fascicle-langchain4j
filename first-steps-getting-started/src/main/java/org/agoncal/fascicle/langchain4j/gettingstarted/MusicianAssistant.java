@@ -25,8 +25,7 @@ public class MusicianAssistant {
   // end::adocOpenAIKey[]
 
   public static void main(String[] args) {
-    String firstName = args[0];
-    String lastName = args[1];
+    String name = args[0];
 
     ChatLanguageModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
@@ -39,7 +38,7 @@ public class MusicianAssistant {
       .build();
     // end::adocLogs[]
 
-    Musician musician = new MusicianAssistant().generateTopThreeAlbums(model, firstName, lastName);
+    Musician musician = new MusicianAssistant().generateTopThreeAlbums(model, name);
 
     System.out.println(musician);
     exit(0);
@@ -47,7 +46,7 @@ public class MusicianAssistant {
   // end::adocHeader[]
 
   // tag::adocMethod[]
-  Musician generateTopThreeAlbums(ChatLanguageModel model, String first, String last) {
+  Musician generateTopThreeAlbums(ChatLanguageModel model, String name) {
 
     SystemMessage systemMsg = SystemMessage.from("""
       You are an expert in Jazz music.
@@ -56,14 +55,14 @@ public class MusicianAssistant {
       If a list is given, separate the items with commas.
       """);
     UserMessage userMsg = UserMessage.from(
-      String.format("Only list the top 3 albums of %s %s", first, last)
+      String.format("Only list the top 3 albums of %s", name)
     );
     List<ChatMessage> messages = List.of(systemMsg, userMsg);
 
     Response<AiMessage> albums = model.generate(messages);
     String topThreeAlbums = albums.content().text();
 
-    return new Musician(first, last, topThreeAlbums);
+    return new Musician(name, topThreeAlbums);
   }
   // end::adocMethod[]
 }

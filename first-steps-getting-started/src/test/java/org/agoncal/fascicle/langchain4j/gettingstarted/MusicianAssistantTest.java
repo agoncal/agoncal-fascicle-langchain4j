@@ -38,7 +38,7 @@ public class MusicianAssistantTest {
       .timeout(Duration.ofMinutes(5))
       .build();
 
-    Musician musician = new MusicianAssistant().generateTopThreeAlbums(model, "Miles", "Davis");
+    Musician musician = new MusicianAssistant().generateTopThreeAlbums(model, "Miles Davis");
 
     assertTrue(musician.albums().contains("Kind of Blue"));
   }
@@ -61,7 +61,6 @@ public class MusicianAssistantTest {
       return ollama;
     } else {
       System.out.println("Using existing Ollama container with model image...");
-      // Substitute the default Ollama image with our Gemma variant
       return new OllamaContainer(
         DockerImageName.parse(MODEL_NAME)
           .asCompatibleSubstituteFor("ollama/ollama"));

@@ -101,8 +101,7 @@
         <configuration>
           <mainClass>org.agoncal.fascicle.langchain4j.gettingstarted.MusicianAssistant</mainClass>
           <arguments>
-            <argument>Miles</argument>
-            <argument>Davis</argument>
+            <argument>Miles Davis</argument>
           </arguments>
         </configuration>
       </plugin>
