@@ -3,7 +3,7 @@ package org.agoncal.fascicle.langchain4j.processdoc.transformer;
 import dev.langchain4j.data.document.Document;
 import dev.langchain4j.data.document.parser.TextDocumentParser;
 import dev.langchain4j.data.document.parser.apache.tika.ApacheTikaDocumentParser;
-import dev.langchain4j.data.document.transformer.HtmlTextExtractor;
+import dev.langchain4j.data.document.transformer.jsoup.HtmlToTextDocumentTransformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +28,7 @@ public class DocumentTransformerExamples {
 
     log.info(document.text().trim().substring(0, 50));
 
-    HtmlTextExtractor transformer = new HtmlTextExtractor();
+    HtmlToTextDocumentTransformer transformer = new HtmlToTextDocumentTransformer();
 
     Document transformedDocument = transformer.transform(document);
 
@@ -45,7 +45,7 @@ public class DocumentTransformerExamples {
     // tag::adocSkip[]
     log.info(document.text().trim().substring(0, 50));
     // end::adocSkip[]
-    HtmlTextExtractor transformer = new HtmlTextExtractor("#early-dev", null, false);
+    HtmlToTextDocumentTransformer transformer = new HtmlToTextDocumentTransformer("#early-dev");
 
     Document transformedDocument = transformer.transform(document);
     // end::adocTransformWithCSSSelector[]
@@ -61,7 +61,7 @@ public class DocumentTransformerExamples {
 
     log.info(document.text().trim().substring(0, 50));
 
-    HtmlTextExtractor transformer = new HtmlTextExtractor();
+    HtmlToTextDocumentTransformer transformer = new HtmlToTextDocumentTransformer();
 
     Document transformedDocument = transformer.transform(document);
 
