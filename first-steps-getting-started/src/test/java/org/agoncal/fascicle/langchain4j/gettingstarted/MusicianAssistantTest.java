@@ -34,7 +34,7 @@ public class MusicianAssistantTest {
     ChatLanguageModel model = OllamaChatModel.builder()
       .baseUrl(String.format("http://%s:%d", ollamaContainer.getHost(), ollamaContainer.getFirstMappedPort()))
       .modelName(MODEL_NAME)
-      .temperature(0.3)
+      .temperature(0.0)
       .timeout(Duration.ofMinutes(5))
       .build();
 

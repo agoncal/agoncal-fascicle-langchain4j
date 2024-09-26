@@ -6,11 +6,11 @@
   "messages": [
     {
       "role": "system",
-      "content": "You are an expert in Jazz music. Reply with only the names of the artists, albums, etc. Be very concise. If a list is given, separate the items with commas. "
+      "content": "You are an expert in Jazz music. Reply with only the names of the artists, albums, etc. Be very concise. If a list is given, separate the items with commas."
     },
     {
       "role": "user",
-      "content": "List the top 3 albums of Miles Davis."
+      "content": "Only list the top 3 albums of Miles Davis."
     }
   ],
   "temperature": 0.3
