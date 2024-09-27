@@ -7,10 +7,6 @@
     },
     {
       "role": "user",
-      "content": "VINTAGE STORE TERMS OF USE\nLast updated June 17, 2024\nAGREEMENT TO OUR LEGAL TERMS\nWe are Vintage Store ('Company', 'we', 'us', or 'our'), a company registered in France at Paris (...)"
-    },
-    {
-      "role": "user",
       "content": "My name is Antonio and I am already a Vintage Store customer."
     },
     {
@@ -20,6 +16,10 @@
     {
       "role": "user",
       "content": "Where is the company located?"
+    },
+    {
+      "role": "user",
+      "content": "VINTAGE STORE TERMS OF USE\nLast updated June 17, 2024\nAGREEMENT TO OUR LEGAL TERMS\nWe are Vintage Store ('Company', 'we', 'us', or 'our'), a company registered in France at Paris (...)"
     }
   ],
   "temperature": 0.3
