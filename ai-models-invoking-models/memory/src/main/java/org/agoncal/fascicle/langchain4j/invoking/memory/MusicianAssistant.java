@@ -23,8 +23,10 @@ public class MusicianAssistant {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
 //    musicianAssistant.useNoMemory();
-//    musicianAssistant.sendingMultipleMessages();
-    musicianAssistant.useChatMemory();
+    musicianAssistant.sendingOneMessage();
+    musicianAssistant.sendingTwoMessages();
+    musicianAssistant.sendingThreeMessages();
+//    musicianAssistant.useChatMemory();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -65,21 +67,52 @@ public class MusicianAssistant {
   // #################################
   // ### SENDING MULTIPLE MESSAGES ###
   // #################################
-  public void sendingMultipleMessages() throws InterruptedException {
-    System.out.println("### sendingMultipleMessages");
+  public void sendingOneMessage() {
+    System.out.println("### sendingOneMessage");
 
     ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
 
-    // tag::adocMultipleMessages[]
+    // tag::adocOneMessage[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
-    UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
-    UserMessage thirdMsg = UserMessage.from("When was their first album released?");
-    UserMessage forthMsg = UserMessage.from("What's the name of the singer?");
-    UserMessage fifthMsg = UserMessage.from("What's my name?");
+    AiMessage firstAnswer = model.generate(firstMsg).content();
 
-    System.out.println(model.generate(firstMsg, secondMsg, thirdMsg, forthMsg, fifthMsg));
-    // Your name is Antonio
-    // end::adocMultipleMessages[]
+    System.out.println(firstAnswer.text());
+    // Nice to meet you Antonio! How can I assist you today?
+    // end::adocOneMessage[]
+  }
+
+  public void sendingTwoMessages() throws InterruptedException {
+    System.out.println("### sendingTwoMessages");
+
+    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+
+    // tag::adocTwoMessages[]
+    UserMessage firstMsg = UserMessage.from("My name is Antonio");
+    AiMessage firstAnswer = model.generate(firstMsg).content();
+    UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
+    AiMessage secondAnswer = model.generate(firstMsg, firstAnswer, secondMsg).content();
+
+    System.out.println(secondAnswer.text());
+    // The Beatles are a legendary rock band
+    // end::adocTwoMessages[]
+  }
+
+  public void sendingThreeMessages() throws InterruptedException {
+    System.out.println("### sendingThreeMessages");
+
+    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+
+    // tag::adocThreeMessages[]
+    UserMessage firstMsg = UserMessage.from("My name is Antonio");
+    AiMessage firstAnswer = model.generate(firstMsg).content();
+    UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
+    AiMessage secondAnswer = model.generate(secondMsg).content();
+    UserMessage thirdMsg = UserMessage.from("What's my name?");
+    AiMessage thirdAnswer = model.generate(firstMsg, firstAnswer, secondMsg, secondAnswer, thirdMsg).content();
+
+    System.out.println(thirdAnswer.text());
+    // Your name is Antonio.
+    // end::adocThreeMessages[]
   }
 
   // ###################
