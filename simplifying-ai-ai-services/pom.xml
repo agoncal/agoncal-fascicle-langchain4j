@@ -20,6 +20,7 @@
     <module>accessing-models-ollama</module>
     <module>accessing-models-open-ai</module>
     <module>extractor</module>
+    <module>extractor-implicit</module>
     <module>memory</module>
     <module>tools</module>
   </modules>
