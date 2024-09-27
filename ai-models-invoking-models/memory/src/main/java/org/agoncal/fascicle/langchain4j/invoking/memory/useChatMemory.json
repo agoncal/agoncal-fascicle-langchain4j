@@ -10,11 +10,11 @@
     },
     {
       "role": "user",
-      "content": "My favourite Rock band is the Bealtes"
+      "content": "My favourite Rock band is the Beatles"
     },
     {
       "role": "assistant",
-      "content": "That's a great choice! The Bealtes are a legendary rock band."
+      "content": "That's a great choice! The Beatles are a legendary rock band."
     },
     {
       "role": "user",
@@ -30,7 +30,7 @@
     },
     {
       "role": "assistant",
-      "content": "The lead singer of the Bealtes is John Lennon."
+      "content": "The lead singer of the Beatles is John Lennon."
     },
     {
       "role": "user",
