@@ -24,6 +24,8 @@ import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.model.output.FinishReason;
 import dev.langchain4j.model.output.Response;
 import dev.langchain4j.model.output.TokenUsage;
+import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNext;
+import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNextAndError;
 
 import java.time.Duration;
 
@@ -53,9 +55,11 @@ public class MusicianAssistant {
 //    musicianAssistant.useTypedUntypedResponseUserMessage();
 //    musicianAssistant.useTypedUntypedResponseImage();
 //    musicianAssistant.useTypedUntypedResponseEmbedding();
-    musicianAssistant.useOpenAiStreaming();
+//    musicianAssistant.useOpenAiStreaming();
+//    musicianAssistant.useOpenAiLambdaStreaming();
+    musicianAssistant.useOpenAiLambdaStreamingError();
 //    musicianAssistant.useOpenAiChatModelBuilder();
-    musicianAssistant.useOpenAiStreamingChatTypeOfModel();
+//    musicianAssistant.useOpenAiStreamingChatTypeOfModel();
 
 //    musicianAssistant.useOpenAiModerationTypeOfModel();
 //    musicianAssistant.useOpenAiImageTypeOfModel();
@@ -323,6 +327,34 @@ public class MusicianAssistant {
         }
       });
     // end::adocStreaming[]
+  }
+
+  public void useOpenAiLambdaStreaming() {
+    System.out.println("### useOpenAiLambdaStreaming");
+
+    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
+
+    // tag::adocLambdaStreaming[]
+    model.generate("Who are some influential female musicians?",
+      onNext(System.out::print));
+    // end::adocLambdaStreaming[]
+  }
+
+  public void useOpenAiLambdaStreamingError() {
+    System.out.println("### useOpenAiLambdaStreamingError");
+
+    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
+
+    // tag::adocLambdaStreamingError[]
+    model.generate("Who are some influential female musicians?",
+      onNextAndError(System.out::print, Throwable::printStackTrace));
+    // end::adocLambdaStreamingError[]
   }
 
   // ###############################
