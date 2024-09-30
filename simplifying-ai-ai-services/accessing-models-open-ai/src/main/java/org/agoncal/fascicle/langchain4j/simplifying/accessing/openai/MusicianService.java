@@ -1,12 +1,10 @@
 package org.agoncal.fascicle.langchain4j.simplifying.accessing.openai;
 
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.TokenStream;
-
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
-import static java.lang.System.exit;
 
 /**
  * @author Antonio Goncalves
