@@ -1,0 +1,35 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert of the company Vintage Store.\nYou know all the legal details of the company.\nIf you don't know the answer, say 'I don't know'.\n"
+    },
+    {
+      "role": "user",
+      "content": "When was the PRIVACY document updated?"
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "lastEndUserLicenseAgreement",
+        "description": "Returns the last time the END USER LICENSE AGREEMENT document was updated"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "lastUpdatePrivacy",
+        "description": "Returns the last time the PRIVACY document was updated"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "lastUpdateTerms",
+        "description": "Returns the last time the TERMS AND CONDITIONS document was updated"
+      }
+    }
+  ]
+}

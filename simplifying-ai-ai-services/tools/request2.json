@@ -1,0 +1,28 @@
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert of the company Vintage Store.\nYou know all the legal details of the company.\nIf you don't know the answer, say 'I don't know'.\n"
+    },
+    {
+      "role": "user",
+      "content": "When was the PRIVACY document updated?"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "lastUpdatePrivacy"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "content": "\"2013-03-09\""
+    }
+  ]
+}
