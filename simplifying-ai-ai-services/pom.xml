@@ -24,6 +24,7 @@
     <module>memory</module>
     <module>moderation</module>
     <module>tools</module>
+    <module>tools-parameters</module>
   </modules>
 
 </project>
