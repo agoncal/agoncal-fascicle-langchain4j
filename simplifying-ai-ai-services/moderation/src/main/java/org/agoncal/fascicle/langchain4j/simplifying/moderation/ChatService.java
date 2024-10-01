@@ -57,8 +57,9 @@ public class ChatService {
       .build();
 
     String answer = assistant.chat("I want to kill all bass players");
-    System.out.println(answer); // ModerationException is thrown
+    // ModerationException is thrown
     // end::adocWithModeration[]
+    System.out.println(answer);
   }
 
   private static void withoutModeration() throws InterruptedException {
