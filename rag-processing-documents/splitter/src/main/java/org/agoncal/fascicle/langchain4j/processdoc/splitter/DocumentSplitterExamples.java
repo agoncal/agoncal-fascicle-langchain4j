@@ -9,6 +9,7 @@ import dev.langchain4j.data.document.source.FileSystemSource;
 import dev.langchain4j.data.document.splitter.DocumentByLineSplitter;
 import dev.langchain4j.data.document.splitter.DocumentBySentenceSplitter;
 import dev.langchain4j.data.document.splitter.DocumentByWordSplitter;
+import dev.langchain4j.data.document.splitter.DocumentSplitters;
 import dev.langchain4j.data.segment.TextSegment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +28,13 @@ public class DocumentSplitterExamples {
   public static void main(String[] args) throws MalformedURLException {
 //    splitWithDocumentBySentenceSplitter();
 //    splitWithDocumentByLineSplitter();
-    splitWithDocumentByWordSplitter();
+//    splitWithDocumentByWordSplitter();
+    splitWithDocumentSplitters();
   }
 
   private static void splitWithDocumentBySentenceSplitterLoad() {
+    System.out.println("\n### splitWithDocumentBySentenceSplitterLoad");
+
     // tag::adocSplitWithDocumentBySentenceSplitterLoad[]
     Path documentPath = toPath("data/biography-of-isaac-asimov.txt");
 
@@ -74,7 +78,7 @@ public class DocumentSplitterExamples {
     List<TextSegment> segments = splitter.split(document);
     // end::adocSplitWithDocumentByLineSplitter[]
 
-    segments.forEach(segment -> System.out.println(">>"+segment.text()));
+    segments.forEach(segment -> System.out.println(">>" + segment.text()));
   }
 
 
@@ -90,7 +94,22 @@ public class DocumentSplitterExamples {
     List<TextSegment> segments = splitter.split(document);
     // end::adocSplitWithDocumentByWordSplitter[]
 
-    segments.forEach(segment -> System.out.println(">>"+segment.text()));
+    segments.forEach(segment -> System.out.println(">>" + segment.text()));
+  }
+
+  private static void splitWithDocumentSplitters() {
+    System.out.println("\n### splitWithDocumentSplitters");
+    Path documentPath = toPath("data/biography-of-isaac-asimov.txt");
+
+    Document document = FileSystemDocumentLoader.loadDocument(documentPath);
+
+    // Split document into segments
+    // tag::adocSplitWithDocumentSplitters[]
+    DocumentSplitter splitter = DocumentSplitters.recursive(100, 50);
+    List<TextSegment> segments = splitter.split(document);
+    // end::adocSplitWithDocumentSplitters[]
+
+    segments.forEach(segment -> System.out.println(">>" + segment.text()));
   }
 
   private static Path toPath(String fileName) {
