@@ -19,6 +19,7 @@
   <modules>
     <module>azure-open-ai</module>
     <module>amazon-bedrock</module>
+    <module>cohere</module>
     <module>hugging-face</module>
     <module>mistral-ai</module>
     <module>ollama</module>
