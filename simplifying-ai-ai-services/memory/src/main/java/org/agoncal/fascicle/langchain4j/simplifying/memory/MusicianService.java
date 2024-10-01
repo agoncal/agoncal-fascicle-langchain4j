@@ -1,17 +1,12 @@
-package org.agoncal.fascicle.langchain4j.invoking.memory;
+package org.agoncal.fascicle.langchain4j.simplifying.memory;
 
 // tag::adocSnippet[]
 
-import dev.langchain4j.data.message.AiMessage;
-import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import dev.langchain4j.service.AiServices;
-import org.agoncal.fascicle.langchain4j.simplifying.memory.MusicianAssistant;
-
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import dev.langchain4j.service.AiServices;
 
 // tag::adocSkip[]
 
