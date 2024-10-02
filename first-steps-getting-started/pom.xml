@@ -19,8 +19,8 @@
     <version.langchain4j>0.35.0</version.langchain4j>
     <version.tinylog>2.6.2</version.tinylog>
     <!-- Test -->
-    <version.testcontainers>1.20.1</version.testcontainers>
-    <version.junit>5.10.1</version.junit>
+    <version.testcontainers>1.20.2</version.testcontainers>
+    <version.junit>5.11.1</version.junit>
     <!-- Maven Plugins -->
     <version.exec.plugin>3.1.1</version.exec.plugin>
     <!-- Project -->

@@ -20,9 +20,8 @@ public class MusicianAssistant {
     musicianAssistant.useBedrockTitanChatModel();
   }
 
-  private static final String AZURE_OPENAI_KEY = System.getenv("AZURE_OPENAI_KEY");
-  private static final String AZURE_OPENAI_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
-  private static final String AZURE_OPENAI_DEPLOYMENT_NAME = System.getenv("AZURE_OPENAI_DEPLOYMENT_NAME");
+  private static final String AWS_ACCESS_KEY_ID = System.getenv("AWS_ACCESS_KEY_ID");
+  private static final String AWS_SECRET_ACCESS_KEY = System.getenv("AWS_SECRET_ACCESS_KEY");
 
   private static final String PROMPT = "When was the first Beatles album released?";
 
@@ -55,7 +54,7 @@ public class MusicianAssistant {
     BedrockTitanChatModel model = BedrockTitanChatModel.builder()
       .temperature(0.9)
       .model(TitanTextExpressV1.getValue())
-      .region(Region.US_EAST_1)
+      .region(Region.AWS_GLOBAL)
       .build();
     // end::adocRequest[]
 
