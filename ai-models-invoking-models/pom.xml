@@ -18,6 +18,7 @@
 
   <modules>
     <module>memory</module>
+    <module>memory-store</module>
     <module>messages</module>
     <module>templates</module>
     <module>tokens</module>
