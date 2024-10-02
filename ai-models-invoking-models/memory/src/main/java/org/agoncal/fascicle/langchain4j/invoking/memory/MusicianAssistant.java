@@ -3,6 +3,7 @@ package org.agoncal.fascicle.langchain4j.invoking.memory;
 // tag::adocSnippet[]
 
 import dev.langchain4j.data.message.AiMessage;
+import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
@@ -22,11 +23,12 @@ public class MusicianAssistant {
   public static void main(String[] args) throws InterruptedException {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
-//    musicianAssistant.useNoMemory();
-    musicianAssistant.sendingOneMessage();
-    musicianAssistant.sendingTwoMessages();
-    musicianAssistant.sendingThreeMessages();
-//    musicianAssistant.useChatMemory();
+//    useNoMemory();
+//    sendingOneMessage();
+//    sendingTwoMessages();
+//    sendingThreeMessages();
+//    useChatMemory();
+    useChatMemoryWithSystemMessage();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -34,7 +36,7 @@ public class MusicianAssistant {
   // #################
   // ### NO MEMORY ###
   // #################
-  public void useNoMemory() throws InterruptedException {
+  private static void useNoMemory() throws InterruptedException {
     System.out.println("### useNoMemory");
 
     ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
@@ -67,7 +69,7 @@ public class MusicianAssistant {
   // #################################
   // ### SENDING MULTIPLE MESSAGES ###
   // #################################
-  public void sendingOneMessage() {
+  private static void sendingOneMessage() {
     System.out.println("### sendingOneMessage");
 
     ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
@@ -81,7 +83,7 @@ public class MusicianAssistant {
     // end::adocOneMessage[]
   }
 
-  public void sendingTwoMessages() throws InterruptedException {
+  private static void sendingTwoMessages() throws InterruptedException {
     System.out.println("### sendingTwoMessages");
 
     ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
@@ -97,7 +99,7 @@ public class MusicianAssistant {
     // end::adocTwoMessages[]
   }
 
-  public void sendingThreeMessages() throws InterruptedException {
+  private static void sendingThreeMessages() throws InterruptedException {
     System.out.println("### sendingThreeMessages");
 
     ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
@@ -118,10 +120,14 @@ public class MusicianAssistant {
   // ###################
   // ### CHAT MEMORY ###
   // ####################
-  public void useChatMemory() throws InterruptedException {
+  private static void useChatMemory() throws InterruptedException {
     System.out.println("### useChatMemory");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .logRequests(true)
+      .logResponses(true)
+      .build();
 
     // tag::adocChatMemory[]
     ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
@@ -168,5 +174,37 @@ public class MusicianAssistant {
     System.out.println(fifthAnswer.text());
     chatMemory.add(fifthAnswer);
     // end::adocChatMemory[]
+  }
+
+  private static void useChatMemoryWithSystemMessage() throws InterruptedException {
+    System.out.println("### useChatMemoryWithSystemMessage");
+
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .logRequests(true)
+      .logResponses(true)
+      .build();
+
+    // tag::adocChatMemorySystem[]
+    ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
+
+    SystemMessage sysMsg = new SystemMessage("You are a Vintage Store chat bot.");
+    chatMemory.add(sysMsg);
+
+    UserMessage firstMsg = new UserMessage("My name is Antonio");
+    chatMemory.add(firstMsg);
+    AiMessage firstAnswer = model.generate(chatMemory.messages()).content();
+    System.out.println(firstAnswer.text());
+    chatMemory.add(firstAnswer);
+    // tag::adocSkip[]
+    Thread.sleep(5000);
+    // end::adocSkip[]
+
+    UserMessage fifthMsg = new UserMessage("What's my name?");
+    chatMemory.add(fifthMsg);
+    AiMessage fifthAnswer = model.generate(chatMemory.messages()).content();
+    System.out.println(fifthAnswer.text());
+    chatMemory.add(fifthAnswer);
+    // end::adocChatMemorySystem[]
   }
 }
