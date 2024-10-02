@@ -39,7 +39,7 @@ public class ChatService {
 
     // tag::adocQ2[]
     answer = assistant.chat("Anything from the Beatles released in the 60's, like in 65?");
-    System.out.println(answer); // We currently have the following Beatles albums from the 1960s in stock: (...)
+    System.out.println(answer); // We currently have the following Beatles albums from the 60s in stock: (...)
     // end::adocQ2[]
     Thread.sleep(5000);
 
