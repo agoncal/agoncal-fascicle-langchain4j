@@ -1,0 +1,15 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "function": {
+          "name": "booksInStockByAuthorAndYear",
+          "arguments": "{\"arg0\":\"Douglas Adams\",\"arg1\":0}"
+        }
+      }
+    ]
+  }
+}

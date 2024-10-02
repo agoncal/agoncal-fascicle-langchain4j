@@ -1,0 +1,15 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "function": {
+          "name": "cdsInStockByArtistAndYear",
+          "arguments": "{\"arg0\":\"The Beatles\",\"arg1\":1965}"
+        }
+      }
+    ]
+  }
+}

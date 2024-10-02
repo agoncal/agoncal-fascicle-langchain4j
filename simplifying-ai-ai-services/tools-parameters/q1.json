@@ -1,0 +1,15 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "function": {
+          "name": "cdsInStockByTitle",
+          "arguments": "{\"arg0\":\"HELP\"}"
+        }
+      }
+    ]
+  }
+}
