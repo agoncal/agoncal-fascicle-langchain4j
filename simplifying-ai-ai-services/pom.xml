@@ -22,6 +22,7 @@
     <module>extractor</module>
     <module>extractor-implicit</module>
     <module>memory</module>
+    <module>memory-store</module>
     <module>moderation</module>
     <module>tools</module>
     <module>tools-parameters</module>

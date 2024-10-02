@@ -1,0 +1,15 @@
+# To visualise the content of a Redis instance, you can use the Redis Commander tool.
+# npm install -g redis-commander
+# redis-commander
+services:
+  cache:
+    image: redis:7.4-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel notice
+    volumes:
+      - cache:/data
+volumes:
+  cache:
+    driver: local
