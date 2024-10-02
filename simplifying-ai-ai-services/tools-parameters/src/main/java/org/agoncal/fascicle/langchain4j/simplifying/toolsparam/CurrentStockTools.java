@@ -6,28 +6,33 @@ import dev.langchain4j.agent.tool.Tool;
 import java.math.BigDecimal;
 import java.util.List;
 
+// @formatter:off
 // tag::adocSnippet[]
 public class CurrentStockTools {
 
   @Tool("Returns the books that are available in stock")
-  public List<Book> booksInStockByTitle(@P("The title of the book") String bookTitle) {
+  public List<Book> booksInStockByTitle(
+                    @P("The title of the book") String bookTitle) {
     return selectBooksInStockByTitleFromTheDatabase(bookTitle);
   }
 
   @Tool("Returns the books that are available in stock")
-  public List<Book> booksInStockByAuthorAndYear(@P("The author of the book") String authorName,
-                                                @P("The year of publication of the book") int year) {
+  public List<Book> booksInStockByAuthorAndYear(
+                    @P("The author of the book") String authorName,
+                    @P("The year of publication of the book") int year) {
     return selectBooksInStockByAuthorAndYearFromTheDatabase(authorName, year);
   }
 
   @Tool("Returns the CDs that are available in stock")
-  public List<CD> cdsInStockByTitle(@P("The title of the CD album") String albumTitle) {
+  public List<CD> cdsInStockByTitle(
+                    @P("The title of the CD album") String albumTitle) {
     return selectCDsInStockByTitleFromTheDatabase(albumTitle);
   }
 
   @Tool("Returns the CDs that are available in stock")
-  public List<CD> cdsInStockByArtistAndYear(@P("The artist or band of the CD album") String artistName,
-                                            @P("The year the album was released") int year) {
+  public List<CD> cdsInStockByArtistAndYear(
+                    @P("The artist or band of the CD album") String artistName,
+                    @P("The year the album was released") int year) {
     return selectCDsInStockByArtistAndYearFromTheDatabase(artistName, year);
   }
   // tag::adocSkip[]
