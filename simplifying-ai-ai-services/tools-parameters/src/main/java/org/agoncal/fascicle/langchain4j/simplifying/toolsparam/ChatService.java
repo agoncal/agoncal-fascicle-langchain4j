@@ -23,25 +23,24 @@ public class ChatService {
       .chatLanguageModel(model)
       .tools(new CurrentStockTools())
       .build();
-
-    String answer = assistant.chat("When was the PRIVACY document updated?");
-    System.out.println(answer); // It was last updated on March 9, 2013
-    // tag::adocSkip[]
-    Thread.sleep(5000);
-    // end::adocSkip[]
-
-    answer = assistant.chat("Do you have any CD album entitled HELP?");
-    System.out.println(answer); // Last updated on June 19, 2014
-    // tag::adocSkip[]
-    Thread.sleep(5000);
-    // end::adocSkip[]
-
-    answer = assistant.chat("Anything from the Beatles released in the 60's, like in 65");
-    System.out.println(answer); // Last updated on June 19, 2014
-    // tag::adocSkip[]
-    Thread.sleep(5000);
-    // end::adocSkip[]
-
     // end::adocTools[]
+
+    // tag::adocQ1[]
+    String answer = assistant.chat("Do you have any CD album in stock entitled HELP?");
+    System.out.println(answer); // It was last updated on March 9, 2013
+    // end::adocQ1[]
+    Thread.sleep(5000);
+
+    // tag::adocQ2[]
+    answer = assistant.chat("Anything from the Beatles released in the 60's, like in 65?");
+    System.out.println(answer); // Last updated on June 19, 2014
+    // end::adocQ2[]
+    Thread.sleep(5000);
+
+    // tag::adocQ3[]
+    answer = assistant.chat("Any item written by Douglas Adams?");
+    System.out.println(answer); // Last updated on June 19, 2014
+    // end::adocQ3[]
+    Thread.sleep(5000);
   }
 }
