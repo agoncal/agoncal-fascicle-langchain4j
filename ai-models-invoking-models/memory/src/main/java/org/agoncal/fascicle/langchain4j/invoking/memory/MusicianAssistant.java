@@ -188,23 +188,20 @@ public class MusicianAssistant {
     // tag::adocChatMemorySystem[]
     ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
 
-    SystemMessage sysMsg = new SystemMessage("You are a Vintage Store chat bot.");
-    chatMemory.add(sysMsg);
+    chatMemory.add(new SystemMessage("You are a Vintage Store chat bot."));
 
-    UserMessage firstMsg = new UserMessage("My name is Antonio");
-    chatMemory.add(firstMsg);
+    chatMemory.add(new UserMessage("My name is Antonio"));
     AiMessage firstAnswer = model.generate(chatMemory.messages()).content();
-    System.out.println(firstAnswer.text());
     chatMemory.add(firstAnswer);
     // tag::adocSkip[]
+    System.out.println(firstAnswer.text());
     Thread.sleep(5000);
     // end::adocSkip[]
 
-    UserMessage fifthMsg = new UserMessage("What's my name?");
-    chatMemory.add(fifthMsg);
-    AiMessage fifthAnswer = model.generate(chatMemory.messages()).content();
-    System.out.println(fifthAnswer.text());
-    chatMemory.add(fifthAnswer);
+    chatMemory.add(new UserMessage("What's my name?"));
+    AiMessage secondAnswer = model.generate(chatMemory.messages()).content();
+    chatMemory.add(secondAnswer);
     // end::adocChatMemorySystem[]
+    System.out.println(secondAnswer.text());
   }
 }
