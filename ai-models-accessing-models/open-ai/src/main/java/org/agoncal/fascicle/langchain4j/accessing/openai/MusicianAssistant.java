@@ -57,12 +57,12 @@ public class MusicianAssistant {
 //    musicianAssistant.useTypedUntypedResponseEmbedding();
 //    musicianAssistant.useOpenAiStreaming();
 //    musicianAssistant.useOpenAiLambdaStreaming();
-    musicianAssistant.useOpenAiLambdaStreamingError();
+//    musicianAssistant.useOpenAiLambdaStreamingError();
 //    musicianAssistant.useOpenAiChatModelBuilder();
 //    musicianAssistant.useOpenAiStreamingChatTypeOfModel();
 
 //    musicianAssistant.useOpenAiModerationTypeOfModel();
-//    musicianAssistant.useOpenAiImageTypeOfModel();
+    musicianAssistant.useOpenAiImageTypeOfModel();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -381,13 +381,17 @@ public class MusicianAssistant {
     // tag::adocImageTypeOfModel[]
     ImageModel model = OpenAiImageModel.withApiKey(OPENAI_API_KEY);
 
-    Response<Image> response = model.generate("Jazz album cover showing all main Jazz artists, à la Sergent Pepper");
+    Response<Image> response = model.generate("Colourful CD album cover showing all main Jazz artists");
 
-    Image content = response.content();
+    Image image = response.content();
 
-    System.out.println(content.url());
-    System.out.println(content.mimeType());
+    System.out.println(image.url());
+    System.out.println(image.mimeType());
     // end::adocImageTypeOfModel[]
+
+    response = model.edit(image, "Make it more blue");
+
+    System.out.println(response.content().url());
   }
 
   // ##################################
