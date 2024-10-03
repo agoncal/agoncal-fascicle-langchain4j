@@ -46,7 +46,7 @@ public class MusicianAssistantTest {
 
   // tag::adocContainer[]
   private OllamaContainer createOllamaContainer() throws IOException, InterruptedException {
-    // check if the custom Gemma Ollama image exists already
+    // Check if the Ollama Docker image exists already
     List<Image> listImagesCmd = DockerClientFactory.lazyClient()
       .listImagesCmd()
       .withImageNameFilter(MODEL_NAME)

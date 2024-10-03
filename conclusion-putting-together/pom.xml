@@ -19,7 +19,7 @@
     <version.langchain4j>0.35.0</version.langchain4j>
     <version.tinylog>2.7.0</version.tinylog>
     <!-- Maven Plugins -->
-    <version.exec.plugin>3.1.1</version.exec.plugin>
+    <version.exec.plugin>3.4.1</version.exec.plugin>
     <!-- Project -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
