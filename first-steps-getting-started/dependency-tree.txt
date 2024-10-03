@@ -9,6 +9,6 @@ org.agoncal.fascicle.langchain4j.first-steps:getting-started:jar:1.0
 |  +- dev.ai4j:openai4j:jar:0.20.0:compile
 |  |  \- com.squareup.okhttp3:okhttp-sse:jar:4.12.0:compile
 |  \- com.knuddels:jtokkit:jar:1.1.0:compile
-+- org.tinylog:slf4j-tinylog:jar:2.6.2:compile
-|  \- org.tinylog:tinylog-api:jar:2.6.2:compile
-+- org.tinylog:tinylog-impl:jar:2.6.2:compile
++- org.tinylog:slf4j-tinylog:jar:2.7.0:compile
+|  \- org.tinylog:tinylog-api:jar:2.7.0:compile
++- org.tinylog:tinylog-impl:jar:2.7.0:compile
