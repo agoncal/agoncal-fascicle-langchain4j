@@ -135,8 +135,8 @@ public class MusicianAssistant {
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
     chatMemory.add(firstMsg);
     AiMessage firstAnswer = model.generate(chatMemory.messages()).content();
-    System.out.println(firstAnswer.text());
     chatMemory.add(firstAnswer);
+    System.out.println(firstAnswer.text()); // Nice to meet you, Antonio!
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
@@ -144,8 +144,8 @@ public class MusicianAssistant {
     UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
     chatMemory.add(secondMsg);
     AiMessage secondAnswer = model.generate(chatMemory.messages()).content();
-    System.out.println(secondAnswer.text());
     chatMemory.add(secondAnswer);
+    System.out.println(secondAnswer.text()); // That's a great choice!
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
@@ -153,8 +153,8 @@ public class MusicianAssistant {
     UserMessage thirdMsg = UserMessage.from("When was their first album released?");
     chatMemory.add(thirdMsg);
     AiMessage thirdAnswer = model.generate(chatMemory.messages()).content();
-    System.out.println(thirdAnswer.text());
     chatMemory.add(thirdAnswer);
+    System.out.println(thirdAnswer.text()); // "Please Please Me" released on March 22, 1963
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
@@ -162,8 +162,8 @@ public class MusicianAssistant {
     UserMessage forthMsg = UserMessage.from("What's the name of the singer?");
     chatMemory.add(forthMsg);
     AiMessage forthAnswer = model.generate(chatMemory.messages()).content();
-    System.out.println(forthAnswer.text());
     chatMemory.add(forthAnswer);
+    System.out.println(forthAnswer.text()); // John Lennon and Paul McCartney
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
@@ -171,8 +171,8 @@ public class MusicianAssistant {
     UserMessage fifthMsg = UserMessage.from("What's my name?");
     chatMemory.add(fifthMsg);
     AiMessage fifthAnswer = model.generate(chatMemory.messages()).content();
-    System.out.println(fifthAnswer.text());
     chatMemory.add(fifthAnswer);
+    System.out.println(fifthAnswer.text()); // Your name is Antonio, as you mentioned earlier
     // end::adocChatMemory[]
   }
 
