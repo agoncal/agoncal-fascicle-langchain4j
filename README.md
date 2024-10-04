@@ -12,7 +12,7 @@ You will explore the fundamentals of AI, learn the history and evolution of AI m
 From accessing and invoking large language models to manipulating embeddings in vector databases, you will gain hands-on experience through practical examples and code snippets.
 Additionally, you will discover advanced topics such as Retrieval-Augmented Generation (RAG), debugging, testing, and integrating LangChain4j with other technologies.
 
-[![LangChain4j](https://github.com/agoncal/agoncal-fascicle-langchain4j/blob/main/cover.jpg)](https://agoncal.teachable.com/p/ebook-understanding-langchain4j)
+[![LangChain4j](https://github.com/agoncal/agoncal-fascicle-langchain4j/blob/main/cover.jpg | width=100)](https://agoncal.teachable.com/p/ebook-understanding-langchain4j)
 
 Foreword by [Dmytro Liubarskyi](https://www.linkedin.com/in/dmytro-liubarskyi)
 
