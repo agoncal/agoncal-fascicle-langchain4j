@@ -17,8 +17,9 @@
   </parent>
 
   <modules>
-    <module>azure-open-ai</module>
+    <module>anthropic</module>
     <module>amazon-bedrock</module>
+    <module>azure-open-ai</module>
     <module>cohere</module>
     <module>hugging-face</module>
     <module>mistral-ai</module>
