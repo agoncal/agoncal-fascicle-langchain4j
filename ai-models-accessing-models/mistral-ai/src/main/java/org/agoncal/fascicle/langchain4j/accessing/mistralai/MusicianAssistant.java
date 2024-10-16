@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.langchain4j.accessing.mistralai;
 
 import dev.langchain4j.model.mistralai.MistralAiChatModel;
+import static dev.langchain4j.model.mistralai.MistralAiChatModelName.OPEN_MISTRAL_7B;
 
 // tag::adocSkip[]
 
@@ -29,12 +30,10 @@ public class MusicianAssistant {
     // tag::adocSnippet[]
     MistralAiChatModel model = MistralAiChatModel.builder()
       .apiKey(MISTRAL_AI_API_KEY)
-      .temperature(0.3)
+      .modelName(OPEN_MISTRAL_7B)
       .build();
+
+    System.out.println(model.generate("When was the first Rolling Stones album released?"));
     // end::adocSnippet[]
-
-    String completion = model.generate("When was the first Rolling Stones album released?");
-
-    System.out.println(completion);
   }
 }
