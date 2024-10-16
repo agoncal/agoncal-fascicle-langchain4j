@@ -27,13 +27,13 @@ public class MusicianAssistant {
     // tag::adocSnippet[]
     AnthropicChatModel model = AnthropicChatModel.builder()
       .apiKey(ANTHROPIC_API_KEY)
+      // tag::adocSkip[]
       .logRequests(true)
       .logResponses(true)
+      // end::adocSkip[]
       .build();
+
+    System.out.println(model.generate("List some influential Jazz musicians"));
     // end::adocSnippet[]
-
-    String completion = model.generate("What is the capital of France?");
-
-    System.out.println(completion);
   }
 }
