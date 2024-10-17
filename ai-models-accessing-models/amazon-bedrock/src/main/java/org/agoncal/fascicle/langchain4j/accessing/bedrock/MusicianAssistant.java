@@ -15,9 +15,7 @@ import software.amazon.awssdk.regions.Region;
 public class MusicianAssistant {
 
   public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useBedrockTitanChatModel();
+    useBedrockTitanChatModel();
   }
 
   private static final String AWS_ACCESS_KEY_ID = System.getenv("AWS_ACCESS_KEY_ID");
@@ -47,7 +45,7 @@ public class MusicianAssistant {
   // ##########################
   // ### BEDROCK CHAT MODEL ###
   // ##########################
-  public void useBedrockTitanChatModel() {
+  private static void useBedrockTitanChatModel() {
     System.out.println("### useBedrockTitanChatModel");
 
     // tag::adocRequest[]
