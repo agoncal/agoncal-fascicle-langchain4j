@@ -16,7 +16,7 @@ public class MusicianAssistant {
     useGoogleAiGeminiChatModel();
   }
 
-  private static final String GOOGLE_AI_GEMINI_API_KEY = "AIzaSyAcr2eeoVFbYIvAziIsA3vvr0v59gVi054";
+  private static final String GOOGLE_AI_GEMINI_API_KEY = System.getenv("GOOGLE_AI_GEMINI_API_KEY");
 
   // ###################################
   // ### GOOGLE AI GEMINI CHAT MODEL ###
