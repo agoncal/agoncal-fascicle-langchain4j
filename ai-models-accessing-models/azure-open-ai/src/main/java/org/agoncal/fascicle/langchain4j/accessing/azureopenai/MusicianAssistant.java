@@ -26,10 +26,7 @@ public class MusicianAssistant {
   public static void main(String[] args) {
     MusicianAssistant musicianAssistant = new MusicianAssistant();
 
-    musicianAssistant.useAzureOpenAiLanguageModelBuilder();
-    musicianAssistant.useAzureOpenAiLanguageModelPrompt();
-    musicianAssistant.useAzureOpenAiChatModel();
-    musicianAssistant.useAzureOpenAiChatModelBuilder();
+    useAzureOpenAiChatModelSimple();
   }
 
   private static final String AZURE_OPENAI_KEY = System.getenv("AZURE_OPENAI_KEY");
@@ -135,7 +132,7 @@ public class MusicianAssistant {
     System.out.println(completion);
   }
 
-  public void useAzureOpenAiChatModelSimple() {
+  private static void useAzureOpenAiChatModelSimple() {
     System.out.println("### useAzureOpenAiChatModelSimple");
 
     // tag::adocSimple[]
