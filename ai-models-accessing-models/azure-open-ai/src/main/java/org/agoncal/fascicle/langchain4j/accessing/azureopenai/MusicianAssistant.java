@@ -24,9 +24,8 @@ import java.time.Duration;
 public class MusicianAssistant {
 
   public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    useAzureOpenAiChatModelSimple();
+    useAzureOpenAiOllamaModel();
+//    useAzureOpenAiChatModelSimple();
   }
 
   private static final String AZURE_OPENAI_KEY = System.getenv("AZURE_OPENAI_KEY");
@@ -164,5 +163,23 @@ public class MusicianAssistant {
     Response<AiMessage> completion = model.generate(sysMsg, userMsg);
 
     System.out.println(completion);
+  }
+
+  // ####################
+  // ### OLLAMA MODEL ###
+  // ####################
+  private static void useAzureOpenAiOllamaModel() {
+    System.out.println("### useAzureOpenAiOllamaModel");
+
+    // tag::adocLlama[]
+    AzureOpenAiChatModel model = AzureOpenAiChatModel.builder()
+      .apiKey(AZURE_OPENAI_KEY)
+      .endpoint(AZURE_OPENAI_ENDPOINT)
+      .deploymentName("llama-3-2-1b-instruct-1")
+      .logRequestsAndResponses(true)
+      .build();
+
+    System.out.println(model.generate("When was the first Rolling Stones album released?"));
+    // end::adocLlama[]
   }
 }
