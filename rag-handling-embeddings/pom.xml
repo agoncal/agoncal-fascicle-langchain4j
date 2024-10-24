@@ -17,6 +17,7 @@
   </parent>
 
   <modules>
+    <module>embedding-azure-openai</module>
     <module>embedding-local</module>
     <module>embedding-ollama</module>
     <module>embedding-openai</module>
