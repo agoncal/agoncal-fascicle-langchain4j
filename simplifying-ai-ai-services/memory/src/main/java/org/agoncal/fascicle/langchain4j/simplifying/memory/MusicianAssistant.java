@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.langchain4j.simplifying.memory;
 
 import dev.langchain4j.service.SystemMessage;
-import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
 

@@ -17,7 +17,7 @@ public class AuthorService {
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
-  private String[] scifiAuthors = {"Isaac Asimov", "Nora Jemisin", "Douglas Adams"};
+  private final String[] scifiAuthors = {"Isaac Asimov", "Nora Jemisin", "Douglas Adams"};
 
   String url;
   public AuthorService(/*String url*/) {

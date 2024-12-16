@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.langchain4j.invoking.memory;
+package org.agoncal.fascicle.langchain4j.invoking.memorystore;
 
 // tag::adocSnippet[]
 

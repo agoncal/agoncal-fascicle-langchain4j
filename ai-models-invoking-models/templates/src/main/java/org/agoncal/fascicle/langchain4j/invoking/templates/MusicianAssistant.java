@@ -11,7 +11,6 @@ import dev.langchain4j.model.output.Response;
 
 import static java.util.Collections.singletonMap;
 
-import java.util.HashMap;
 import java.util.Map;
 
 // tag::adocSkip[]

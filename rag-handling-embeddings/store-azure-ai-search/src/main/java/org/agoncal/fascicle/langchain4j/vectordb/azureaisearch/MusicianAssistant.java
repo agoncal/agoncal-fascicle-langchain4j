@@ -20,8 +20,8 @@ import java.util.List;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  private String AZURE_SEARCH_ENDPOINT = System.getenv("AZURE_SEARCH_ENDPOINT");
-  private String AZURE_SEARCH_KEY = System.getenv("AZURE_SEARCH_KEY");
+  private static final String AZURE_SEARCH_ENDPOINT = System.getenv("AZURE_SEARCH_ENDPOINT");
+  private static final String AZURE_SEARCH_KEY = System.getenv("AZURE_SEARCH_KEY");
 
 
   public static void main(String[] args) {
