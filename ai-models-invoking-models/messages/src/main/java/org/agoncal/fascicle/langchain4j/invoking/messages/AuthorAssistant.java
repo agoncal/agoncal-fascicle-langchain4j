@@ -12,6 +12,7 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.data.pdf.PdfFile;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import dev.langchain4j.model.output.Response;
 
 import java.net.URISyntaxException;
@@ -45,7 +46,10 @@ public class AuthorAssistant {
   public void useUserMessage() {
     System.out.println("### useUserMessage");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocUserMessage[]
     UserMessage userMessage = new UserMessage("What genre is Brave New World?");
@@ -58,7 +62,10 @@ public class AuthorAssistant {
   public void useUserMessageFrom() {
     System.out.println("### useUserMessageFrom");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocUserMessageFrom[]
     UserMessage userMessage = UserMessage.from("What genre is Brave New World?");
@@ -71,7 +78,10 @@ public class AuthorAssistant {
   public void useSystemMessage() {
     System.out.println("### useSystemMessage");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocSystemMessage[]
     SystemMessage systemMessage = new SystemMessage("You are a library assistant, and you can answer customers' request on any book.");
@@ -85,7 +95,10 @@ public class AuthorAssistant {
   public void useUserMessageContent() {
     System.out.println("### useUserMessageContent");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocUserMessageContent[]
     TextContent textContent = TextContent.from("What genre is Brave New World?");
@@ -99,7 +112,10 @@ public class AuthorAssistant {
   public void useUserMessagesPdfContent() throws URISyntaxException {
     System.out.println("### useUserMessagePdfContent");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocUserMessagesPdfContent[]
     PdfFile urlPdfFile = PdfFile.builder()
@@ -140,7 +156,10 @@ public class AuthorAssistant {
   public void useUserMessagesImageContent() {
     System.out.println("### useUserMessagesImageContent");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocUserMessagesImageContent[]
     Image image = Image.builder()
@@ -161,7 +180,10 @@ public class AuthorAssistant {
   public void useUserMessageImageContent() {
     System.out.println("### useUserMessageImageContent");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocUserMessageImageContent[]
     UserMessage userMessage = UserMessage.from(

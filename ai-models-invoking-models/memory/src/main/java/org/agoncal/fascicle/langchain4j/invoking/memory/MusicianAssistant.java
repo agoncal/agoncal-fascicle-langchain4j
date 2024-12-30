@@ -9,6 +9,7 @@ import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
 // tag::adocSkip[]
 
@@ -39,7 +40,11 @@ public class MusicianAssistant {
   private static void useNoMemory() throws InterruptedException {
     System.out.println("### useNoMemory");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
+
     // tag::adocNoMemory[]
     System.out.println(model.generate("My name is Antonio"));
     // Nice to meet you, Antonio! How can I assist you today?
@@ -72,7 +77,10 @@ public class MusicianAssistant {
   private static void sendingOneMessage() {
     System.out.println("### sendingOneMessage");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocOneMessage[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
@@ -86,7 +94,10 @@ public class MusicianAssistant {
   private static void sendingTwoMessages() throws InterruptedException {
     System.out.println("### sendingTwoMessages");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocTwoMessages[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
@@ -102,7 +113,10 @@ public class MusicianAssistant {
   private static void sendingThreeMessages() throws InterruptedException {
     System.out.println("### sendingThreeMessages");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocThreeMessages[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");

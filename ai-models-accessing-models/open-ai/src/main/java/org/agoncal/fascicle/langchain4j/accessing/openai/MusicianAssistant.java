@@ -5,6 +5,8 @@ import dev.langchain4j.data.image.Image;
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
+import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNext;
+import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNextAndError;
 import dev.langchain4j.model.StreamingResponseHandler;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
@@ -17,15 +19,17 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
+import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDING_3_SMALL;
 import dev.langchain4j.model.openai.OpenAiImageModel;
+import static dev.langchain4j.model.openai.OpenAiImageModelName.DALL_E_3;
 import dev.langchain4j.model.openai.OpenAiLanguageModel;
+import static dev.langchain4j.model.openai.OpenAiLanguageModelName.GPT_3_5_TURBO_INSTRUCT;
 import dev.langchain4j.model.openai.OpenAiModerationModel;
+import static dev.langchain4j.model.openai.OpenAiModerationModelName.TEXT_MODERATION_STABLE;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.model.output.FinishReason;
 import dev.langchain4j.model.output.Response;
 import dev.langchain4j.model.output.TokenUsage;
-import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNext;
-import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNextAndError;
 
 import java.time.Duration;
 
@@ -76,7 +80,10 @@ public class MusicianAssistant {
     System.out.println("### useLangChain4jInsteadSDK");
 
     // tag::adocUseLangChain4jInsteadSDK[]
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();;
 
     String answer = model.generate("When was the first Beatles album released?");
 
@@ -88,7 +95,10 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiLanguageTypeOfModel");
 
     // tag::adocLanguageTypeOfModel[]
-    LanguageModel model = OpenAiLanguageModel.withApiKey(OPENAI_API_KEY);
+    LanguageModel model = OpenAiLanguageModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_3_5_TURBO_INSTRUCT)
+      .build();
 
     Response<String> response = model.generate("What is the history of jazz music?");
 
@@ -101,7 +111,10 @@ public class MusicianAssistant {
   public void useOpenAiLanguageModel() {
     System.out.println("### useOpenAiLanguageModel");
 
-    OpenAiLanguageModel model = OpenAiLanguageModel.withApiKey(OPENAI_API_KEY);
+    OpenAiLanguageModel model = OpenAiLanguageModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_3_5_TURBO_INSTRUCT)
+      .build();
 
     Response<String> response = model.generate("When was the first Beatles album released?");
 
@@ -119,7 +132,10 @@ public class MusicianAssistant {
   public void useOpenAiLanguageModelPrompt() {
     System.out.println("### useOpenAiLanguageModelPrompt");
 
-    OpenAiLanguageModel model = OpenAiLanguageModel.withApiKey(OPENAI_API_KEY);
+    OpenAiLanguageModel model = OpenAiLanguageModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_3_5_TURBO_INSTRUCT)
+      .build();
 
     Prompt prompt = new Prompt("When was the first Beatles album released?");
     Response<String> response = model.generate(prompt);
@@ -161,7 +177,10 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiChatTypeOfModel");
 
     // tag::adocChatTypeOfModel[]
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     UserMessage userMessage = new UserMessage("Who composed the Moonlight Sonata?");
     Response<AiMessage> response = model.generate(userMessage);
@@ -174,7 +193,10 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiSimpleConf");
 
     // tag::adocSimpleConf[]
-    OpenAiChatModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    OpenAiChatModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
     // end::adocSimpleConf[]
 
     String content = model.generate("What inspired the author to start writing?");
@@ -257,7 +279,10 @@ public class MusicianAssistant {
   public void useOpenAiChatModelAiMessage() {
     System.out.println("### useOpenAiChatModelAiMessage");
 
-    OpenAiChatModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    OpenAiChatModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     SystemMessage sysMsg = new SystemMessage("You are a music expert.");
     UserMessage userMsg = new UserMessage("When was the first Rolling Stones album released?");
@@ -364,7 +389,10 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiModerationTypeOfModel");
 
     // tag::adocModerationTypeOfModel[]
-    ModerationModel model = OpenAiModerationModel.withApiKey(OPENAI_API_KEY);
+    ModerationModel model = OpenAiModerationModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(TEXT_MODERATION_STABLE)
+      .build();
 
     Response<Moderation> response = model.moderate("I want to kill all bass players.");
 
@@ -379,7 +407,10 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiImageTypeOfModel");
 
     // tag::adocImageTypeOfModel[]
-    ImageModel model = OpenAiImageModel.withApiKey(OPENAI_API_KEY);
+    ImageModel model = OpenAiImageModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(DALL_E_3)
+      .build();
 
     Response<Image> response = model.generate("Colourful CD album cover showing all main Jazz artists");
 
@@ -400,7 +431,10 @@ public class MusicianAssistant {
   public void useTypedUntypedResponseString() {
     System.out.println("### useTypedUntypedResponseString");
 
-    OpenAiChatModel chatModel = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    OpenAiChatModel chatModel = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocTypedUntypedResponseString[]
     String response = chatModel.generate("Who is the author of 1984?");
@@ -411,7 +445,10 @@ public class MusicianAssistant {
   public void useTypedUntypedResponseUserMessage() {
     System.out.println("### useTypedUntypedResponseUserMessage");
 
-    OpenAiChatModel chatModel = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    OpenAiChatModel chatModel = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocTypedUntypedResponseUserMessage[]
     UserMessage message = new UserMessage("Who are the main characters in Moby Dick?");
@@ -425,7 +462,10 @@ public class MusicianAssistant {
   public void useTypedUntypedResponseImage() {
     System.out.println("### useTypedUntypedResponseImage");
 
-    OpenAiImageModel imageModel = OpenAiImageModel.withApiKey(OPENAI_API_KEY);
+    OpenAiImageModel imageModel = OpenAiImageModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(DALL_E_3)
+      .build();
 
     // tag::adocTypedUntypedResponseImage[]
     Response<Image> response = imageModel.generate("Draw Moby Dick");
@@ -437,7 +477,10 @@ public class MusicianAssistant {
   public void useTypedUntypedResponseEmbedding() {
     System.out.println("### useTypedUntypedResponseEmbedding");
 
-    OpenAiEmbeddingModel embeddingModel = OpenAiEmbeddingModel.withApiKey(OPENAI_API_KEY);
+    OpenAiEmbeddingModel embeddingModel = OpenAiEmbeddingModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(TEXT_EMBEDDING_3_SMALL)
+      .build();
 
     // tag::adocTypedUntypedResponseEmbedding[]
     Response<Embedding> response = embeddingModel.embed("Moby Dick is a novel by Herman Melville about Captain Ahab's quest to hunt a giant white whale");

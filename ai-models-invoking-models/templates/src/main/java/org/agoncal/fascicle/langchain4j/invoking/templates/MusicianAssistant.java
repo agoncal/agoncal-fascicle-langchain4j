@@ -7,6 +7,7 @@ import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import dev.langchain4j.model.output.Response;
 
 import static java.util.Collections.singletonMap;
@@ -40,7 +41,10 @@ public class MusicianAssistant {
   public void usePromptTemplate() {
     System.out.println("### usePromptTemplate");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocPromptTemplate[]
     PromptTemplate promptTemplate = PromptTemplate.from("When was the first album of {{band}} released?");
@@ -57,7 +61,10 @@ public class MusicianAssistant {
   public void useMultiplePromptTemplate() {
     System.out.println("### useMultiplePromptTemplate");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocMultiplePromptTemplate[]
     PromptTemplate promptTemplate = PromptTemplate.from("Give me the titles of the album {{album}} of {{band}}");
@@ -76,7 +83,10 @@ public class MusicianAssistant {
   public void usePromptTemplateCurrentDate() {
     System.out.println("### usePromptTemplateCurrentDate");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocPromptTemplateCurrentDate[]
     PromptTemplate promptTemplate = PromptTemplate.from("Today is {{current_date}}. How many years since {{album}} was released?");

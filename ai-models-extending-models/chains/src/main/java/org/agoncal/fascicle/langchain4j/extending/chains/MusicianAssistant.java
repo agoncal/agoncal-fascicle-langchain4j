@@ -5,6 +5,7 @@ import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
 /**
  * @author Antonio Goncalves
@@ -28,7 +29,10 @@ public class MusicianAssistant {
   public void useConversationalChain() throws InterruptedException {
     System.out.println("### useConversationalChain");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocChain[]
     ConversationalChain chain = ConversationalChain.builder()
@@ -59,7 +63,10 @@ public class MusicianAssistant {
   public void useConversationalChainWithMemory() throws InterruptedException {
     System.out.println("### useConversationalChainWithMemory");
 
-    ChatLanguageModel model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
+    ChatLanguageModel model = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
 
     // tag::adocChainMemory[]
     ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
