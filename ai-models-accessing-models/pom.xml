@@ -21,6 +21,7 @@
     <module>amazon-bedrock</module>
     <module>azure-open-ai</module>
     <module>cohere</module>
+    <module>dashscope-qwen</module>
     <module>github-models</module>
     <module>google-gemini-ai</module>
     <module>hugging-face</module>
