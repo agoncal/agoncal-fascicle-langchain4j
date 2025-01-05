@@ -22,6 +22,7 @@
     <module>embedding-ollama</module>
     <module>embedding-openai</module>
     <module>store-azure-ai-search</module>
+    <module>store-duckdb</module>
     <module>store-elasticsearch</module>
     <module>store-in-memory</module>
     <module>store-mongodb</module>
