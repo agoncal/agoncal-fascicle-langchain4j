@@ -62,8 +62,12 @@ public class MusicianAssistant {
     embeddingStore.add(embedding2, segment2);
 
     Embedding embeddedQuestion = embeddingModel.embed("Did you ever travel abroad?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
@@ -98,8 +102,12 @@ public class MusicianAssistant {
     // end::adocQdrantToStoreEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Miles Davis album uses a piano?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
@@ -131,8 +139,12 @@ public class MusicianAssistant {
     // end::adocQdrantToStoreJustEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Miles Davis album uses a piano?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
@@ -168,8 +180,12 @@ public class MusicianAssistant {
     // end::adocQdrantToStoreJustListEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Miles Davis album uses a piano?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
@@ -204,8 +220,12 @@ public class MusicianAssistant {
     // end::adocQdrantToStoreListEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Miles Davis album uses a piano?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
@@ -242,8 +262,12 @@ public class MusicianAssistant {
     // end::adocQdrantToStoreAllListEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Miles Davis album uses a piano?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
@@ -321,8 +345,12 @@ public class MusicianAssistant {
     embeddingStore.add(embedding2, segment2);
 
     Embedding embeddedQuestion = embeddingModel.embed("Did you ever travel abroad?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
@@ -352,8 +380,12 @@ public class MusicianAssistant {
     // end::adocQdrantToRemoveEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Nora Jemisin won an award?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
@@ -380,8 +412,12 @@ public class MusicianAssistant {
     // end::adocQdrantToRemoveAllEmbeddings[]
 
     Embedding embeddedQuestion = embeddingModel.embed("Which Nora Jemisin won an award?").content();
-    List<EmbeddingMatch<TextSegment>> relevant = embeddingStore.findRelevant(embeddedQuestion, 1);
-    EmbeddingMatch<TextSegment> embeddingMatch = relevant.get(0);
+    EmbeddingSearchRequest request = EmbeddingSearchRequest.builder()
+      .queryEmbedding(embeddedQuestion)
+      .maxResults(1)
+      .build();
+    EmbeddingSearchResult<TextSegment> relevant = embeddingStore.search(request);
+    EmbeddingMatch<TextSegment> embeddingMatch = relevant.matches().get(0);
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
