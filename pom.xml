@@ -94,6 +94,12 @@
         <scope>import</scope>
       </dependency>
       <!-- Other -->
+      <!-- https://github.com/langchain4j/langchain4j/issues/2144 -->
+      <dependency>
+        <groupId>ai.djl.huggingface</groupId>
+        <artifactId>tokenizers</artifactId>
+        <version>0.28.0</version>
+      </dependency>
       <dependency>
         <groupId>org.tinylog</groupId>
         <artifactId>slf4j-tinylog</artifactId>
