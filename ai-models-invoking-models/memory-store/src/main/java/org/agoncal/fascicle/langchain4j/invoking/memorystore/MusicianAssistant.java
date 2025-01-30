@@ -22,8 +22,6 @@ import dev.langchain4j.store.memory.chat.redis.RedisChatMemoryStore;
 public class MusicianAssistant {
 
   public static void main(String[] args) throws InterruptedException {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
 //    useRedisChatMemoryStore();
     useRedisChatMemoryStoreQuestion();
   }

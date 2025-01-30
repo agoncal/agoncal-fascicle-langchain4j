@@ -15,8 +15,6 @@ import dev.langchain4j.model.scoring.ScoringModel;
 public class MusicianAssistant {
 
   public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
     useCohereScoringModel();
   }
 

@@ -83,7 +83,7 @@ public class MusicianAssistant {
     ChatLanguageModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
-      .build();;
+      .build();
 
     String answer = model.generate("When was the first Beatles album released?");
 

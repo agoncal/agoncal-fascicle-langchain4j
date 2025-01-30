@@ -5,8 +5,6 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 
 import java.time.Duration;
 
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
-
 // tag::adocSkip[]
 
 /**

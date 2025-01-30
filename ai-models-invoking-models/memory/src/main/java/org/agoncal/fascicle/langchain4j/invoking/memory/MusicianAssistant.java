@@ -22,8 +22,6 @@ import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 public class MusicianAssistant {
 
   public static void main(String[] args) throws InterruptedException {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
 //    useNoMemory();
 //    sendingOneMessage();
 //    sendingTwoMessages();
