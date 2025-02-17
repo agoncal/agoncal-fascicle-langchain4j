@@ -37,7 +37,7 @@ public class MusicianAssistant {
       .build();
     // end::adocSnippet[]
 
-    String completion = model.generate(PROMPT);
+    String completion = model.chat(PROMPT);
 
     System.out.println(completion);
   }
@@ -56,7 +56,7 @@ public class MusicianAssistant {
       .build();
     // end::adocRequest[]
 
-    String completion = model.generate("When was the first Rolling Stones album released?");
+    String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
   }

@@ -33,7 +33,7 @@ public class MusicianAssistant {
       .modelName(OPEN_MISTRAL_7B)
       .build();
 
-    System.out.println(model.generate("When was the first Rolling Stones album released?"));
+    System.out.println(model.chat("When was the first Rolling Stones album released?"));
     // end::adocSnippet[]
   }
 }

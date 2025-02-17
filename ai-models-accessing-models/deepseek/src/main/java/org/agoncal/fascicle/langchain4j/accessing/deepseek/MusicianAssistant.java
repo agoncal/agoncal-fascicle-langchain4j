@@ -38,7 +38,7 @@ public class MusicianAssistant {
       .maxTokens(1000)
       .build();
 
-    String answer = model.generate("When was the first Beatles album released?");
+    String answer = model.chat("When was the first Beatles album released?");
 
     System.out.println(answer);
     // end::adocUseOpenAIForDeepSeek[]

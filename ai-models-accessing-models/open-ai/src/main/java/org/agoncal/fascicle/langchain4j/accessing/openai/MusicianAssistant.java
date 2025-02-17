@@ -44,9 +44,8 @@ import java.time.Duration;
 public class MusicianAssistant {
 
   public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
 
-//    musicianAssistant.useLangChain4jInsteadSDK();
+    useLangChain4jInsteadSDK();
 //    musicianAssistant.useOpenAiLanguageTypeOfModel();
 //    musicianAssistant.useOpenAiLanguageModel();
 //    musicianAssistant.useOpenAiLanguageModelPrompt();
@@ -66,7 +65,7 @@ public class MusicianAssistant {
 //    musicianAssistant.useOpenAiStreamingChatTypeOfModel();
 
 //    musicianAssistant.useOpenAiModerationTypeOfModel();
-    musicianAssistant.useOpenAiImageTypeOfModel();
+//    useOpenAiImageTypeOfModel();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -76,7 +75,7 @@ public class MusicianAssistant {
   // #############################
   // ### OPENAI LANGUAGE MODEL ###
   // #############################
-  public void useLangChain4jInsteadSDK() {
+  private static void useLangChain4jInsteadSDK() {
     System.out.println("### useLangChain4jInsteadSDK");
 
     // tag::adocUseLangChain4jInsteadSDK[]
@@ -85,7 +84,7 @@ public class MusicianAssistant {
       .modelName(GPT_4_O_MINI)
       .build();
 
-    String answer = model.generate("When was the first Beatles album released?");
+    String answer = model.chat("When was the first Beatles album released?");
 
     System.out.println(answer);
     // end::adocUseLangChain4jInsteadSDK[]
@@ -199,7 +198,7 @@ public class MusicianAssistant {
       .build();
     // end::adocSimpleConf[]
 
-    String content = model.generate("What inspired the author to start writing?");
+    String content = model.chat("What inspired the author to start writing?");
 
     System.out.println(content);
   }
@@ -214,7 +213,7 @@ public class MusicianAssistant {
       .build();
     // end::adocSimpleConf2[]
 
-    String content = model.generate("What inspired the author to start writing?");
+    String content = model.chat("What inspired the author to start writing?");
 
     System.out.println(content);
   }
@@ -239,7 +238,7 @@ public class MusicianAssistant {
       .build();
     // end::adocRichConf[]
 
-    String completion = model.generate("When was the first Rolling Stones album released?");
+    String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
   }
@@ -254,7 +253,7 @@ public class MusicianAssistant {
       .temperature(1.0)
       .build();
 
-    String completion = model.generate("In one single sentence, tell me what is the significance of the Beatles in music history?");
+    String completion = model.chat("In one single sentence, tell me what is the significance of the Beatles in music history?");
     // end::adocOpenAiChatModelTemperatureOne[]
 
     System.out.println(completion);
@@ -270,7 +269,7 @@ public class MusicianAssistant {
       .temperature(0.0)
       .build();
 
-    String completion = model.generate("In one single sentence, tell me what is the significance of the Beatles in music history?");
+    String completion = model.chat("In one single sentence, tell me what is the significance of the Beatles in music history?");
     // end::adocOpenAiChatModelTemperatureZero[]
 
     System.out.println(completion);
@@ -403,7 +402,7 @@ public class MusicianAssistant {
   // ##########################
   // ### OPENAI IMAGE MODEL ###
   // ##########################
-  public void useOpenAiImageTypeOfModel() {
+  private static void useOpenAiImageTypeOfModel() {
     System.out.println("### useOpenAiImageTypeOfModel");
 
     // tag::adocImageTypeOfModel[]
@@ -437,7 +436,7 @@ public class MusicianAssistant {
       .build();
 
     // tag::adocTypedUntypedResponseString[]
-    String response = chatModel.generate("Who is the author of 1984?");
+    String response = chatModel.chat("Who is the author of 1984?");
     System.out.println(response);
     // end::adocTypedUntypedResponseString[]
   }

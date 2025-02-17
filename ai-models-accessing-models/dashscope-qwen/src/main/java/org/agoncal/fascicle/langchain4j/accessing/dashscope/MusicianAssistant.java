@@ -31,7 +31,7 @@ public class MusicianAssistant {
       .build();
     // end::adocSnippet[]
 
-    String completion = model.generate("When was the first Beatles album released?");
+    String completion = model.chat("When was the first Beatles album released?");
 
     System.out.println(completion);
   }

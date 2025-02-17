@@ -39,7 +39,7 @@ public class AuthorService {
 
     String prompt = "Write a short biography about " + scifiAuthors[index];
 
-    String biography = model.generate(prompt);
+    String biography = model.chat(prompt);
 
     return biography;
   }

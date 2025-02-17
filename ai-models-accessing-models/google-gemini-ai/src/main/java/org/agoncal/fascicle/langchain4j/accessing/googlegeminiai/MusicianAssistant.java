@@ -33,7 +33,7 @@ public class MusicianAssistant {
       // end::adocSkip[]
       .build();
 
-    System.out.println(model.generate("List some influential Jazz musicians"));
+    System.out.println(model.chat("List some influential Jazz musicians"));
     // end::adocSnippet[]
   }
 }

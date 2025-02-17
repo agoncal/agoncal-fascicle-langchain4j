@@ -102,7 +102,7 @@ public class MusicianAssistant {
 
     OllamaChatModel model = OllamaChatModel.builder().build();
 
-    String completion = model.generate("When was the first Rolling Stones album released?");
+    String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
   }
@@ -119,7 +119,7 @@ public class MusicianAssistant {
       .build();
     // end::adocChatModel[]
 
-    String completion = model.generate("When was the first Rolling Stones album released?");
+    String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
   }

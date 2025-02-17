@@ -96,7 +96,7 @@ public class MusicianAssistant {
       .build();
     // end::adocSnippet[]
 
-    String completion = model.generate("When was the first Rolling Stones album released?");
+    String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
   }
@@ -125,7 +125,7 @@ public class MusicianAssistant {
       .build();
     // end::adocRequest[]
 
-    String completion = model.generate("When was the first Rolling Stones album released?");
+    String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
   }
@@ -141,7 +141,7 @@ public class MusicianAssistant {
       .build();
     // end::adocSimple[]
 
-    String completion = model.generate("When was the first Rolling Stones album released?");
+    String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
   }
@@ -178,7 +178,7 @@ public class MusicianAssistant {
       .logRequestsAndResponses(true)
       .build();
 
-    System.out.println(model.generate("When was the first Rolling Stones album released?"));
+    System.out.println(model.chat("When was the first Rolling Stones album released?"));
     // end::adocLlama[]
   }
 }
