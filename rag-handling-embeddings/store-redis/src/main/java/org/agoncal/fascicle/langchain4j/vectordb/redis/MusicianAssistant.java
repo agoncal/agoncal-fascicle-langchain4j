@@ -9,7 +9,7 @@ import dev.langchain4j.store.embedding.EmbeddingMatch;
 import dev.langchain4j.store.embedding.EmbeddingSearchRequest;
 import dev.langchain4j.store.embedding.EmbeddingSearchResult;
 import dev.langchain4j.store.embedding.EmbeddingStore;
-import dev.langchain4j.store.embedding.redis.RedisEmbeddingStore;
+import dev.langchain4j.community.store.embedding.redis.RedisEmbeddingStore;
 
 // tag::adocSkip[]
 

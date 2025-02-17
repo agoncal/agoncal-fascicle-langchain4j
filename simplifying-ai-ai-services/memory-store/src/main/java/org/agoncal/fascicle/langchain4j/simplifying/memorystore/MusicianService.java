@@ -8,7 +8,7 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.store.memory.chat.ChatMemoryStore;
-import dev.langchain4j.store.memory.chat.redis.RedisChatMemoryStore;
+import dev.langchain4j.community.store.ememory.chat.redis.RedisChatMemoryStore;
 
 // tag::adocSkip[]
 

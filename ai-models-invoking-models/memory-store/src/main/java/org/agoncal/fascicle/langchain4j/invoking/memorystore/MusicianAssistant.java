@@ -9,7 +9,7 @@ import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.store.memory.chat.ChatMemoryStore;
-import dev.langchain4j.store.memory.chat.redis.RedisChatMemoryStore;
+import dev.langchain4j.community.store.ememory.chat.redis.RedisChatMemoryStore;
 
 // tag::adocSkip[]
 

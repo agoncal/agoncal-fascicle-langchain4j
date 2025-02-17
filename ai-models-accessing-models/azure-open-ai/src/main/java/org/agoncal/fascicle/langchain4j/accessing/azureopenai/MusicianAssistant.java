@@ -115,7 +115,6 @@ public class MusicianAssistant {
       .maxRetries(3)
       .frequencyPenalty(0.0d)
       .presencePenalty(0.0d)
-      .n(1)
       .enhancements(enhancementConfiguration)
       .seed(42L)
       .timeout(Duration.ofSeconds(30))
