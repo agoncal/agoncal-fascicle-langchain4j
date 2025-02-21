@@ -10,6 +10,7 @@ import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNextAndErro
 import dev.langchain4j.model.StreamingResponseHandler;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
+import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.image.ImageModel;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.language.LanguageModel;
@@ -45,27 +46,32 @@ public class MusicianAssistant {
 
   public static void main(String[] args) {
 
-    useLangChain4jInsteadSDK();
-//    musicianAssistant.useOpenAiLanguageTypeOfModel();
-//    musicianAssistant.useOpenAiLanguageModel();
-//    musicianAssistant.useOpenAiLanguageModelPrompt();
-//    musicianAssistant.useOpenAiLanguageModelBuilder();
+//    useLangChain4jInsteadSDK();
+//    useOpenAiLanguageTypeOfModel();
+//    useOpenAiLanguageModel();
+//    useOpenAiLanguageModelPrompt();
+//    useOpenAiLanguageModelBuilder();
 
-//    musicianAssistant.useOpenAiChatTypeOfModel();
-//    musicianAssistant.useOpenAiChatModelTemperatureOne();
-//    musicianAssistant.useOpenAiChatModelTemperatureZero();
-//    musicianAssistant.useTypedUntypedResponseString();
-//    musicianAssistant.useTypedUntypedResponseUserMessage();
-//    musicianAssistant.useTypedUntypedResponseImage();
-//    musicianAssistant.useTypedUntypedResponseEmbedding();
-//    musicianAssistant.useOpenAiStreaming();
-//    musicianAssistant.useOpenAiLambdaStreaming();
-//    musicianAssistant.useOpenAiLambdaStreamingError();
-//    musicianAssistant.useOpenAiChatModelBuilder();
-//    musicianAssistant.useOpenAiStreamingChatTypeOfModel();
+//    useOpenAiChatTypeOfModel();
+//    useOpenAiSimpleConf();
+//    useOpenAiSimpleConf2();
+//    useOpenAiChatModelBuilder();
+//    useOpenAiChatModelTemperatureOne();
+//    useOpenAiChatModelTemperatureZero();
+//    useOpenAiChatModelAiMessage();
 
-//    musicianAssistant.useOpenAiModerationTypeOfModel();
+//    useOpenAiStreamingChatTypeOfModel();
+//    useOpenAiStreaming();
+//    useOpenAiLambdaStreaming();
+//    useOpenAiLambdaStreamingError();
+
+//    useOpenAiModerationTypeOfModel();
 //    useOpenAiImageTypeOfModel();
+
+//    useTypedUntypedResponseString();
+    useTypedUntypedResponseUserMessage();
+    useTypedUntypedResponseImage();
+    useTypedUntypedResponseEmbedding();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -90,7 +96,7 @@ public class MusicianAssistant {
     // end::adocUseLangChain4jInsteadSDK[]
   }
 
-  public void useOpenAiLanguageTypeOfModel() {
+  private static void useOpenAiLanguageTypeOfModel() {
     System.out.println("### useOpenAiLanguageTypeOfModel");
 
     // tag::adocLanguageTypeOfModel[]
@@ -107,7 +113,7 @@ public class MusicianAssistant {
     System.out.println(response.tokenUsage());
   }
 
-  public void useOpenAiLanguageModel() {
+  private static void useOpenAiLanguageModel() {
     System.out.println("### useOpenAiLanguageModel");
 
     OpenAiLanguageModel model = OpenAiLanguageModel.builder()
@@ -128,7 +134,7 @@ public class MusicianAssistant {
     System.out.println(tokenUsage.totalTokenCount());
   }
 
-  public void useOpenAiLanguageModelPrompt() {
+  private static void useOpenAiLanguageModelPrompt() {
     System.out.println("### useOpenAiLanguageModelPrompt");
 
     OpenAiLanguageModel model = OpenAiLanguageModel.builder()
@@ -150,7 +156,7 @@ public class MusicianAssistant {
     System.out.println(tokenUsage.totalTokenCount());
   }
 
-  public void useOpenAiLanguageModelBuilder() {
+  private static void useOpenAiLanguageModelBuilder() {
     System.out.println("### useOpenAiLanguageModelBuilder");
 
     // tag::adocSnippet[]
@@ -172,7 +178,7 @@ public class MusicianAssistant {
   // #########################
   // ### OPENAI CHAT MODEL ###
   // #########################
-  public void useOpenAiChatTypeOfModel() {
+  private static void useOpenAiChatTypeOfModel() {
     System.out.println("### useOpenAiChatTypeOfModel");
 
     // tag::adocChatTypeOfModel[]
@@ -182,13 +188,13 @@ public class MusicianAssistant {
       .build();
 
     UserMessage userMessage = new UserMessage("Who composed the Moonlight Sonata?");
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
 
-    System.out.println(response.content());
+    System.out.println(response.aiMessage().text());
     // end::adocChatTypeOfModel[]
   }
 
-  public void useOpenAiSimpleConf() {
+  private static void useOpenAiSimpleConf() {
     System.out.println("### useOpenAiSimpleConf");
 
     // tag::adocSimpleConf[]
@@ -203,7 +209,7 @@ public class MusicianAssistant {
     System.out.println(content);
   }
 
-  public void useOpenAiSimpleConf2() {
+  private static void useOpenAiSimpleConf2() {
     System.out.println("### useOpenAiSimpleConf2");
 
     // tag::adocSimpleConf2[]
@@ -218,7 +224,7 @@ public class MusicianAssistant {
     System.out.println(content);
   }
 
-  public void useOpenAiChatModelBuilder() {
+  private static void useOpenAiChatModelBuilder() {
     System.out.println("### useOpenAiChatModelBuilder");
 
     // tag::adocRichConf[]
@@ -243,7 +249,7 @@ public class MusicianAssistant {
     System.out.println(completion);
   }
 
-  public void useOpenAiChatModelTemperatureOne() {
+  private static void useOpenAiChatModelTemperatureOne() {
     System.out.println("### useOpenAiChatModelTemperatureOne");
 
     // tag::adocOpenAiChatModelTemperatureOne[]
@@ -259,7 +265,7 @@ public class MusicianAssistant {
     System.out.println(completion);
   }
 
-  public void useOpenAiChatModelTemperatureZero() {
+  private static void useOpenAiChatModelTemperatureZero() {
     System.out.println("### useOpenAiChatModelTemperatureZero");
 
     // tag::adocOpenAiChatModelTemperatureZero[]
@@ -275,7 +281,7 @@ public class MusicianAssistant {
     System.out.println(completion);
   }
 
-  public void useOpenAiChatModelAiMessage() {
+  private static void useOpenAiChatModelAiMessage() {
     System.out.println("### useOpenAiChatModelAiMessage");
 
     OpenAiChatModel model = OpenAiChatModel.builder()
@@ -285,15 +291,15 @@ public class MusicianAssistant {
 
     SystemMessage sysMsg = new SystemMessage("You are a music expert.");
     UserMessage userMsg = new UserMessage("When was the first Rolling Stones album released?");
-    Response<AiMessage> response = model.generate(sysMsg, userMsg);
+    ChatResponse response = model.chat(sysMsg, userMsg);
 
-    System.out.println(response);
+    System.out.println(response.aiMessage().text());
   }
 
   // ###################################
   // ### OPENAI STREAMING CHAT MODEL ###
   // ###################################
-  public void useOpenAiStreamingChatTypeOfModel() {
+  private static void useOpenAiStreamingChatTypeOfModel() {
     System.out.println("### useOpenAiStreamingChatTypeOfModel");
 
     // tag::adocStreamingChatTypeOfModel[]
@@ -323,7 +329,7 @@ public class MusicianAssistant {
     // end::adocStreamingChatTypeOfModel[]
   }
 
-  public void useOpenAiStreaming() {
+  private static void useOpenAiStreaming() {
     System.out.println("### useOpenAiStreaming");
 
     // tag::adocStreaming[]
@@ -353,7 +359,7 @@ public class MusicianAssistant {
     // end::adocStreaming[]
   }
 
-  public void useOpenAiLambdaStreaming() {
+  private static void useOpenAiLambdaStreaming() {
     System.out.println("### useOpenAiLambdaStreaming");
 
     StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
@@ -367,7 +373,7 @@ public class MusicianAssistant {
     // end::adocLambdaStreaming[]
   }
 
-  public void useOpenAiLambdaStreamingError() {
+  private static void useOpenAiLambdaStreamingError() {
     System.out.println("### useOpenAiLambdaStreamingError");
 
     StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
@@ -384,7 +390,7 @@ public class MusicianAssistant {
   // ###############################
   // ### OPENAI MODERATION MODEL ###
   // ###############################
-  public void useOpenAiModerationTypeOfModel() {
+  private static void useOpenAiModerationTypeOfModel() {
     System.out.println("### useOpenAiModerationTypeOfModel");
 
     // tag::adocModerationTypeOfModel[]
@@ -427,7 +433,7 @@ public class MusicianAssistant {
   // ##################################
   // ### TYPED AND UNTYPED RESPONSE ###
   // ##################################
-  public void useTypedUntypedResponseString() {
+  private static void useTypedUntypedResponseString() {
     System.out.println("### useTypedUntypedResponseString");
 
     OpenAiChatModel chatModel = OpenAiChatModel.builder()
@@ -441,7 +447,7 @@ public class MusicianAssistant {
     // end::adocTypedUntypedResponseString[]
   }
 
-  public void useTypedUntypedResponseUserMessage() {
+  private static void useTypedUntypedResponseUserMessage() {
     System.out.println("### useTypedUntypedResponseUserMessage");
 
     OpenAiChatModel chatModel = OpenAiChatModel.builder()
@@ -451,14 +457,14 @@ public class MusicianAssistant {
 
     // tag::adocTypedUntypedResponseUserMessage[]
     UserMessage message = new UserMessage("Who are the main characters in Moby Dick?");
-    Response<AiMessage> response = chatModel.generate(message);
-    System.out.println(response.content().text());
+    ChatResponse response = chatModel.chat(message);
+    System.out.println(response.aiMessage().text());
     System.out.println(response.tokenUsage());
     System.out.println(response.finishReason());
     // end::adocTypedUntypedResponseUserMessage[]
   }
 
-  public void useTypedUntypedResponseImage() {
+  private static void useTypedUntypedResponseImage() {
     System.out.println("### useTypedUntypedResponseImage");
 
     OpenAiImageModel imageModel = OpenAiImageModel.builder()
@@ -473,7 +479,7 @@ public class MusicianAssistant {
     // end::adocTypedUntypedResponseImage[]
   }
 
-  public void useTypedUntypedResponseEmbedding() {
+  private static void useTypedUntypedResponseEmbedding() {
     System.out.println("### useTypedUntypedResponseEmbedding");
 
     OpenAiEmbeddingModel embeddingModel = OpenAiEmbeddingModel.builder()
@@ -488,7 +494,7 @@ public class MusicianAssistant {
     // end::adocTypedUntypedResponseEmbedding[]
   }
 
-  public void dontKnow() {
+  private static void dontKnow() {
     // tag::adocDontKnow[]
     SystemMessage systemMsg = new SystemMessage("""
       You are a Vintage Store assistant.
