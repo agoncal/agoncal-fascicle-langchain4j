@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.langchain4j.accessing.bedrock;
 
-import dev.langchain4j.model.bedrock.BedrockTitanChatModel;
-import static dev.langchain4j.model.bedrock.BedrockTitanChatModel.Types.TitanTextExpressV1;
+import dev.langchain4j.model.bedrock.BedrockChatModel;
+import dev.langchain4j.model.chat.request.ChatRequestParameters;
 import software.amazon.awssdk.regions.Region;
 
 // tag::adocSkip[]
@@ -30,10 +30,12 @@ public class MusicianAssistant {
     System.out.println("### useBedrockLanguageModelBuilder");
 
     // tag::adocSnippet[]
-    BedrockTitanChatModel model = BedrockTitanChatModel.builder()
-      .temperature(0.9)
+    BedrockChatModel model = BedrockChatModel.builder()
+      .defaultRequestParameters(ChatRequestParameters.builder()
+        .temperature(0.9)
+        .modelName("amazon.titan-text-express-v1")
+        .build())
       .region(Region.US_EAST_1)
-      .model(TitanTextExpressV1.getValue())
       .build();
     // end::adocSnippet[]
 
@@ -49,9 +51,11 @@ public class MusicianAssistant {
     System.out.println("### useBedrockTitanChatModel");
 
     // tag::adocRequest[]
-    BedrockTitanChatModel model = BedrockTitanChatModel.builder()
-      .temperature(0.9)
-      .model(TitanTextExpressV1.getValue())
+    BedrockChatModel model = BedrockChatModel.builder()
+      .defaultRequestParameters(ChatRequestParameters.builder()
+        .temperature(0.9)
+        .modelName("amazon.titan-text-express-v1")
+        .build())
       .region(Region.AWS_GLOBAL)
       .build();
     // end::adocRequest[]

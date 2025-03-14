@@ -2,20 +2,16 @@ package org.agoncal.fascicle.langchain4j.gettingstarted;
 
 // tag::adocHeader[]
 
-import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
-
-import dev.langchain4j.model.output.Response;
 
 import static java.lang.System.exit;
 import static java.time.Duration.ofSeconds;
-
 import java.util.List;
 
 public class MusicianAssistant {
@@ -59,8 +55,8 @@ public class MusicianAssistant {
     );
     List<ChatMessage> messages = List.of(systemMsg, userMsg);
 
-    Response<AiMessage> albums = model.generate(messages);
-    String topThreeAlbums = albums.content().text();
+    ChatResponse albums = model.chat(messages);
+    String topThreeAlbums = albums.aiMessage().text();
 
     return new Musician(name, topThreeAlbums);
   }

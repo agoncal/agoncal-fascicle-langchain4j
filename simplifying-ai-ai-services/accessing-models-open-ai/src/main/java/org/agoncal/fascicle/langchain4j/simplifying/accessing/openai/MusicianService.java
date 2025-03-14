@@ -27,8 +27,8 @@ public class MusicianService {
 
     TokenStream tokenStream = assistant.generateMusicianBiography("John Coltrane");
 
-    tokenStream.onNext(System.out::print)
-      .onComplete(System.out::println)
+    tokenStream.onPartialResponse(System.out::print)
+      .onCompleteResponse(System.out::println)
       .onError(Throwable::printStackTrace)
       .start();
     // end::adocSnippet[]

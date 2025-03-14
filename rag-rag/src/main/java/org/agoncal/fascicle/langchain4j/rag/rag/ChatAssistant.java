@@ -18,13 +18,13 @@ import dev.langchain4j.store.embedding.EmbeddingStore;
 import dev.langchain4j.store.embedding.qdrant.QdrantEmbeddingStore;
 import io.qdrant.client.QdrantClient;
 import io.qdrant.client.QdrantGrpcClient;
-import static java.lang.System.exit;
-import static java.time.Duration.ofSeconds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static java.lang.System.exit;
 import java.net.URI;
 import java.net.URISyntaxException;
+import static java.time.Duration.ofSeconds;
 import java.util.Scanner;
 
 /**
@@ -88,7 +88,7 @@ public class ChatAssistant {
         UserMessage userQuestion = UserMessage.from(question);
 
         chatMemory.add(userQuestion);
-        AiMessage aiAnswer = model.generate(chatMemory.messages()).content();
+        AiMessage aiAnswer = model.chat(chatMemory.messages()).aiMessage();
         chatMemory.add(aiAnswer);
 
         System.out.println("Vintage Store chat bot: " + aiAnswer.text());

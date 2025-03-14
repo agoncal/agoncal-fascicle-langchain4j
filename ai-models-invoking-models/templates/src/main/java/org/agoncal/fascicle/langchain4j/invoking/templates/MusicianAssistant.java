@@ -2,16 +2,14 @@ package org.agoncal.fascicle.langchain4j.invoking.templates;
 
 // tag::adocSnippet[]
 
-import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
-import dev.langchain4j.model.output.Response;
 
 import static java.util.Collections.singletonMap;
-
 import java.util.Map;
 
 // tag::adocSkip[]
@@ -53,8 +51,8 @@ public class MusicianAssistant {
 
     Prompt prompt = promptTemplate.apply(variables);
 
-    Response<AiMessage> response = model.generate(prompt.toUserMessage());
-    System.out.println(response.content().text());
+    ChatResponse response = model.chat(prompt.toUserMessage());
+    System.out.println(response.aiMessage().text());
     // end::adocPromptTemplate[]
   }
 
@@ -75,8 +73,8 @@ public class MusicianAssistant {
 
     Prompt prompt = promptTemplate.apply(variables);
 
-    Response<AiMessage> response = model.generate(prompt.toUserMessage());
-    System.out.println(response.content().text());
+    ChatResponse response = model.chat(prompt.toUserMessage());
+    System.out.println(response.aiMessage().text());
     // end::adocMultiplePromptTemplate[]
   }
 
@@ -95,8 +93,8 @@ public class MusicianAssistant {
 
     Prompt prompt = promptTemplate.apply(variables);
 
-    Response<AiMessage> response = model.generate(prompt.toUserMessage());
-    System.out.println(response.content().text());
+    ChatResponse response = model.chat(prompt.toUserMessage());
+    System.out.println(response.aiMessage().text());
     // end::adocPromptTemplateCurrentDate[]
   }
 }

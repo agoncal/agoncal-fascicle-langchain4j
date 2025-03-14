@@ -3,7 +3,6 @@ package org.agoncal.fascicle.langchain4j.invoking.messages;
 // tag::adocSnippet[]
 
 import dev.langchain4j.data.image.Image;
-import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.ImageContent;
 import dev.langchain4j.data.message.PdfFileContent;
 import dev.langchain4j.data.message.SystemMessage;
@@ -11,9 +10,9 @@ import dev.langchain4j.data.message.TextContent;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.data.pdf.PdfFile;
 import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
-import dev.langchain4j.model.output.Response;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -53,10 +52,10 @@ public class AuthorAssistant {
 
     // tag::adocUserMessage[]
     UserMessage userMessage = new UserMessage("What genre is Brave New World?");
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
     // end::adocUserMessage[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 
   public void useUserMessageFrom() {
@@ -69,10 +68,10 @@ public class AuthorAssistant {
 
     // tag::adocUserMessageFrom[]
     UserMessage userMessage = UserMessage.from("What genre is Brave New World?");
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
     // end::adocUserMessageFrom[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 
   public void useSystemMessage() {
@@ -86,10 +85,10 @@ public class AuthorAssistant {
     // tag::adocSystemMessage[]
     SystemMessage systemMessage = new SystemMessage("You are a library assistant, and you can answer customers' request on any book.");
     UserMessage userMessage = new UserMessage("What genre is Brave New World?");
-    Response<AiMessage> response = model.generate(systemMessage, userMessage);
+    ChatResponse response = model.chat(systemMessage, userMessage);
     // end::adocSystemMessage[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 
   public void useUserMessageContent() {
@@ -103,10 +102,10 @@ public class AuthorAssistant {
     // tag::adocUserMessageContent[]
     TextContent textContent = TextContent.from("What genre is Brave New World?");
     UserMessage userMessage = UserMessage.from(textContent);
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
     // end::adocUserMessageContent[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 
   public void useUserMessagesPdfContent() throws URISyntaxException {
@@ -127,10 +126,10 @@ public class AuthorAssistant {
       TextContent.from("Summarize the following PDF file"),
       pdfFileContent
     );
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
     // end::adocUserMessagesPdfContent[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 
   public void useUserMessagePdfContent() {
@@ -147,10 +146,10 @@ public class AuthorAssistant {
       TextContent.from("Summarize the following PDF file"),
       PdfFileContent.from(Paths.get("src/main/resources/brave_new_world_chapter_I.pdf").toUri())
     );
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
     // end::adocUserMessagePdfContent[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 
   public void useUserMessagesImageContent() {
@@ -171,10 +170,10 @@ public class AuthorAssistant {
       TextContent.from("Tell me more about this book cover"),
       imageContent
     );
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
     // end::adocUserMessagesImageContent[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 
   public void useUserMessageImageContent() {
@@ -190,9 +189,9 @@ public class AuthorAssistant {
       TextContent.from("Tell me more about this book cover"),
       ImageContent.from(Paths.get("src/main/resources/brave_new_world.jpg").toUri())
     );
-    Response<AiMessage> response = model.generate(userMessage);
+    ChatResponse response = model.chat(userMessage);
     // end::adocUserMessageImageContent[]
 
-    System.out.println(response.content().text());
+    System.out.println(response.aiMessage().text());
   }
 }

@@ -31,8 +31,8 @@ public class MusicianService {
     CompletableFuture<Response<AiMessage>> answer = new CompletableFuture<>();
 
     assistant.generateMusicianBiography(musicianName)
-      .onNext(System.out::println)
-      .onComplete(answer::complete)
+      .onPartialResponse(System.out::println)
+      .onCompleteResponse(System.out::println)
       .onError(answer::completeExceptionally)
       .start();
 // end::adocSnippet[]

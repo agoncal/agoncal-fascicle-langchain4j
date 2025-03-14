@@ -8,6 +8,7 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
@@ -82,9 +83,9 @@ public class MusicianAssistant {
 
     // tag::adocOneMessage[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
-    AiMessage firstAnswer = model.generate(firstMsg).content();
+    ChatResponse firstAnswer = model.chat(firstMsg);
 
-    System.out.println(firstAnswer.text());
+    System.out.println(firstAnswer.aiMessage().text());
     // Nice to meet you Antonio! How can I assist you today?
     // end::adocOneMessage[]
   }
@@ -99,9 +100,9 @@ public class MusicianAssistant {
 
     // tag::adocTwoMessages[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
-    AiMessage firstAnswer = model.generate(firstMsg).content();
+    AiMessage firstAnswer = model.chat(firstMsg).aiMessage();
     UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
-    AiMessage secondAnswer = model.generate(firstMsg, firstAnswer, secondMsg).content();
+    AiMessage secondAnswer = model.chat(firstMsg, firstAnswer, secondMsg).aiMessage();
 
     System.out.println(secondAnswer.text());
     // The Beatles are a legendary rock band
@@ -118,11 +119,11 @@ public class MusicianAssistant {
 
     // tag::adocThreeMessages[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
-    AiMessage firstAnswer = model.generate(firstMsg).content();
+    AiMessage firstAnswer = model.chat(firstMsg).aiMessage();
     UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
-    AiMessage secondAnswer = model.generate(secondMsg).content();
+    AiMessage secondAnswer = model.chat(secondMsg).aiMessage();
     UserMessage thirdMsg = UserMessage.from("What's my name?");
-    AiMessage thirdAnswer = model.generate(firstMsg, firstAnswer, secondMsg, secondAnswer, thirdMsg).content();
+    AiMessage thirdAnswer = model.chat(firstMsg, firstAnswer, secondMsg, secondAnswer, thirdMsg).aiMessage();
 
     System.out.println(thirdAnswer.text());
     // Your name is Antonio.
@@ -146,7 +147,7 @@ public class MusicianAssistant {
 
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
     chatMemory.add(firstMsg);
-    AiMessage firstAnswer = model.generate(chatMemory.messages()).content();
+    AiMessage firstAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(firstAnswer);
     System.out.println(firstAnswer.text()); // Nice to meet you, Antonio!
     // tag::adocSkip[]
@@ -155,7 +156,7 @@ public class MusicianAssistant {
 
     UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
     chatMemory.add(secondMsg);
-    AiMessage secondAnswer = model.generate(chatMemory.messages()).content();
+    AiMessage secondAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(secondAnswer);
     System.out.println(secondAnswer.text()); // That's a great choice!
     // tag::adocSkip[]
@@ -164,7 +165,7 @@ public class MusicianAssistant {
 
     UserMessage thirdMsg = UserMessage.from("When was their first album released?");
     chatMemory.add(thirdMsg);
-    AiMessage thirdAnswer = model.generate(chatMemory.messages()).content();
+    AiMessage thirdAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(thirdAnswer);
     System.out.println(thirdAnswer.text()); // "Please Please Me" released on March 22, 1963
     // tag::adocSkip[]
@@ -173,7 +174,7 @@ public class MusicianAssistant {
 
     UserMessage forthMsg = UserMessage.from("What's the name of the singer?");
     chatMemory.add(forthMsg);
-    AiMessage forthAnswer = model.generate(chatMemory.messages()).content();
+    AiMessage forthAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(forthAnswer);
     System.out.println(forthAnswer.text()); // John Lennon and Paul McCartney
     // tag::adocSkip[]
@@ -182,7 +183,7 @@ public class MusicianAssistant {
 
     UserMessage fifthMsg = UserMessage.from("What's my name?");
     chatMemory.add(fifthMsg);
-    AiMessage fifthAnswer = model.generate(chatMemory.messages()).content();
+    AiMessage fifthAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(fifthAnswer);
     System.out.println(fifthAnswer.text()); // Your name is Antonio, as you mentioned earlier
     // end::adocChatMemory[]
@@ -203,7 +204,7 @@ public class MusicianAssistant {
     chatMemory.add(new SystemMessage("You are a Vintage Store chat bot."));
 
     chatMemory.add(new UserMessage("My name is Antonio"));
-    AiMessage firstAnswer = model.generate(chatMemory.messages()).content();
+    AiMessage firstAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(firstAnswer);
     // tag::adocSkip[]
     System.out.println(firstAnswer.text());
@@ -211,7 +212,7 @@ public class MusicianAssistant {
     // end::adocSkip[]
 
     chatMemory.add(new UserMessage("What's my name?"));
-    AiMessage secondAnswer = model.generate(chatMemory.messages()).content();
+    AiMessage secondAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(secondAnswer);
     // end::adocChatMemorySystem[]
     System.out.println(secondAnswer.text());

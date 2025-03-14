@@ -9,7 +9,7 @@ import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.store.memory.chat.ChatMemoryStore;
-import dev.langchain4j.community.store.ememory.chat.redis.RedisChatMemoryStore;
+import dev.langchain4j.community.store.memory.chat.redis.RedisChatMemoryStore;
 
 // tag::adocSkip[]
 
@@ -52,7 +52,7 @@ public class MusicianAssistant {
       .build();
 
     chatMemory.add(new UserMessage("My name is Antonio"));
-    AiMessage answer = model.generate(chatMemory.messages()).content();
+    AiMessage answer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(answer);
     System.out.println(answer.text());
     // end::adocChatMemoryStore[]
@@ -77,7 +77,7 @@ public class MusicianAssistant {
       .build();
 
     chatMemory.add(new UserMessage("What's my name?"));
-    AiMessage answer = model.generate(chatMemory.messages()).content();
+    AiMessage answer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(answer);
     System.out.println(answer.text());
     // end::adocChatMemoryStoreQuestion[]

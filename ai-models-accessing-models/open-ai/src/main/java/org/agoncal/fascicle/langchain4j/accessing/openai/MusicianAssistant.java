@@ -2,15 +2,14 @@ package org.agoncal.fascicle.langchain4j.accessing.openai;
 
 import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.image.Image;
-import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
-import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNext;
-import static dev.langchain4j.model.LambdaStreamingResponseHandler.onNextAndError;
-import dev.langchain4j.model.StreamingResponseHandler;
+import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponse;
+import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponseAndError;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
+import dev.langchain4j.model.chat.response.StreamingChatResponseHandler;
 import dev.langchain4j.model.image.ImageModel;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.language.LanguageModel;
@@ -308,16 +307,16 @@ public class MusicianAssistant {
       .modelName(GPT_4_O_MINI)
       .build();
 
-    model.generate("What are some common formats and sizes of video tapes?",
-      new StreamingResponseHandler<>() {
+    model.chat("What are some common formats and sizes of video tapes?",
+      new StreamingChatResponseHandler() {
 
         @Override
-        public void onNext(String token) {
+        public void onPartialResponse(String token) {
           System.out.print(token);
         }
 
         @Override
-        public void onComplete(Response<AiMessage> response) {
+        public void onCompleteResponse(ChatResponse response) {
           System.out.println("Streaming completed: " + response);
         }
 
@@ -338,16 +337,16 @@ public class MusicianAssistant {
       .modelName(GPT_4_O_MINI)
       .build();
 
-    model.generate("Who are some influential female musicians?",
-      new StreamingResponseHandler<>() {
+    model.chat("Who are some influential female musicians?",
+      new StreamingChatResponseHandler() {
 
         @Override
-        public void onNext(String token) {
+        public void onPartialResponse(String token) {
           System.out.print(token);
         }
 
         @Override
-        public void onComplete(Response<AiMessage> response) {
+        public void onCompleteResponse(ChatResponse response) {
           System.out.println("Streaming completed: " + response);
         }
 
@@ -368,8 +367,8 @@ public class MusicianAssistant {
       .build();
 
     // tag::adocLambdaStreaming[]
-    model.generate("Who are some influential female musicians?",
-      onNext(System.out::print));
+    model.chat("Who are some influential female musicians?",
+      onPartialResponse(System.out::print));
     // end::adocLambdaStreaming[]
   }
 
@@ -382,8 +381,8 @@ public class MusicianAssistant {
       .build();
 
     // tag::adocLambdaStreamingError[]
-    model.generate("Who are some influential female musicians?",
-      onNextAndError(System.out::print, Throwable::printStackTrace));
+    model.chat("Who are some influential female musicians?",
+      onPartialResponseAndError(System.out::print, Throwable::printStackTrace));
     // end::adocLambdaStreamingError[]
   }
 

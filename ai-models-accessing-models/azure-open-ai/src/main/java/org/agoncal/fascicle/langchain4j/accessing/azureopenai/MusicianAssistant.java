@@ -1,11 +1,11 @@
 package org.agoncal.fascicle.langchain4j.accessing.azureopenai;
 
 import com.azure.ai.openai.models.AzureChatEnhancementConfiguration;
-import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.azure.AzureOpenAiChatModel;
 import dev.langchain4j.model.azure.AzureOpenAiLanguageModel;
+import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.output.FinishReason;
 import dev.langchain4j.model.output.Response;
@@ -159,7 +159,7 @@ public class MusicianAssistant {
 
     SystemMessage sysMsg = new SystemMessage("You are a music expert.");
     UserMessage userMsg = new UserMessage("When was the first Rolling Stones album released?");
-    Response<AiMessage> completion = model.generate(sysMsg, userMsg);
+    ChatResponse completion = model.chat(sysMsg, userMsg);
 
     System.out.println(completion);
   }
