@@ -30,3 +30,4 @@ create.sql
 drop.sql
 .env-backup
 .qdrant
+.vscode/
