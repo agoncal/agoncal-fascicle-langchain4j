@@ -10,7 +10,7 @@ public interface AuthorAssistant {
 
   @SystemMessage("You are an expert in Science Fiction books.")
   @UserMessage("Write a short biography about {{author}}.")
-  String getAuthorBiography(@V("author") String authorName);
+  String generateAuthorBiography(@V("author") String authorName);
 
 }
 // end::adocSnippet[]

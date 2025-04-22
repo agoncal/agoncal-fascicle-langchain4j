@@ -1,11 +1,12 @@
 package org.agoncal.fascicle.langchain4j.firstlook;
-// tag::adocSnippet[]
 
+import static java.lang.System.exit;
+
+// tag::adocSnippet[]
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import dev.langchain4j.service.AiServices;
-import static java.lang.System.exit;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 
 // tag::adocSkip[]
 
@@ -30,7 +31,7 @@ public class AuthorService {
 
     AuthorAssistant assistant = AiServices.create(AuthorAssistant.class, model);
 
-    String answer = assistant.getAuthorBiography(authorName);
+    String answer = assistant.generateAuthorBiography(authorName);
     System.out.println(answer);
     // tag::adocSkip[]
     exit(0);

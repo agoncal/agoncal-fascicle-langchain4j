@@ -35,7 +35,7 @@ class AuthorServiceTest {
 
     AuthorAssistant assistant = AiServices.create(AuthorAssistant.class, model);
 
-    String answer = assistant.getAuthorBiography("Isaac Asimov");
+    String answer = assistant.generateAuthorBiography("Isaac Asimov");
 
     assertTrue(answer.contains("Isaac Asimov"));
   }
