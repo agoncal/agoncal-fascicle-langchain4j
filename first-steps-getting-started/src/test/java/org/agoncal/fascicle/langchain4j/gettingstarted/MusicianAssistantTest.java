@@ -47,12 +47,12 @@ public class MusicianAssistantTest {
   // tag::adocContainer[]
   private OllamaContainer createOllamaContainer() throws IOException, InterruptedException {
     // Check if the Ollama Docker image exists already
-    List<Image> listImagesCmd = DockerClientFactory.lazyClient()
+    List<Image> ollamaDockerImages = DockerClientFactory.lazyClient()
       .listImagesCmd()
       .withImageNameFilter(MODEL_NAME)
       .exec();
 
-    if (listImagesCmd.isEmpty()) {
+    if (ollamaDockerImages.isEmpty()) {
       System.out.println("Creating a new Ollama container with the model image...");
       OllamaContainer ollama = new OllamaContainer(CONTAINER_NAME);
       ollama.start();
