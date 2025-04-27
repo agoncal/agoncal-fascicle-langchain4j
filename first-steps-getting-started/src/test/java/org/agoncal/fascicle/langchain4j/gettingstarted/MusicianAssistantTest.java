@@ -1,7 +1,10 @@
 package org.agoncal.fascicle.langchain4j.gettingstarted;
 
-// tag::adocHeader[]
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
 
+// tag::adocHeader[]
 import com.github.dockerjava.api.model.Image;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
@@ -14,14 +17,11 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.ollama.OllamaContainer;
 import org.testcontainers.utility.DockerImageName;
 
-import java.io.IOException;
-import java.time.Duration;
-import java.util.List;
-
 @Testcontainers
 public class MusicianAssistantTest {
 
   static String MODEL_NAME = "tinyllama";
+  static String CONTAINER_NAME = "ollama/ollama:0.1.26";
   // end::adocHeader[]
 
   // tag::adocTest[]
@@ -54,8 +54,9 @@ public class MusicianAssistantTest {
 
     if (listImagesCmd.isEmpty()) {
       System.out.println("Creating a new Ollama container with the model image...");
-      OllamaContainer ollama = new OllamaContainer("ollama/ollama:latest");
+      OllamaContainer ollama = new OllamaContainer(CONTAINER_NAME);
       ollama.start();
+      System.out.println("Executing an 'ollama pull' command to pull the model...");
       ollama.execInContainer("ollama", "pull", MODEL_NAME);
       ollama.commitToImage(MODEL_NAME);
       return ollama;
