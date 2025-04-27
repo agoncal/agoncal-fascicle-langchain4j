@@ -3,8 +3,8 @@
 - body: {
   "id": "chatcmpl-9YVbGfh7CwB9IdF9rNU",
   "object": "chat.completion",
-  "created": 1718011650,
-  "model": "gpt-4o-2024-05-13",
+  "created": 1745764771,,
+  "model": "gpt-4o-2024-08-06",
   "choices": [
     {
       "index": 0,
