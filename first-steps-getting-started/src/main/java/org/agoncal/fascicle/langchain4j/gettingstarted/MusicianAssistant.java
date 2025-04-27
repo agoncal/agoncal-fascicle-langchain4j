@@ -1,7 +1,10 @@
 package org.agoncal.fascicle.langchain4j.gettingstarted;
 
-// tag::adocHeader[]
+import static java.lang.System.exit;
+import static java.time.Duration.ofSeconds;
+import java.util.List;
 
+// tag::adocHeader[]
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
@@ -9,10 +12,6 @@ import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
-
-import static java.lang.System.exit;
-import static java.time.Duration.ofSeconds;
-import java.util.List;
 
 public class MusicianAssistant {
 
@@ -53,6 +52,7 @@ public class MusicianAssistant {
     UserMessage userMsg = UserMessage.from(
       String.format("Only list the top 3 albums of %s", name)
     );
+
     List<ChatMessage> messages = List.of(systemMsg, userMsg);
 
     ChatResponse albums = model.chat(messages);

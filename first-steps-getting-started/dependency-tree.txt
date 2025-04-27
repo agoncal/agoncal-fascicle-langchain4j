@@ -1,14 +1,16 @@
 org.agoncal.fascicle.langchain4j.first-steps:getting-started:jar:1.0
 +- dev.langchain4j:langchain4j:jar:{langchain4j-version}:compile
 |  +- dev.langchain4j:langchain4j-core:jar:{langchain4j-version}:compile
-|  |  \- com.google.code.gson:gson:jar:2.10.1:compile
-|  +- org.apache.opennlp:opennlp-tools:jar:1.9.4:compile
-|  +- org.jsoup:jsoup:jar:1.16.1:compile
-|  \- org.slf4j:slf4j-api:jar:2.0.7:compile
+|  |  \- org.jspecify:jspecify:jar:1.0.0:compile
+|  \- org.apache.opennlp:opennlp-tools:jar:1.9.4:compile
 +- dev.langchain4j:langchain4j-open-ai:jar:{langchain4j-version}:compile
-|  +- dev.ai4j:openai4j:jar:0.20.0:compile
-|  |  \- com.squareup.okhttp3:okhttp-sse:jar:4.12.0:compile
+|  +- dev.langchain4j:langchain4j-http-client-jdk:jar:{langchain4j-version}:compile
+|  |  \- dev.langchain4j:langchain4j-http-client:jar:{langchain4j-version}:compile
+|  +- com.fasterxml.jackson.core:jackson-databind:jar:2.18.3:compile
+|  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.18.3:compile
+|  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.18.3:compile
 |  \- com.knuddels:jtokkit:jar:1.1.0:compile
 +- org.tinylog:slf4j-tinylog:jar:2.7.0:compile
+|  +- org.slf4j:slf4j-api:jar:2.0.16:compile
 |  \- org.tinylog:tinylog-api:jar:2.7.0:compile
 +- org.tinylog:tinylog-impl:jar:2.7.0:compile
