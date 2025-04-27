@@ -68,7 +68,7 @@
     <javadoc.disabled>true</javadoc.disabled>
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <!-- Project -->
-    <maven.compiler.release>17</maven.compiler.release>
+    <maven.compiler.release>21</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
