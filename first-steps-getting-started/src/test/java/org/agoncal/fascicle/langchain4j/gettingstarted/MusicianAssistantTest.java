@@ -21,7 +21,7 @@ import org.testcontainers.utility.DockerImageName;
 public class MusicianAssistantTest {
 
   static String MODEL_NAME = "tinyllama";
-  static String CONTAINER_NAME = "ollama/ollama:0.1.26";
+  static String IMAGE_NAME = "ollama/ollama:latest";
   // end::adocHeader[]
 
   // tag::adocTest[]
@@ -46,19 +46,19 @@ public class MusicianAssistantTest {
 
   // tag::adocContainer[]
   private OllamaContainer createOllamaContainer() throws IOException, InterruptedException {
-    // Check if the Ollama Docker image exists already
+    System.out.println("Checking if the Ollama Docker image exists already...");
     List<Image> ollamaDockerImages = DockerClientFactory.lazyClient()
       .listImagesCmd()
-      .withImageNameFilter(MODEL_NAME)
+      .withImageNameFilter(IMAGE_NAME)
       .exec();
 
     if (ollamaDockerImages.isEmpty()) {
-      System.out.println("Creating a new Ollama container with the model image...");
-      OllamaContainer ollama = new OllamaContainer(CONTAINER_NAME);
+      System.out.println("Creating a new Ollama container...");
+      OllamaContainer ollama = new OllamaContainer(IMAGE_NAME);
       ollama.start();
       System.out.println("Executing an 'ollama pull' command to pull the model...");
       ollama.execInContainer("ollama", "pull", MODEL_NAME);
-      ollama.commitToImage(MODEL_NAME);
+      ollama.commitToImage(IMAGE_NAME);
       return ollama;
     } else {
       System.out.println("Using existing Ollama container with model image...");
