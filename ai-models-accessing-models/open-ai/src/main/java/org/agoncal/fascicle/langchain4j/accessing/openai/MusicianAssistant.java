@@ -6,8 +6,8 @@ import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponse;
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponseAndError;
-import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.model.chat.StreamingChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.chat.response.StreamingChatResponseHandler;
 import dev.langchain4j.model.image.ImageModel;
@@ -84,7 +84,7 @@ public class MusicianAssistant {
     System.out.println("### useLangChain4jInsteadSDK");
 
     // tag::adocUseLangChain4jInsteadSDK[]
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -181,7 +181,7 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiChatTypeOfModel");
 
     // tag::adocChatTypeOfModel[]
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -302,7 +302,7 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiStreamingChatTypeOfModel");
 
     // tag::adocStreamingChatTypeOfModel[]
-    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+    StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -332,7 +332,7 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiStreaming");
 
     // tag::adocStreaming[]
-    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+    StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -361,7 +361,7 @@ public class MusicianAssistant {
   private static void useOpenAiLambdaStreaming() {
     System.out.println("### useOpenAiLambdaStreaming");
 
-    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+    StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -375,7 +375,7 @@ public class MusicianAssistant {
   private static void useOpenAiLambdaStreamingError() {
     System.out.println("### useOpenAiLambdaStreamingError");
 
-    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+    StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();

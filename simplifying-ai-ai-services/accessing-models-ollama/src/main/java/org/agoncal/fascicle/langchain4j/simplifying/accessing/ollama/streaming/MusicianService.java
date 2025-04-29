@@ -25,7 +25,7 @@ public class MusicianService {
       .build();
 
     MusicianAssistant assistant = AiServices.builder(MusicianAssistant.class)
-      .streamingChatLanguageModel(model)
+      .streamingChatModel(model)
       .build();
 
     CompletableFuture<Response<AiMessage>> answer = new CompletableFuture<>();

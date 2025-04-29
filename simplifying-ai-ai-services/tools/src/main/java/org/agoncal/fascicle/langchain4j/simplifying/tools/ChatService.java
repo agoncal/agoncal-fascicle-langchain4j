@@ -2,7 +2,7 @@ package org.agoncal.fascicle.langchain4j.simplifying.tools;
 
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import dev.langchain4j.service.AiServices;
@@ -12,7 +12,7 @@ public class ChatService {
   public static void main(String[] args) throws Exception {
 
     // tag::adocTools[]
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(System.getenv("OPENAI_API_KEY"))
       .modelName(GPT_4_O)
       // tag::adocSkip[]
@@ -24,7 +24,7 @@ public class ChatService {
     ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
 
     ChatAssistant assistant = AiServices.builder(ChatAssistant.class)
-      .chatLanguageModel(model)
+      .chatModel(model)
       .chatMemory(chatMemory)
       .tools(new LegalDocumentTools())
       .build();

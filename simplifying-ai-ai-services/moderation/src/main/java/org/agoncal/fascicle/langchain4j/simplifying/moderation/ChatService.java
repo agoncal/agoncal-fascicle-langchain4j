@@ -52,7 +52,7 @@ public class ChatService {
       .build();
 
     ChatAssistant assistant = AiServices.builder(ChatAssistant.class)
-      .chatLanguageModel(model)
+      .chatModel(model)
       .moderationModel(moderationModel)
       .build();
 
@@ -76,7 +76,7 @@ public class ChatService {
       .build();
 
     ChatAssistant assistant = AiServices.builder(ChatAssistant.class)
-      .chatLanguageModel(model)
+      .chatModel(model)
       .build();
 
     String answer = assistant.chat("I want to kill all bass players");

@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.langchain4j.testingdebugging;
 
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_3_5_TURBO;
 import static java.time.Duration.ofSeconds;
@@ -26,7 +26,7 @@ public class AuthorService {
 
   public String getAuthorBiography(int index) {
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       //.baseUrl(this.url)
       //.proxy("http://localhost:3128")

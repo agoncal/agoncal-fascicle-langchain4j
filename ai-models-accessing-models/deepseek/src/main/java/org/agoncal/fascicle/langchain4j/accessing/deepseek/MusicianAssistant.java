@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.langchain4j.accessing.deepseek;
 
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
 import java.time.Duration;
@@ -28,7 +28,7 @@ public class MusicianAssistant {
     System.out.println("### useOpenAIForDeepSeek");
 
     // tag::adocUseOpenAIForDeepSeek[]
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(DEEPSEEK_API_KEY)
       .baseUrl("https://api.deepseek.com")
       .modelName("deepseek-chat")

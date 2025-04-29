@@ -6,7 +6,7 @@ import java.util.List;
 
 // tag::adocHeader[]
 import com.github.dockerjava.api.model.Image;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -31,7 +31,7 @@ public class MusicianAssistantTest {
     OllamaContainer ollamaContainer = createOllamaContainer();
     ollamaContainer.start();
 
-    ChatLanguageModel model = OllamaChatModel.builder()
+    ChatModel model = OllamaChatModel.builder()
       .baseUrl(String.format("http://%s:%d", ollamaContainer.getHost(), ollamaContainer.getFirstMappedPort()))
       .modelName(MODEL_NAME)
       .temperature(0.0)

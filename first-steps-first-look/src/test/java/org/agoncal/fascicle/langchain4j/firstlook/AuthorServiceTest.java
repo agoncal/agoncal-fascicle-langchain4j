@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.langchain4j.firstlook;
 
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.service.AiServices;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -27,7 +27,7 @@ class AuthorServiceTest {
   @Test
   public void shouldGenerateArtistBio() {
 
-    ChatLanguageModel model = OllamaChatModel.builder()
+    ChatModel model = OllamaChatModel.builder()
       .baseUrl(baseUrl())
       .modelName(MODEL_NAME)
       .timeout(Duration.ofMinutes(5))

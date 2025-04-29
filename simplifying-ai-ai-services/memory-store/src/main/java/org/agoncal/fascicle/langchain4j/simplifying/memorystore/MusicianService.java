@@ -51,7 +51,7 @@ public class MusicianService {
       .build();
 
     MusicianAssistant assistant = AiServices.builder(MusicianAssistant.class)
-      .chatLanguageModel(model)
+      .chatModel(model)
       .chatMemory(chatMemory)
       .build();
 
@@ -80,7 +80,7 @@ public class MusicianService {
       .build();
 
     MusicianAssistant assistant = AiServices.builder(MusicianAssistant.class)
-      .chatLanguageModel(model)
+      .chatModel(model)
       .chatMemory(chatMemory)
       .build();
 

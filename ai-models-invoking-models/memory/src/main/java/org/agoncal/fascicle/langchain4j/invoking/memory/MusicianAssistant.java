@@ -7,7 +7,7 @@ import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
@@ -39,7 +39,7 @@ public class MusicianAssistant {
   private static void useNoMemory() throws InterruptedException {
     System.out.println("### useNoMemory");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -76,7 +76,7 @@ public class MusicianAssistant {
   private static void sendingOneMessage() {
     System.out.println("### sendingOneMessage");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -93,7 +93,7 @@ public class MusicianAssistant {
   private static void sendingTwoMessages() throws InterruptedException {
     System.out.println("### sendingTwoMessages");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -112,7 +112,7 @@ public class MusicianAssistant {
   private static void sendingThreeMessages() throws InterruptedException {
     System.out.println("### sendingThreeMessages");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -136,7 +136,7 @@ public class MusicianAssistant {
   private static void useChatMemory() throws InterruptedException {
     System.out.println("### useChatMemory");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .logRequests(true)
       .logResponses(true)
@@ -192,7 +192,7 @@ public class MusicianAssistant {
   private static void useChatMemoryWithSystemMessage() throws InterruptedException {
     System.out.println("### useChatMemoryWithSystemMessage");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .logRequests(true)
       .logResponses(true)

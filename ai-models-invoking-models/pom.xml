@@ -21,7 +21,7 @@
     <module>memory-store</module>
     <module>messages</module>
     <module>templates</module>
-    <module>tokens</module>
+<!--    TODO <module>tokens</module>-->
   </modules>
 
 </project>

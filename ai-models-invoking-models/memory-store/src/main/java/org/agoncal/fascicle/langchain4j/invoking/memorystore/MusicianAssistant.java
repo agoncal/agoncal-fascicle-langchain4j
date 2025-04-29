@@ -6,7 +6,7 @@ import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.store.memory.chat.ChatMemoryStore;
 import dev.langchain4j.community.store.memory.chat.redis.RedisChatMemoryStore;
@@ -34,7 +34,7 @@ public class MusicianAssistant {
   private static void useRedisChatMemoryStore() throws InterruptedException {
     System.out.println("### useRedisChatMemoryStore");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .logRequests(true)
       .logResponses(true)
@@ -61,7 +61,7 @@ public class MusicianAssistant {
   private static void useRedisChatMemoryStoreQuestion() throws InterruptedException {
     System.out.println("### useRedisChatMemoryStoreLastQuestion");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .build();
 

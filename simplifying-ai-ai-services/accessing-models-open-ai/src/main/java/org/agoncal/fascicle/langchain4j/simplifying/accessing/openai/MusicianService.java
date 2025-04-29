@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.langchain4j.simplifying.accessing.openai;
 
-import dev.langchain4j.model.chat.StreamingChatLanguageModel;
+import dev.langchain4j.model.chat.StreamingChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.service.AiServices;
@@ -18,7 +18,7 @@ public class MusicianService {
   public static void main(String[] args) {
 
     // tag::adocSnippet[]
-    StreamingChatLanguageModel model = OpenAiStreamingChatModel.builder()
+    StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();

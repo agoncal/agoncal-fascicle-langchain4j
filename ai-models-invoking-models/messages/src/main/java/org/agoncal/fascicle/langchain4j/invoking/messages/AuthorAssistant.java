@@ -9,7 +9,7 @@ import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.TextContent;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.data.pdf.PdfFile;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
@@ -45,7 +45,7 @@ public class AuthorAssistant {
   public void useUserMessage() {
     System.out.println("### useUserMessage");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -61,7 +61,7 @@ public class AuthorAssistant {
   public void useUserMessageFrom() {
     System.out.println("### useUserMessageFrom");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -77,7 +77,7 @@ public class AuthorAssistant {
   public void useSystemMessage() {
     System.out.println("### useSystemMessage");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -94,7 +94,7 @@ public class AuthorAssistant {
   public void useUserMessageContent() {
     System.out.println("### useUserMessageContent");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -111,7 +111,7 @@ public class AuthorAssistant {
   public void useUserMessagesPdfContent() throws URISyntaxException {
     System.out.println("### useUserMessagePdfContent");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -135,7 +135,7 @@ public class AuthorAssistant {
   public void useUserMessagePdfContent() {
     System.out.println("### useUserMessagePdfContent");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .logRequests(true)
       .logResponses(true)
@@ -155,7 +155,7 @@ public class AuthorAssistant {
   public void useUserMessagesImageContent() {
     System.out.println("### useUserMessagesImageContent");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -179,7 +179,7 @@ public class AuthorAssistant {
   public void useUserMessageImageContent() {
     System.out.println("### useUserMessageImageContent");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();

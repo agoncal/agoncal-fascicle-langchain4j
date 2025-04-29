@@ -8,7 +8,7 @@ import java.util.List;
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
@@ -22,7 +22,7 @@ public class MusicianAssistant {
   public static void main(String[] args) {
     String name = args[0];
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
       .temperature(0.3)
@@ -41,7 +41,7 @@ public class MusicianAssistant {
   // end::adocHeader[]
 
   // tag::adocMethod[]
-  Musician generateTopThreeAlbums(ChatLanguageModel model, String name) {
+  Musician generateTopThreeAlbums(ChatModel model, String name) {
 
     SystemMessage systemMsg = SystemMessage.from("""
       You are an expert in Jazz music.

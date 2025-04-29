@@ -3,7 +3,7 @@ package org.agoncal.fascicle.langchain4j.firstlook;
 import static java.lang.System.exit;
 
 // tag::adocSnippet[]
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
@@ -23,7 +23,7 @@ public class AuthorService {
   public static void main(String[] args) {
     String authorName = args[0];
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
       .temperature(0.3)

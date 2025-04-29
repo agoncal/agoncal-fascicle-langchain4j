@@ -2,9 +2,9 @@ package org.agoncal.fascicle.langchain4j.puttingtogether;
 
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
+import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import dev.langchain4j.rag.content.retriever.ContentRetriever;
@@ -14,12 +14,12 @@ import dev.langchain4j.store.embedding.EmbeddingStore;
 import dev.langchain4j.store.embedding.qdrant.QdrantEmbeddingStore;
 import io.qdrant.client.QdrantClient;
 import io.qdrant.client.QdrantGrpcClient;
-import static java.lang.System.exit;
-import static java.time.Duration.ofSeconds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static java.lang.System.exit;
 import java.net.URI;
+import static java.time.Duration.ofSeconds;
 import java.util.Scanner;
 
 /**
@@ -38,7 +38,7 @@ public class ChatService {
   public static void main(String[] args) throws Exception {
 
     EmbeddingStore<TextSegment> embeddingStore = embeddingStore();
-    ChatLanguageModel model = model();
+    ChatModel model = model();
     ChatAssistant assistant = assistant(embeddingStore, model);
 
     Scanner scanner = new Scanner(System.in);
@@ -64,8 +64,8 @@ public class ChatService {
 // end::adocMain[]
 
   // tag::adocModel[]
-  private static ChatLanguageModel model() {
-    ChatLanguageModel model = OpenAiChatModel.builder()
+  private static ChatModel model() {
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O)
       .temperature(0.3)
@@ -79,12 +79,12 @@ public class ChatService {
   // end::adocModel[]
 
   // tag::adocAssistant[]
-  private static ChatAssistant assistant(EmbeddingStore<TextSegment> embeddingStore, ChatLanguageModel model) {
+  private static ChatAssistant assistant(EmbeddingStore<TextSegment> embeddingStore, ChatModel model) {
     EmbeddingModel embeddingModel = new AllMiniLmL6V2EmbeddingModel();
     ContentRetriever contentRetriever = new EmbeddingStoreContentRetriever(embeddingStore, embeddingModel);
 
     ChatAssistant assistant = AiServices.builder(ChatAssistant.class)
-      .chatLanguageModel(model)
+      .chatModel(model)
       .chatMemory(MessageWindowChatMemory.withMaxMessages(10))
       .contentRetriever(contentRetriever)
       .tools(new ChatTools())

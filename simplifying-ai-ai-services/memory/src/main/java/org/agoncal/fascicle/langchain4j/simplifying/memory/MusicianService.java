@@ -42,7 +42,7 @@ public class MusicianService {
     ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
 
     MusicianAssistant assistant = AiServices.builder(MusicianAssistant.class)
-      .chatLanguageModel(model)
+      .chatModel(model)
       .chatMemory(chatMemory)
       .build();
 

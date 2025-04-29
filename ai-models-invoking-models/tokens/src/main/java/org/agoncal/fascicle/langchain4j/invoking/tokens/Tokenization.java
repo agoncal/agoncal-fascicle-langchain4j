@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.langchain4j.invoking.tokens;
 
 import dev.langchain4j.data.message.UserMessage;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_3_5_TURBO;
@@ -121,7 +121,7 @@ public class Tokenization {
   public void tokenUsage() {
     System.out.println("### tokenUsage");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();

@@ -8,7 +8,7 @@ import dev.langchain4j.store.embedding.EmbeddingMatch;
 import dev.langchain4j.store.embedding.EmbeddingSearchRequest;
 import dev.langchain4j.store.embedding.EmbeddingSearchResult;
 import dev.langchain4j.store.embedding.EmbeddingStore;
-import dev.langchain4j.store.embedding.neo4j.Neo4jEmbeddingStore;
+import dev.langchain4j.community.store.embedding.neo4j.Neo4jEmbeddingStore;
 
 // tag::adocSkip[]
 

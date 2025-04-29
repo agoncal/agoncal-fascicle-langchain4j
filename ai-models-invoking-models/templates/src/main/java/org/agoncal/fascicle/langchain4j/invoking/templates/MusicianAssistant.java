@@ -2,7 +2,7 @@ package org.agoncal.fascicle.langchain4j.invoking.templates;
 
 // tag::adocSnippet[]
 
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
@@ -39,7 +39,7 @@ public class MusicianAssistant {
   public void usePromptTemplate() {
     System.out.println("### usePromptTemplate");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -59,7 +59,7 @@ public class MusicianAssistant {
   public void useMultiplePromptTemplate() {
     System.out.println("### useMultiplePromptTemplate");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
@@ -81,7 +81,7 @@ public class MusicianAssistant {
   public void usePromptTemplateCurrentDate() {
     System.out.println("### usePromptTemplateCurrentDate");
 
-    ChatLanguageModel model = OpenAiChatModel.builder()
+    ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();

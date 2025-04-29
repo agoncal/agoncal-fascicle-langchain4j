@@ -7,7 +7,7 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
@@ -40,7 +40,7 @@ public class ChatAssistant {
     private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
     private static final EmbeddingStore<TextSegment> embeddingStore = embeddingStore();
-    private static final ChatLanguageModel model = model();
+    private static final ChatModel model = model();
     private static final ChatMemory chatMemory = memory();
     private static final EmbeddingModel embeddingModel = embeddingModel();
 
@@ -113,9 +113,9 @@ public class ChatAssistant {
         // end::adocMemory[]
     }
 
-    private static ChatLanguageModel model() {
+    private static ChatModel model() {
         // tag::adocModel[]
-        ChatLanguageModel model = OpenAiChatModel.builder()
+        ChatModel model = OpenAiChatModel.builder()
                 .apiKey(OPENAI_API_KEY)
                 .modelName(GPT_4_O)
                 .temperature(0.3)

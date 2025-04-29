@@ -2,7 +2,7 @@ package org.agoncal.fascicle.langchain4j.simplifying.accessing.ollama;
 
 // tag::adocSnippet[]
 
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.service.AiServices;
 
@@ -20,7 +20,7 @@ public class BookService {
   public static void main(String[] args) {
     String userMessage = args[0];
 
-    ChatLanguageModel model = OllamaChatModel.builder()
+    ChatModel model = OllamaChatModel.builder()
       .baseUrl("http://localhost:11434")
       .modelName("phi3:mini")
       .build();
