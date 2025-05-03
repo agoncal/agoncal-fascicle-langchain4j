@@ -7,7 +7,7 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_3_5_TURBO;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
-import dev.langchain4j.model.openai.OpenAiTokenizer;
+import dev.langchain4j.model.openai.OpenAiTokenCountEstimator;
 import dev.langchain4j.model.output.TokenUsage;
 
 import java.util.List;
@@ -40,7 +40,7 @@ public class Tokenization {
   private void tokenizeOpenAIIsaacAsimov() {
     System.out.println("### tokenizeOpenAIIsaacAsimov");
     // tag::adocTokenize[]
-    OpenAiTokenizer tokenizer = new OpenAiTokenizer(GPT_4_O);
+    OpenAiTokenCountEstimator tokenizer = new OpenAiTokenCountEstimator(GPT_4_O);
 
     String prompt = "Isaac Asimov.";
 
@@ -71,7 +71,7 @@ public class Tokenization {
   private void tokenizeOpenAIIsaacAsimovLong() {
     System.out.println("### tokenizeOpenAIIsaacAsimovLong");
     // tag::adocTokenizeLong[]
-    OpenAiTokenizer tokenizer = new OpenAiTokenizer(GPT_4_O);
+    OpenAiTokenCountEstimator tokenizer = new OpenAiTokenCountEstimator(GPT_4_O);
 
     String prompt = "Isaac Asimov is a writer.";
 
@@ -101,7 +101,7 @@ public class Tokenization {
 
   private void tokenizeOpenAI() {
     System.out.println("### tokenizeOpenAI");
-    OpenAiTokenizer tokenizer = new OpenAiTokenizer(GPT_3_5_TURBO);
+    OpenAiTokenCountEstimator tokenizer = new OpenAiTokenCountEstimator(GPT_3_5_TURBO);
 
     // Estimate
     int nbOfTokens = tokenizer.estimateTokenCountInText(prompt);
