@@ -16,7 +16,7 @@
     <!-- Java -->
     <maven.compiler.release>21</maven.compiler.release>
     <!-- Langchain4j -->
-    <version.langchain4j>1.0.0-beta4-SNAPSHOT</version.langchain4j>
+    <version.langchain4j>1.0.0-beta4</version.langchain4j>
     <version.tinylog>2.7.0</version.tinylog>
     <!-- Maven Plugins -->
     <version.exec.plugin>3.5.0</version.exec.plugin>
