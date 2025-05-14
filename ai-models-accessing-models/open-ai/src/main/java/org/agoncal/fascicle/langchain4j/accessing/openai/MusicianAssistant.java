@@ -16,6 +16,7 @@ import dev.langchain4j.model.language.LanguageModel;
 import dev.langchain4j.model.moderation.Moderation;
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_NANO;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
@@ -68,9 +69,9 @@ public class MusicianAssistant {
 //    useOpenAiImageTypeOfModel();
 
 //    useTypedUntypedResponseString();
-    useTypedUntypedResponseUserMessage();
-    useTypedUntypedResponseImage();
-    useTypedUntypedResponseEmbedding();
+//    useTypedUntypedResponseUserMessage();
+//    useTypedUntypedResponseImage();
+//    useTypedUntypedResponseEmbedding();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -183,7 +184,7 @@ public class MusicianAssistant {
     // tag::adocChatTypeOfModel[]
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_NANO)
       .build();
 
     UserMessage userMessage = new UserMessage("Who composed the Moonlight Sonata?");
