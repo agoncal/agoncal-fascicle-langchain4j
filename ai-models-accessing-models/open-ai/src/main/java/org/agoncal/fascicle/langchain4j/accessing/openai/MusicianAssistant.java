@@ -314,7 +314,7 @@ public class MusicianAssistant {
       .build();
 
     ChatResponse chatResponse = model.chat(chatRequest);
-    // tag::adocChatRequestDefault[]
+    // end::adocChatRequestDefault[]
 
     System.out.println(chatResponse.aiMessage().text());
   }
