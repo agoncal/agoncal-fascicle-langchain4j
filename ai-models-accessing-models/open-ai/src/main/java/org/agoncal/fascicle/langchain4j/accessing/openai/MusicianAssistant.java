@@ -71,7 +71,9 @@ public class MusicianAssistant {
 //    useOpenAiRichConf();
 //    useOpenAiSimpleConf2();
 //    useOpenAiChatRequest();
-    useOpenAiChatRequestDefault();
+//    useOpenAiChatRequestDefault();
+//    useOpenAiResponseString();
+    useOpenAiChatResponse();
 //    useOpenAiChatModelTemperatureOne();
 //    useOpenAiChatModelTemperatureZero();
 //    useOpenAiChatModelAiMessage();
@@ -317,6 +319,59 @@ public class MusicianAssistant {
     // end::adocChatRequestDefault[]
 
     System.out.println(chatResponse.aiMessage().text());
+  }
+
+  private static void useOpenAiResponseString() {
+    System.out.println("### useOpenAiResponseString");
+
+    ChatRequestParameters parameters = ChatRequestParameters.builder()
+      .modelName(GPT_4_O.toString())
+      .temperature(0.7)
+      .frequencyPenalty(0.5)
+      .temperature(0.9)
+      .maxOutputTokens(150)
+      .build();
+
+    OpenAiChatModel model = OpenAiChatModel.builder()
+      .apiKey(System.getenv("OPENAI_API_KEY"))
+      .defaultRequestParameters(parameters)
+      .build();
+
+    // tag::adocResponseString[]
+    String response = model.chat("When was the first Rolling Stones album released?");
+
+    System.out.println(response);
+    // end::adocResponseString[]
+  }
+
+  private static void useOpenAiChatResponse() {
+    System.out.println("### useOpenAiChatResponse");
+
+    ChatRequestParameters parameters = ChatRequestParameters.builder()
+      .modelName(GPT_4_O.toString())
+      .temperature(0.7)
+      .frequencyPenalty(0.5)
+      .temperature(0.9)
+      .maxOutputTokens(150)
+      .build();
+
+    OpenAiChatModel model = OpenAiChatModel.builder()
+      .apiKey(System.getenv("OPENAI_API_KEY"))
+      .defaultRequestParameters(parameters)
+      .build();
+
+    // tag::adocChatResponse[]
+    ChatRequest chatRequest = ChatRequest.builder()
+      .messages(UserMessage.from("When was the first Rolling Stones album released?"))
+      .build();
+
+    ChatResponse chatResponse = model.chat(chatRequest);
+
+    System.out.println(chatResponse.aiMessage().text());
+    System.out.println(chatResponse.id());
+    System.out.println(chatResponse.finishReason());
+    System.out.println(chatResponse.modelName());
+    // end::adocChatResponse[]
   }
 
   private static void useOpenAiChatModelTemperatureOne() {
