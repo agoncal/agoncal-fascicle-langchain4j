@@ -29,6 +29,7 @@
     <module>mistral-ai</module>
     <module>ollama</module>
     <module>open-ai</module>
+    <module>open-ai-official</module>
     <module>vertex-ai</module>
     <module>vertex-ai-gemini</module>
   </modules>
