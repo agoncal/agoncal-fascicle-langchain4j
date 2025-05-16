@@ -11,41 +11,7 @@
       "age": 75,
       "instrument": "Piano"
     },
-    {
-      "name": "Charlie Parker",
-      "age": 34,
-      "instrument": "Alto Saxophone"
-    },
-    {
-      "name": "Miles Davis",
-      "age": 65,
-      "instrument": "Trumpet"
-    },
-    {
-      "name": "John Coltrane",
-      "age": 40,
-      "instrument": "Tenor Saxophone"
-    },
-    {
-      "name": "Billie Holiday",
-      "age": 44,
-      "instrument": "Vocals"
-    },
-    {
-      "name": "Ella Fitzgerald",
-      "age": 79,
-      "instrument": "Vocals"
-    },
-    {
-      "name": "Thelonious Monk",
-      "age": 64,
-      "instrument": "Piano"
-    },
-    {
-      "name": "Benny Goodman",
-      "age": 77,
-      "instrument": "Clarinet"
-    },
+    // ...
     {
       "name": "Stan Getz",
       "age": 64,
