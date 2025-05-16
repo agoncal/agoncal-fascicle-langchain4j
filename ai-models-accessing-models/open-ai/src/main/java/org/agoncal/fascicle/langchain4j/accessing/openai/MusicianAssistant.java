@@ -27,6 +27,7 @@ import dev.langchain4j.model.moderation.Moderation;
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_NANO;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
@@ -87,8 +88,8 @@ public class MusicianAssistant {
 
 //    useOpenAiStreamingChatTypeOfModel();
 //    useOpenAiStreaming();
-//    useOpenAiLambdaStreaming();
-//    useOpenAiLambdaStreamingError();
+    useOpenAiLambdaStreaming();
+    useOpenAiLambdaStreamingError();
 
 //    useOpenAiModerationTypeOfModel();
 //    useOpenAiImageTypeOfModel();
@@ -97,7 +98,7 @@ public class MusicianAssistant {
 //    useTypedUntypedResponseUserMessage();
 //    useTypedUntypedResponseImage();
 //    useTypedUntypedResponseEmbedding();
-    useJSONResponseFormat();
+//    useJSONResponseFormat();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -468,20 +469,20 @@ public class MusicianAssistant {
     // tag::adocStreaming[]
     StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1)
       .build();
 
     model.chat("Who are some influential female musicians?",
       new StreamingChatResponseHandler() {
 
         @Override
-        public void onPartialResponse(String token) {
-          System.out.print(token);
+        public void onPartialResponse(String partialResponse) {
+          System.out.println("onPartialResponse: " + partialResponse);
         }
 
         @Override
-        public void onCompleteResponse(ChatResponse response) {
-          System.out.println("Streaming completed: " + response);
+        public void onCompleteResponse(ChatResponse completeResponse) {
+          System.out.println("onCompleteResponse: " + completeResponse);
         }
 
         @Override
