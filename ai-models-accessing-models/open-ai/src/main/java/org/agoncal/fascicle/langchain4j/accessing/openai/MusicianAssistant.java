@@ -1,5 +1,7 @@
 package org.agoncal.fascicle.langchain4j.accessing.openai;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.image.Image;
 import dev.langchain4j.data.message.SystemMessage;
@@ -12,6 +14,10 @@ import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.model.chat.request.ChatRequest;
 import dev.langchain4j.model.chat.request.ChatRequestParameters;
+import dev.langchain4j.model.chat.request.ResponseFormat;
+import dev.langchain4j.model.chat.request.ResponseFormatType;
+import dev.langchain4j.model.chat.request.json.JsonObjectSchema;
+import dev.langchain4j.model.chat.request.json.JsonSchema;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.chat.response.StreamingChatResponseHandler;
 import dev.langchain4j.model.image.ImageModel;
@@ -47,6 +53,7 @@ import dev.langchain4j.model.output.Response;
 import dev.langchain4j.model.output.TokenUsage;
 
 import java.time.Duration;
+import java.util.List;
 
 // tag::adocSkip[]
 
@@ -58,7 +65,7 @@ import java.time.Duration;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws JsonProcessingException {
 
 //    useLangChain4jInsteadSDK();
 //    useOpenAiLanguageTypeOfModel();
@@ -73,7 +80,7 @@ public class MusicianAssistant {
 //    useOpenAiChatRequest();
 //    useOpenAiChatRequestDefault();
 //    useOpenAiResponseString();
-    useOpenAiChatResponse();
+//    useOpenAiChatResponse();
 //    useOpenAiChatModelTemperatureOne();
 //    useOpenAiChatModelTemperatureZero();
 //    useOpenAiChatModelAiMessage();
@@ -90,6 +97,7 @@ public class MusicianAssistant {
 //    useTypedUntypedResponseUserMessage();
 //    useTypedUntypedResponseImage();
 //    useTypedUntypedResponseEmbedding();
+    useJSONResponseFormat();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -583,9 +591,10 @@ public class MusicianAssistant {
     // tag::adocTypedUntypedResponseUserMessage[]
     UserMessage message = new UserMessage("Who are the main characters in Moby Dick?");
     ChatResponse response = chatModel.chat(message);
-    System.out.println(response.aiMessage().text());
-    System.out.println(response.tokenUsage());
-    System.out.println(response.finishReason());
+
+    System.out.println(response.aiMessage().text()); // Captain Ahab, Captain Peleg, Flask
+    System.out.println(response.tokenUsage());       // inputTokenCount=17, outputTokenCount=34
+    System.out.println(response.finishReason());     // STOP
     // end::adocTypedUntypedResponseUserMessage[]
   }
 
@@ -599,6 +608,7 @@ public class MusicianAssistant {
 
     // tag::adocTypedUntypedResponseImage[]
     Response<Image> response = imageModel.generate("Draw Moby Dick");
+
     System.out.println(response.content().url());
     System.out.println(response.content().base64Data());
     // end::adocTypedUntypedResponseImage[]
@@ -614,9 +624,44 @@ public class MusicianAssistant {
 
     // tag::adocTypedUntypedResponseEmbedding[]
     Response<Embedding> response = embeddingModel.embed("Moby Dick is a novel by Herman Melville about Captain Ahab's quest to hunt a giant white whale");
-    System.out.println(response.content().dimension());
-    System.out.println(response.content().vectorAsList());
+    System.out.println(response.content().dimension());    // 1536
+    System.out.println(response.content().vectorAsList()); // [0.059837405, 0.05773074,...]
     // end::adocTypedUntypedResponseEmbedding[]
+  }
+
+  private static void useJSONResponseFormat() throws JsonProcessingException {
+
+    // tag::adocJSONResponseFormat[]
+    ResponseFormat responseFormat = ResponseFormat.builder()
+      .type(ResponseFormatType.JSON) // type can be either TEXT (default) or JSON
+      .jsonSchema(JsonSchema.builder()
+        .name("Musician")
+        .rootElement(JsonObjectSchema.builder()
+          .addStringProperty("name")
+          .addIntegerProperty("age")
+          .addStringProperty("instrument")
+          .required("name", "age")
+          .build())
+        .build())
+      .build();
+
+    UserMessage userMessage = UserMessage.from("Return the top 10 Jazz musicians");
+
+    ChatRequest chatRequest = ChatRequest.builder()
+      .responseFormat(responseFormat)
+      .messages(userMessage)
+      .build();
+
+    ChatModel chatModel = OpenAiChatModel.builder()
+      .apiKey(System.getenv("OPENAI_API_KEY"))
+      .modelName("gpt-4o-mini")
+      .build();
+
+    ChatResponse chatResponse = chatModel.chat(chatRequest);
+    // end::adocJSONResponseFormat[]
+
+    String output = chatResponse.aiMessage().text();
+    System.out.println(output); // {"name":"John","age":42,"height":1.75,"married":false}
   }
 
   private static void dontKnow() {
