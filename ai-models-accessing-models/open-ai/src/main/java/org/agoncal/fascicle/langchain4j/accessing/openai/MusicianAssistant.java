@@ -593,7 +593,7 @@ public class MusicianAssistant {
     ChatResponse response = chatModel.chat(message);
 
     System.out.println(response.aiMessage().text()); // Captain Ahab, Captain Peleg, Flask
-    System.out.println(response.tokenUsage());       // inputTokenCount=17, outputTokenCount=34
+    System.out.println(response.tokenUsage());       // inputToken=17, outputToken=34
     System.out.println(response.finishReason());     // STOP
     // end::adocTypedUntypedResponseUserMessage[]
   }
@@ -625,7 +625,7 @@ public class MusicianAssistant {
     // tag::adocTypedUntypedResponseEmbedding[]
     Response<Embedding> response = embeddingModel.embed("Moby Dick is a novel by Herman Melville about Captain Ahab's quest to hunt a giant white whale");
     System.out.println(response.content().dimension());    // 1536
-    System.out.println(response.content().vectorAsList()); // [0.059837405, 0.05773074,...]
+    System.out.println(response.content().vectorAsList()); // [0.0598405, 0.057074,...]
     // end::adocTypedUntypedResponseEmbedding[]
   }
 
@@ -633,7 +633,7 @@ public class MusicianAssistant {
 
     // tag::adocJSONResponseFormat[]
     ResponseFormat responseFormat = ResponseFormat.builder()
-      .type(ResponseFormatType.JSON) // type can be either TEXT (default) or JSON
+      .type(ResponseFormatType.JSON)
       .jsonSchema(JsonSchema.builder()
         .name("Musician")
         .rootElement(JsonObjectSchema.builder()
@@ -661,7 +661,7 @@ public class MusicianAssistant {
     // end::adocJSONResponseFormat[]
 
     String output = chatResponse.aiMessage().text();
-    System.out.println(output); // {"name":"John","age":42,"height":1.75,"married":false}
+    System.out.println(output);
   }
 
   private static void dontKnow() {
