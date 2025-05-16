@@ -13,11 +13,13 @@ public class MusicianAssistant {
 
   public static void main(String[] args) throws JsonProcessingException {
 
-    useOpenAIOfficial();
+//    useOpenAIOfficial();
+    useOpenAIForDeepSeek();
 
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+  private static final String DEEPSEEK_API_KEY = System.getenv("DEEPSEEK_API_KEY");
 
   private static void useOpenAIOfficial() {
     System.out.println("### useOpenAIOfficial");
@@ -32,5 +34,21 @@ public class MusicianAssistant {
 
     System.out.println(answer);
     // end::adocSnippet[]
+  }
+
+  private static void useOpenAIForDeepSeek() {
+    System.out.println("### useOpenAIForDeepSeek");
+
+    // tag::adocDeepSeek[]
+    ChatModel model = OpenAiOfficialChatModel.builder()
+      .apiKey(DEEPSEEK_API_KEY)
+      .baseUrl("https://api.deepseek.com")
+      .modelName("deepseek-chat")
+      .build();
+
+    String answer = model.chat("When was the first Rolling Stones album released?");
+
+    System.out.println(answer);
+    // end::adocDeepSeek[]
   }
 }
