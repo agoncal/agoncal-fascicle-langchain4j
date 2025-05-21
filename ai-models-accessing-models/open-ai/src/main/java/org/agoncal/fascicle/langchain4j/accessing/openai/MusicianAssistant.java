@@ -1,15 +1,12 @@
 package org.agoncal.fascicle.langchain4j.accessing.openai;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.image.Image;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
-
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponse;
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponseAndError;
-
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.model.chat.request.ChatRequest;
@@ -26,35 +23,24 @@ import dev.langchain4j.model.language.LanguageModel;
 import dev.langchain4j.model.moderation.Moderation;
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_NANO;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
-
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
-
 import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDING_3_SMALL;
-
 import dev.langchain4j.model.openai.OpenAiImageModel;
-
 import static dev.langchain4j.model.openai.OpenAiImageModelName.DALL_E_3;
-
 import dev.langchain4j.model.openai.OpenAiLanguageModel;
-
 import static dev.langchain4j.model.openai.OpenAiLanguageModelName.GPT_3_5_TURBO_INSTRUCT;
-
 import dev.langchain4j.model.openai.OpenAiModerationModel;
-
 import static dev.langchain4j.model.openai.OpenAiModerationModelName.TEXT_MODERATION_STABLE;
-
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.model.output.FinishReason;
 import dev.langchain4j.model.output.Response;
 import dev.langchain4j.model.output.TokenUsage;
 
 import java.time.Duration;
-import java.util.List;
 
 // tag::adocSkip[]
 
@@ -585,6 +571,19 @@ public class MusicianAssistant {
     // end::adocTypedUntypedResponseString[]
   }
 
+  private static void useTypedUntypedResponseStringOneLine() {
+    System.out.println("### useTypedUntypedResponseStringOneLine");
+
+    OpenAiChatModel chatModel = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
+
+    // tag::adocTypedUntypedResponseStringOneLine[]
+    System.out.println(chatModel.chat("Who is the author of 1984?"));
+    // end::adocTypedUntypedResponseStringOneLine[]
+  }
+
   private static void useTypedUntypedResponseUserMessage() {
     System.out.println("### useTypedUntypedResponseUserMessage");
 
@@ -601,6 +600,20 @@ public class MusicianAssistant {
     System.out.println(response.tokenUsage());       // inputToken=17, outputToken=34
     System.out.println(response.finishReason());     // STOP
     // end::adocTypedUntypedResponseUserMessage[]
+  }
+
+  private static void useTypedUntypedResponseUserMessageOneLine() {
+    System.out.println("### useTypedUntypedResponseUserMessageOneLine");
+
+    OpenAiChatModel chatModel = OpenAiChatModel.builder()
+      .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_O_MINI)
+      .build();
+
+    // tag::adocTypedUntypedResponseUserMessageOneLine[]
+    UserMessage message = new UserMessage("Who are the main characters in Moby Dick?");
+    System.out.println(chatModel.chat(message).aiMessage().text());
+    // end::adocTypedUntypedResponseUserMessageOneLine[]
   }
 
   private static void useTypedUntypedResponseImage() {
