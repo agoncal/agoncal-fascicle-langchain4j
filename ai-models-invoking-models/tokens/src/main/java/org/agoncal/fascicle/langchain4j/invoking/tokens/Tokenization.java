@@ -51,7 +51,7 @@ public class Tokenization {
     System.out.println("Number of tokens: " + nbOfTokens + "\n");
     // end::adocSkip[]
 
-    // Encoded tokens: 3957 65805 1666 318 869 13
+    // Encoded tokens: 86966 359 1877 321 569 13
     // tag::adocSkip[]
     System.out.println("Encoded tokens: " + prompt);
     // end::adocSkip[]
@@ -82,7 +82,7 @@ public class Tokenization {
     System.out.println("Number of tokens: " + nbOfTokens + "\n");
     // end::adocSkip[]
 
-    // Encoded tokens: 3957 65805 1666 318 869 374 264 7061 13
+    // Encoded tokens: 86966 359 1877 321 569 382 261 10645 13
     // tag::adocSkip[]
     System.out.println("Encoded tokens: " + prompt);
     // end::adocSkip[]
@@ -107,13 +107,13 @@ public class Tokenization {
 
     String prompt = "Isaac Asimov is a writer and is a biochemist.";
 
-    // Number of tokens: 9
+    // Number of tokens: 15
     int nbOfTokens = estimator.estimateTokenCountInText(prompt);
     // tag::adocSkip[]
     System.out.println("Number of tokens: " + nbOfTokens + "\n");
     // end::adocSkip[]
 
-    // Encoded tokens: 3957 65805 1666 318 869 374 264 7061 13
+    // Encoded tokens: 86966 359 1877 321 569 382 261 10645 326 382 261 4424 45136 421 13
     // tag::adocSkip[]
     System.out.println("Encoded tokens: " + prompt);
     // end::adocSkip[]
