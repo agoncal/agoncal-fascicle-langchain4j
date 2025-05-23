@@ -41,12 +41,12 @@ public class Tokenization {
   private void tokenizeOpenAIIsaacAsimov() {
     System.out.println("### tokenizeOpenAIIsaacAsimov");
     // tag::adocTokenize[]
-    OpenAiTokenCountEstimator tokenizer = new OpenAiTokenCountEstimator(GPT_4_1);
+    OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_4_1);
 
     String prompt = "Isaac Asimov.";
 
     // Number of tokens: 6
-    int nbOfTokens = tokenizer.estimateTokenCountInText(prompt);
+    int nbOfTokens = estimator.estimateTokenCountInText(prompt);
     // tag::adocSkip[]
     System.out.println("Number of tokens: " + nbOfTokens + "\n");
     // end::adocSkip[]
@@ -55,14 +55,14 @@ public class Tokenization {
     // tag::adocSkip[]
     System.out.println("Encoded tokens: " + prompt);
     // end::adocSkip[]
-    List<Integer> tokens = tokenizer.encode(prompt);
+    List<Integer> tokens = estimator.encode(prompt);
     tokens.forEach(token -> System.out.print(token + " "));
     // tag::adocSkip[]
     System.out.println("\n");
     // end::adocSkip[]
 
     // Decoded tokens: Isaac Asimov.
-    prompt = tokenizer.decode(tokens);
+    prompt = estimator.decode(tokens);
     // tag::adocSkip[]
     System.out.println("Decoded tokens: " + prompt);
     // end::adocSkip[]
@@ -72,12 +72,12 @@ public class Tokenization {
   private void tokenizeOpenAIIsaacAsimovMedium() {
     System.out.println("### tokenizeOpenAIIsaacAsimovMedium");
     // tag::adocTokenizeMedium[]
-    OpenAiTokenCountEstimator tokenizer = new OpenAiTokenCountEstimator(GPT_4_1);
+    OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_4_1);
 
     String prompt = "Isaac Asimov is a writer.";
 
     // Number of tokens: 9
-    int nbOfTokens = tokenizer.estimateTokenCountInText(prompt);
+    int nbOfTokens = estimator.estimateTokenCountInText(prompt);
     // tag::adocSkip[]
     System.out.println("Number of tokens: " + nbOfTokens + "\n");
     // end::adocSkip[]
@@ -86,14 +86,14 @@ public class Tokenization {
     // tag::adocSkip[]
     System.out.println("Encoded tokens: " + prompt);
     // end::adocSkip[]
-    List<Integer> tokens = tokenizer.encode(prompt);
+    List<Integer> tokens = estimator.encode(prompt);
     tokens.forEach(token -> System.out.print(token + " "));
     // tag::adocSkip[]
     System.out.println("\n");
     // end::adocSkip[]
 
     // Decoded tokens: Isaac Asimov is a writer.
-    prompt = tokenizer.decode(tokens);
+    prompt = estimator.decode(tokens);
     // tag::adocSkip[]
     System.out.println("Decoded tokens: " + prompt);
     // end::adocSkip[]
@@ -103,12 +103,12 @@ public class Tokenization {
   private void tokenizeOpenAIIsaacAsimovLong() {
     System.out.println("### tokenizeOpenAIIsaacAsimovLong");
     // tag::adocTokenizeLong[]
-    OpenAiTokenCountEstimator tokenizer = new OpenAiTokenCountEstimator(GPT_4_1);
+    OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_4_1);
 
     String prompt = "Isaac Asimov is a writer and is a biochemist.";
 
     // Number of tokens: 9
-    int nbOfTokens = tokenizer.estimateTokenCountInText(prompt);
+    int nbOfTokens = estimator.estimateTokenCountInText(prompt);
     // tag::adocSkip[]
     System.out.println("Number of tokens: " + nbOfTokens + "\n");
     // end::adocSkip[]
@@ -117,14 +117,14 @@ public class Tokenization {
     // tag::adocSkip[]
     System.out.println("Encoded tokens: " + prompt);
     // end::adocSkip[]
-    List<Integer> tokens = tokenizer.encode(prompt);
+    List<Integer> tokens = estimator.encode(prompt);
     tokens.forEach(token -> System.out.print(token + " "));
     // tag::adocSkip[]
     System.out.println("\n");
     // end::adocSkip[]
 
     // Decoded tokens: Isaac Asimov is a writer.
-    prompt = tokenizer.decode(tokens);
+    prompt = estimator.decode(tokens);
     // tag::adocSkip[]
     System.out.println("Decoded tokens: " + prompt);
     // end::adocSkip[]
@@ -133,20 +133,20 @@ public class Tokenization {
 
   private void tokenizeOpenAI() {
     System.out.println("### tokenizeOpenAI");
-    OpenAiTokenCountEstimator tokenizer = new OpenAiTokenCountEstimator(GPT_3_5_TURBO);
+    OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_3_5_TURBO);
 
     // Estimate
-    int nbOfTokens = tokenizer.estimateTokenCountInText(prompt);
+    int nbOfTokens = estimator.estimateTokenCountInText(prompt);
     System.out.println("Number of tokens: " + nbOfTokens + "\n");
 
     // Encode
     System.out.println("Encoded tokens: " + prompt);
-    List<Integer> tokens = tokenizer.encode(prompt);
+    List<Integer> tokens = estimator.encode(prompt);
     tokens.forEach(token -> System.out.print(token + " "));
     System.out.println("\n");
 
     // Decode
-    String prompt = tokenizer.decode(tokens);
+    String prompt = estimator.decode(tokens);
     System.out.println("Decoded tokens: " + prompt);
   }
 
