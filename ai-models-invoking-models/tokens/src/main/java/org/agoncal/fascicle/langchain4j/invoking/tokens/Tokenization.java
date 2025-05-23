@@ -123,7 +123,7 @@ public class Tokenization {
     System.out.println("\n");
     // end::adocSkip[]
 
-    // Decoded tokens: Isaac Asimov is a writer.
+    // Decoded tokens: Isaac Asimov is a writer and is a biochemist.
     prompt = estimator.decode(tokens);
     // tag::adocSkip[]
     System.out.println("Decoded tokens: " + prompt);
