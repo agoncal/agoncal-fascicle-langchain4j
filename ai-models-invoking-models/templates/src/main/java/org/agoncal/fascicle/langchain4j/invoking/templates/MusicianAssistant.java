@@ -65,7 +65,7 @@ public class MusicianAssistant {
       .build();
 
     // tag::adocMultiplePromptTemplate[]
-    PromptTemplate promptTemplate = PromptTemplate.from("Give me the titles of the album {{album}} of {{band}}");
+    PromptTemplate promptTemplate = PromptTemplate.from("Give me the tracks of the album {{album}} of {{band}}");
 
     Map<String, Object> variables = Map.of(
       "album", "Kind of Blue",
