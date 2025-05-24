@@ -6,7 +6,7 @@
     },
     {
       "role": "assistant",
-      "content": "Nice to meet you, Antonio! How can I assist you today?"
+      "content": "Nice to meet you, Antonio!"
     },
     {
       "role": "user",
@@ -14,7 +14,7 @@
     },
     {
       "role": "assistant",
-      "content": "That's a great choice! The Beatles are a legendary rock band."
+      "content": "That's a great choice!"
     },
     {
       "role": "user",
@@ -22,7 +22,7 @@
     },
     {
       "role": "assistant",
-      "content": "The first album by the band is titled Please Please Me and it was released on March 22, 1963"
+      "content": "Please Please Me released on 22/03/1963."
     },
     {
       "role": "user",
@@ -30,7 +30,7 @@
     },
     {
       "role": "assistant",
-      "content": "The lead singer of the Beatles is John Lennon."
+      "content": "John Lennon and Paul McCartney."
     },
     {
       "role": "user",

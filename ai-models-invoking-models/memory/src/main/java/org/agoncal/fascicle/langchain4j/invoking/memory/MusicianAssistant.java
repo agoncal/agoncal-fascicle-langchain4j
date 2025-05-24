@@ -10,7 +10,7 @@ import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 
 // tag::adocSkip[]
 
@@ -27,8 +27,8 @@ public class MusicianAssistant {
 //    sendingOneMessage();
 //    sendingTwoMessages();
 //    sendingThreeMessages();
-//    useChatMemory();
-    useChatMemoryWithSystemMessage();
+    useChatMemory();
+//    useChatMemoryWithSystemMessage();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -41,7 +41,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocNoMemory[]
@@ -78,7 +78,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocOneMessage[]
@@ -95,7 +95,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocTwoMessages[]
@@ -114,19 +114,19 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocThreeMessages[]
     UserMessage firstMsg = UserMessage.from("My name is Antonio");
     AiMessage firstAnswer = model.chat(firstMsg).aiMessage();
     UserMessage secondMsg = UserMessage.from("My favourite Rock band is the Beatles");
-    AiMessage secondAnswer = model.chat(secondMsg).aiMessage();
-    UserMessage thirdMsg = UserMessage.from("What's my name?");
+    AiMessage secondAnswer = model.chat(firstMsg, firstAnswer, secondMsg).aiMessage();
+    UserMessage thirdMsg = UserMessage.from("What's my name and my favourite band?");
     AiMessage thirdAnswer = model.chat(firstMsg, firstAnswer, secondMsg, secondAnswer, thirdMsg).aiMessage();
 
     System.out.println(thirdAnswer.text());
-    // Your name is Antonio.
+    // Your name is Antonio, and your favorite band the Beatles.
     // end::adocThreeMessages[]
   }
 
@@ -138,6 +138,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_1_MINI)
       .logRequests(true)
       .logResponses(true)
       .build();
@@ -167,7 +168,7 @@ public class MusicianAssistant {
     chatMemory.add(thirdMsg);
     AiMessage thirdAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(thirdAnswer);
-    System.out.println(thirdAnswer.text()); // "Please Please Me" released on March 22, 1963
+    System.out.println(thirdAnswer.text()); // "Please Please Me" released on 22/03/1963
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
@@ -185,7 +186,7 @@ public class MusicianAssistant {
     chatMemory.add(fifthMsg);
     AiMessage fifthAnswer = model.chat(chatMemory.messages()).aiMessage();
     chatMemory.add(fifthAnswer);
-    System.out.println(fifthAnswer.text()); // Your name is Antonio, as you mentioned earlier
+    System.out.println(fifthAnswer.text()); // Antonio, as you mentioned earlier
     // end::adocChatMemory[]
   }
 
@@ -194,6 +195,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
+      .modelName(GPT_4_1_MINI)
       .logRequests(true)
       .logResponses(true)
       .build();
