@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.langchain4j.extending.tools;
+package org.agoncal.fascicle.langchain4j.enriching.tools;
 
 import dev.langchain4j.agent.tool.Tool;
 

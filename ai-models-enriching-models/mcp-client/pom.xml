@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.langchain4j.ai-models.enriching-models</groupId>
-  <artifactId>tools</artifactId>
+  <artifactId>mcp-client</artifactId>
   <version>1.0</version>
-  <name>LangChain4j :: AI Models :: Enriching Models :: Tools</name>
+  <name>LangChain4j :: AI Models :: Enriching Models :: MCP Client</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.langchain4j.ai-models</groupId>
@@ -24,6 +24,10 @@
     <dependency>
       <groupId>dev.langchain4j</groupId>
       <artifactId>langchain4j-open-ai</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-mcp</artifactId>
     </dependency>
     <!-- Other -->
     <dependency>

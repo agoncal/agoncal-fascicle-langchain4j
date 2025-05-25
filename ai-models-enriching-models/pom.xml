@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.langchain4j.ai-models</groupId>
-  <artifactId>extending-models</artifactId>
+  <artifactId>enriching-models</artifactId>
   <version>1.0</version>
-  <name>LangChain4j :: AI Models :: Extending Models</name>
+  <name>LangChain4j :: AI Models :: Enriching Models</name>
   <packaging>pom</packaging>
 
   <parent>
@@ -17,6 +17,8 @@
   </parent>
 
   <modules>
+    <module>mcp-client</module>
+    <module>mcp-server</module>
     <module>tools</module>
   </modules>
 
