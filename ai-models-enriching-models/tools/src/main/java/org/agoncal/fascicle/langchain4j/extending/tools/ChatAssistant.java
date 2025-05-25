@@ -12,7 +12,7 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.request.ChatRequest;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import dev.langchain4j.service.tool.DefaultToolExecutor;
 import dev.langchain4j.service.tool.ToolExecutor;
 
@@ -28,7 +28,7 @@ public class ChatAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(System.getenv("OPENAI_API_KEY"))
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(0.7)
       .timeout(ofSeconds(60))
       .logRequests(true)
@@ -43,8 +43,8 @@ public class ChatAssistant {
     // end::adocSkip[]
     // tag::adocStepOne[]
     // Tools
-    LegalDocumentTools tools = new LegalDocumentTools();
-    List<ToolSpecification> toolSpecifications = ToolSpecifications.toolSpecificationsFrom(tools.getClass());
+    LegalDocumentTools legalDocTools = new LegalDocumentTools();
+    List<ToolSpecification> toolSpecifications = ToolSpecifications.toolSpecificationsFrom(legalDocTools.getClass());
     // User query
     List<ChatMessage> chatMessages = new ArrayList<>();
     UserMessage userMessage = UserMessage.from("When was the PRIVACY document updated?");
@@ -74,7 +74,7 @@ public class ChatAssistant {
     System.out.println("STEP 3: User execute function to obtain tool results");
     // tag::adocStepThree[]
     toolExecutionRequests.forEach(toolExecutionRequest -> {
-      ToolExecutor toolExecutor = new DefaultToolExecutor(tools, toolExecutionRequest);
+      ToolExecutor toolExecutor = new DefaultToolExecutor(legalDocTools, toolExecutionRequest);
       String result = toolExecutor.execute(toolExecutionRequest, UUID.randomUUID().toString());
       ToolExecutionResultMessage toolExecutionResultMessages = ToolExecutionResultMessage.from(toolExecutionRequest, result);
       chatMessages.add(toolExecutionResultMessages);
