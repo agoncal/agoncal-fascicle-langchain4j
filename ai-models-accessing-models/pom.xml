@@ -17,8 +17,9 @@
   </parent>
 
   <modules>
-    <module>anthropic</module>
     <module>amazon-bedrock</module>
+    <module>anthropic</module>
+    <module>azure-foundry-local</module>
     <module>azure-open-ai</module>
     <module>cohere</module>
     <module>dashscope-qwen</module>
