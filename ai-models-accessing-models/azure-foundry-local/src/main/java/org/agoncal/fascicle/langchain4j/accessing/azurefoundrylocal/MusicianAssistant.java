@@ -27,14 +27,12 @@ public class MusicianAssistant {
     ChatModel model = OpenAiChatModel.builder()
       .baseUrl("http://localhost:5273/v1")
       .modelName("deepseek-r1-distill-qwen-14b-generic-gpu")
-      .logRequests(true)
-      .logResponses(true)
       .build();
+    // end::adocUseOpenAIForFoundryLocal[]
 
     String answer = model.chat("What is the best Pink Floyd album?");
 
     System.out.println(answer);
     System.out.println("##################");
-    // end::adocUseOpenAIForFoundryLocal[]
   }
 }
