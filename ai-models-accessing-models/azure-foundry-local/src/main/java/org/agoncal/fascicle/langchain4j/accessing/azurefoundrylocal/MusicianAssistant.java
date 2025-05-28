@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.langchain4j.accessing.deepseek;
+package org.agoncal.fascicle.langchain4j.accessing.azurefoundrylocal;
 
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
