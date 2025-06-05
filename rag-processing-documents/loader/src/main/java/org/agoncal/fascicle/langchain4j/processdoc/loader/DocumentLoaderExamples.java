@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
@@ -71,10 +72,10 @@ public class DocumentLoaderExamples {
     log.info(document.text().trim().substring(0, 50));
   }
 
-  private static void loadFromDocumentLoaderURL() throws MalformedURLException {
+  private static void loadFromDocumentLoaderURL() throws Exception {
     System.out.println("\n### loadFromDocumentLoaderURL");
     // tag::adocLoadFromDocumentLoaderURL[]
-    URL documentUrl = new URL("https://raw.githubusercontent.com/agoncal/agoncal-sample-langchain4j/main/rag-processing-documents/loader/src/main/resources/data/bio-duke-ellington.txt");
+    URL documentUrl = new URI("https://raw.githubusercontent.com/agoncal/agoncal-sample-langchain4j/main/rag-processing-documents/loader/src/main/resources/data/bio-duke-ellington.txt").toURL();
 
     Document document = DocumentLoader.load(new UrlSource(documentUrl), new TextDocumentParser());
 
@@ -96,10 +97,10 @@ public class DocumentLoaderExamples {
     // end::adocLoadFromDocumentLoaderAzure[]
   }
 
-  private static void loadFromUrlDocumentLoader() throws MalformedURLException {
+  private static void loadFromUrlDocumentLoader() throws Exception {
     System.out.println("\n### loadFromUrlDocumentLoader");
     // tag::loadFromUrlDocumentLoader[]
-    URL documentUrl = new URL("https://raw.githubusercontent.com/agoncal/agoncal-sample-langchain4j/main/rag-processing-documents/loader/src/main/resources/data/bio-duke-ellington.txt");
+    URL documentUrl = new URI("https://raw.githubusercontent.com/agoncal/agoncal-sample-langchain4j/main/rag-processing-documents/loader/src/main/resources/data/bio-duke-ellington.txt").toURL();
 
     Document document = UrlDocumentLoader.load(documentUrl, new TextDocumentParser());
     // end::loadFromUrlDocumentLoader[]
@@ -108,10 +109,10 @@ public class DocumentLoaderExamples {
     log.info(document.text().trim().substring(0, 50));
   }
 
-  private static void loadFromAzureDocumentLoader() throws MalformedURLException {
+  private static void loadFromAzureDocumentLoader() throws Exception {
     System.out.println("\n### loadFromAzureDocumentLoader");
     // tag::loadFromAzureDocumentLoader[]
-    URL documentUrl = new URL("https://en.wikipedia.org/wiki/Ella_Fitzgerald");
+    URL documentUrl = new URI("https://en.wikipedia.org/wiki/Ella_Fitzgerald").toURL();
 
     Document document = new AzureBlobStorageDocumentLoader(null).loadDocument(null, null, new TextDocumentParser());
 
