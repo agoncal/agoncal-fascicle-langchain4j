@@ -5,8 +5,10 @@ import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.image.Image;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
+
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponse;
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponseAndError;
+
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.model.chat.request.ChatRequest;
@@ -23,24 +25,35 @@ import dev.langchain4j.model.language.LanguageModel;
 import dev.langchain4j.model.moderation.Moderation;
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_NANO;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
+
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
+
 import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDING_3_SMALL;
+
 import dev.langchain4j.model.openai.OpenAiImageModel;
+
 import static dev.langchain4j.model.openai.OpenAiImageModelName.DALL_E_3;
+
 import dev.langchain4j.model.openai.OpenAiLanguageModel;
+
 import static dev.langchain4j.model.openai.OpenAiLanguageModelName.GPT_3_5_TURBO_INSTRUCT;
+
 import dev.langchain4j.model.openai.OpenAiModerationModel;
+
 import static dev.langchain4j.model.openai.OpenAiModerationModelName.TEXT_MODERATION_STABLE;
+
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.model.output.FinishReason;
 import dev.langchain4j.model.output.Response;
 import dev.langchain4j.model.output.TokenUsage;
 
 import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
 
 // tag::adocSkip[]
 
@@ -75,7 +88,7 @@ public class MusicianAssistant {
 //    useOpenAiStreamingChatTypeOfModel();
 //    useOpenAiStreaming();
 //    useOpenAiLambdaStreaming();
-//    useOpenAiLambdaStreamingError();
+    useOpenAiLambdaStreamingError();
 
 //    useOpenAiModerationTypeOfModel();
 //    useOpenAiImageTypeOfModel();
@@ -85,7 +98,7 @@ public class MusicianAssistant {
 //    useTypedUntypedResponseImage();
 //    useTypedUntypedResponseEmbedding();
 //    useJSONResponseFormat();
-    useOpenAIForDeepSeek();
+//    useOpenAIForDeepSeek();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -432,6 +445,8 @@ public class MusicianAssistant {
       .modelName(GPT_4_O_MINI)
       .build();
 
+    CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
+
     model.chat("What are some common formats and sizes of video tapes?",
       new StreamingChatResponseHandler() {
 
@@ -441,15 +456,17 @@ public class MusicianAssistant {
         }
 
         @Override
-        public void onCompleteResponse(ChatResponse response) {
-          System.out.println("Streaming completed: " + response);
+        public void onCompleteResponse(ChatResponse completeResponse) {
+          futureResponse.complete(completeResponse);
         }
 
         @Override
         public void onError(Throwable error) {
-          error.printStackTrace();
+          futureResponse.completeExceptionally(error);
         }
       });
+
+    futureResponse.join();
     // end::adocStreamingChatTypeOfModel[]
   }
 
@@ -462,24 +479,28 @@ public class MusicianAssistant {
       .modelName(GPT_4_1)
       .build();
 
+    CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
+
     model.chat("Who are some influential female musicians?",
       new StreamingChatResponseHandler() {
 
         @Override
-        public void onPartialResponse(String partialResponse) {
-          System.out.println("onPartialResponse: " + partialResponse);
+        public void onPartialResponse(String token) {
+          System.out.print(token);
         }
 
         @Override
         public void onCompleteResponse(ChatResponse completeResponse) {
-          System.out.println("onCompleteResponse: " + completeResponse);
+          futureResponse.complete(completeResponse);
         }
 
         @Override
         public void onError(Throwable error) {
-          error.printStackTrace();
+          futureResponse.completeExceptionally(error);
         }
       });
+
+    futureResponse.join();
     // end::adocStreaming[]
   }
 
@@ -491,10 +512,14 @@ public class MusicianAssistant {
       .modelName(GPT_4_O_MINI)
       .build();
 
+    CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
+
     // tag::adocLambdaStreaming[]
     model.chat("Who are some influential female musicians?",
       onPartialResponse(System.out::print));
     // end::adocLambdaStreaming[]
+
+    futureResponse.join();
   }
 
   private static void useOpenAiLambdaStreamingError() {
@@ -505,10 +530,14 @@ public class MusicianAssistant {
       .modelName(GPT_4_O_MINI)
       .build();
 
+    CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
+
     // tag::adocLambdaStreamingError[]
     model.chat("Who are some influential female musicians?",
       onPartialResponseAndError(System.out::print, Throwable::printStackTrace));
     // end::adocLambdaStreamingError[]
+
+    futureResponse.join();
   }
 
   // ###############################

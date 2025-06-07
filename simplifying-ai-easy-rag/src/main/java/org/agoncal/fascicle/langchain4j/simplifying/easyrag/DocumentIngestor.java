@@ -37,12 +37,12 @@ public class DocumentIngestor {
     EmbeddingStoreIngestor.ingest(documents, embeddingStore);
     // end::adocIngest[]
 
-    // tag::adocAssistant[]
     ChatModel chatModel = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_O_MINI)
       .build();
 
+    // tag::adocAssistant[]
     VintageStoreAssistant assistant = AiServices.builder(VintageStoreAssistant.class)
       .chatModel(chatModel)
       .chatMemory(MessageWindowChatMemory.withMaxMessages(20))
