@@ -65,7 +65,7 @@ public class MusicianService {
     // end::adocSkip[]
 
     answer = assistant.chat("What's the name of the singer?");
-    System.out.println(answer); // Two primary lead vocalists: John Lennon and Paul McCartney
+    System.out.println(answer); // Two primary lead vocalists: Lennon and McCartney
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
