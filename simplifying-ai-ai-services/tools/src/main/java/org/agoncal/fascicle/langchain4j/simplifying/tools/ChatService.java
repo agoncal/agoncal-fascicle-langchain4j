@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.langchain4j.simplifying.tools;
 
-import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
@@ -21,11 +20,9 @@ public class ChatService {
       // end::adocSkip[]
       .build();
 
-    ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(20);
-
     ChatAssistant assistant = AiServices.builder(ChatAssistant.class)
       .chatModel(model)
-      .chatMemory(chatMemory)
+      .chatMemory(MessageWindowChatMemory.withMaxMessages(20))
       .tools(new LegalDocumentTools())
       .build();
 

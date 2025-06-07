@@ -27,7 +27,7 @@ public class MusicianService {
     MusicianExtractor extractor = AiServices.create(MusicianExtractor.class, model);
 
     Musician musician = extractor.extractMusician("""
-      Ella Jane Fitzgerald (April 25, 1917 – June 15, 1996) was an American singer,
+      Ella Jane Fitzgerald (April 25, 1917 - June 15, 1996) was an American singer,
       songwriter and composer, sometimes referred to as the "First Lady of Song",
       "Queen of Jazz", and "Lady Ella". She was noted for her purity of tone,
       impeccable diction, phrasing, timing, intonation, absolute pitch,

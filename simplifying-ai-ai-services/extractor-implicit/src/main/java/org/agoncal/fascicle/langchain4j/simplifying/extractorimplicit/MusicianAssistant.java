@@ -11,9 +11,7 @@ public interface MusicianAssistant {
     You are an expert in Jazz music.
     Be very concise.
     """)
-  @UserMessage("""
-    Only list the top 3 albums of {{it}}
-    """)
+  @UserMessage("Only list the top 3 albums of {{it}}")
   Musician generateTopThreeAlbums(String musicianName);
 
 }
