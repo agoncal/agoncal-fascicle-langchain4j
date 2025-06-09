@@ -2,8 +2,7 @@ package org.agoncal.fascicle.langchain4j.simplifying.accessing.openai;
 
 import dev.langchain4j.model.chat.StreamingChatModel;
 
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
@@ -28,7 +27,7 @@ public class MusicianService {
     // tag::adocSnippet[]
     StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     MusicianAssistant assistant = AiServices.create(MusicianAssistant.class, model);

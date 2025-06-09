@@ -4,7 +4,7 @@ import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
 
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 
 public class MusicianService {
 
@@ -15,7 +15,7 @@ public class MusicianService {
     // tag::adocSnippet[]
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .responseFormat("json_schema")
       .strictJsonSchema(true)
       // tag::adocSkip[]

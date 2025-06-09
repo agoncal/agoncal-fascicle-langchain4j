@@ -2,7 +2,8 @@ package org.agoncal.fascicle.langchain4j.simplifying.extractorimplicit;
 
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
+
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 import dev.langchain4j.service.AiServices;
 
 public class MusicianService {
@@ -14,7 +15,7 @@ public class MusicianService {
     // tag::adocSnippet[]
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       // tag::adocSkip[]
       .responseFormat("json_schema")
       .strictJsonSchema(true)

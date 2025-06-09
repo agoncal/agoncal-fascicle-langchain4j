@@ -12,7 +12,8 @@ import dev.langchain4j.data.pdf.PdfFile;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
+
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -47,7 +48,7 @@ public class AuthorAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocUserMessage[]
@@ -63,7 +64,7 @@ public class AuthorAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocUserMessageFrom[]
@@ -79,7 +80,7 @@ public class AuthorAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocSystemMessage[]
@@ -96,7 +97,7 @@ public class AuthorAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocUserMessageContent[]
@@ -113,7 +114,7 @@ public class AuthorAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocUserMessagesPdfContent[]
@@ -157,7 +158,7 @@ public class AuthorAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocUserMessagesImageContent[]
@@ -181,7 +182,7 @@ public class AuthorAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocUserMessageImageContent[]

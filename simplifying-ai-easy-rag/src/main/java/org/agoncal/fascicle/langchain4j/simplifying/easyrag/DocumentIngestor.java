@@ -14,7 +14,7 @@ import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 
 import java.util.List;
 
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 
 /**
  * @author Antonio Goncalves
@@ -37,7 +37,7 @@ public class DocumentIngestor {
 
     ChatModel chatModel = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocAssistant[]

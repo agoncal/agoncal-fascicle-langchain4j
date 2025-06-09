@@ -7,8 +7,8 @@ import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 import static java.util.Collections.singletonMap;
 import java.util.Map;
 
@@ -41,7 +41,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocPromptTemplate[]
@@ -61,7 +61,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocMultiplePromptTemplate[]
@@ -83,7 +83,7 @@ public class MusicianAssistant {
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocPromptTemplateCurrentDate[]

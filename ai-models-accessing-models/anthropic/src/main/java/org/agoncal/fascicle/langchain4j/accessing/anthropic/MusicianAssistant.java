@@ -2,7 +2,7 @@ package org.agoncal.fascicle.langchain4j.accessing.anthropic;
 
 import dev.langchain4j.model.anthropic.AnthropicChatModel;
 
-import static dev.langchain4j.model.anthropic.AnthropicChatModelName.CLAUDE_3_5_SONNET_20240620;
+import static dev.langchain4j.model.anthropic.AnthropicChatModelName.CLAUDE_3_7_SONNET_20250219;
 
 // tag::adocSkip[]
 
@@ -29,7 +29,7 @@ public class MusicianAssistant {
     // tag::adocSnippet[]
     AnthropicChatModel model = AnthropicChatModel.builder()
       .apiKey(ANTHROPIC_API_KEY)
-      .modelName(CLAUDE_3_5_SONNET_20240620)
+      .modelName(CLAUDE_3_7_SONNET_20250219)
       // tag::adocSkip[]
       .logRequests(true)
       .logResponses(true)

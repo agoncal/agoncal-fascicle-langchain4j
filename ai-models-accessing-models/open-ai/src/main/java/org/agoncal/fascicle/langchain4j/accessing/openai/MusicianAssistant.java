@@ -27,9 +27,9 @@ import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_NANO;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
 
@@ -117,7 +117,7 @@ public class MusicianAssistant {
     // tag::adocUseLangChain4jInsteadSDK[]
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     String answer = model.chat("When was the first Beatles album released?");
@@ -230,7 +230,7 @@ public class MusicianAssistant {
     // tag::adocSimpleConf[]
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
     // end::adocSimpleConf[]
 
@@ -245,7 +245,7 @@ public class MusicianAssistant {
     // tag::adocSimpleConf2[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
     // end::adocSimpleConf2[]
 
@@ -392,7 +392,7 @@ public class MusicianAssistant {
     // tag::adocOpenAiChatModelTemperatureOne[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(1.0)
       .build();
 
@@ -408,7 +408,7 @@ public class MusicianAssistant {
     // tag::adocOpenAiChatModelTemperatureZero[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(0.0)
       .build();
 
@@ -423,7 +423,7 @@ public class MusicianAssistant {
 
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     SystemMessage sysMsg = new SystemMessage("You are a music expert.");
@@ -442,7 +442,7 @@ public class MusicianAssistant {
     // tag::adocStreamingChatTypeOfModel[]
     StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
@@ -509,7 +509,7 @@ public class MusicianAssistant {
 
     StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
@@ -527,7 +527,7 @@ public class MusicianAssistant {
 
     StreamingChatModel model = OpenAiStreamingChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
@@ -591,7 +591,7 @@ public class MusicianAssistant {
 
     OpenAiChatModel chatModel = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocTypedUntypedResponseString[]
@@ -605,7 +605,7 @@ public class MusicianAssistant {
 
     OpenAiChatModel chatModel = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocTypedUntypedResponseStringOneLine[]
@@ -618,7 +618,7 @@ public class MusicianAssistant {
 
     OpenAiChatModel chatModel = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocTypedUntypedResponseUserMessage[]
@@ -636,7 +636,7 @@ public class MusicianAssistant {
 
     OpenAiChatModel chatModel = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O_MINI)
+      .modelName(GPT_4_1_MINI)
       .build();
 
     // tag::adocTypedUntypedResponseUserMessageOneLine[]
