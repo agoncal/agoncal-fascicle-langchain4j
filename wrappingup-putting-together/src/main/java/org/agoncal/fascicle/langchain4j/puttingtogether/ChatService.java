@@ -6,6 +6,8 @@ import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
 import dev.langchain4j.rag.content.retriever.ContentRetriever;
 import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever;
@@ -44,14 +46,14 @@ public class ChatService {
     Scanner scanner = new Scanner(System.in);
     String question;
 
-    System.out.println("You are chatting with the Vintage Store chatbot, ask any questions.");
-    System.out.println("Type 'exit' to quit the chat bot.");
+    System.out.println("You are chatting with the Vintage Store chatbot.");
+    System.out.println("Ask any questions, or type 'exit' to quit the chat.");
 
     while (true) {
       question = scanner.nextLine();
 
       if ("exit".equalsIgnoreCase(question)) {
-        System.out.println("Thanks for using the Vintage Store chatbot! We're looking forward to chatting with you again.");
+        System.out.println("Thanks for using the Vintage Store chatbot!.");
         break;
       }
 
@@ -67,7 +69,7 @@ public class ChatService {
   private static ChatModel model() {
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(0.3)
       .timeout(ofSeconds(60))
       .logRequests(true)
