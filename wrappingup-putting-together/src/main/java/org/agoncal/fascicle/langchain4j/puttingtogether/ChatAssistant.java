@@ -14,7 +14,7 @@ public interface ChatAssistant {
     Keep your answers short and to the point.
     If you don't know the answer, say 'I don't know'.
     """)
-  @UserMessage("Here is the customer's question: {{question}}")
+  @UserMessage("Here is my question: {{question}}")
   String chat(@V("question") String question);
 
 }

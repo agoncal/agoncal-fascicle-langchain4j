@@ -2,11 +2,11 @@
 - url: https://api.openai.com/v1/chat/completions
 - headers: [Authorization: Bearer sk-f5...HY], [User-Agent: langchain4j-openai]
 - body: {
-  "model": "gpt-4o",
+  "model": "gpt-4.1-2025-04-14",
   "messages": [
     {
       "role": "system",
-      "content": "You are an expert of the company Vintage Store.\nFocus on the customer and answer the questions.\nKeep your answers short and to the point.\n"
+      "content": "You are an expert of the company Vintage Store.\nFocus on the customer and answer the questions.\nKeep your answers short and to the point.\nIf you don't know the answer, say 'I don't know'."
     },
     {
       "role": "user",
