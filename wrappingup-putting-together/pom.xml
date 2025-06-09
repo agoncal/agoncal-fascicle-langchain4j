@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- tag::adocHeader[] -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -8,24 +7,19 @@
   <groupId>org.agoncal.fascicle.langchain4j.conclusion</groupId>
   <artifactId>putting-together</artifactId>
   <version>1.0</version>
-  <!-- tag::adocSkip[] -->
   <name>LangChain4j :: Conclusion :: Putting It All Together</name>
-  <!-- end::adocSkip[] -->
 
+  <!-- tag::adocDependencyManagement[] -->
   <properties>
-    <!-- Java -->
-    <maven.compiler.release>21</maven.compiler.release>
-    <!-- Langchain4j -->
     <version.langchain4j>1.0.1</version.langchain4j>
     <version.tinylog>2.7.0</version.tinylog>
-    <!-- Maven Plugins -->
+    <!-- tag::adocSkip[] -->
+    <maven.compiler.release>21</maven.compiler.release>
     <version.exec.plugin>3.5.0</version.exec.plugin>
-    <!-- Project -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <!-- end::adocSkip[] -->
   </properties>
-  <!-- end::adocHeader[] -->
-  <!-- tag::adocDependencyManagement[] -->
   <dependencyManagement>
     <dependencies>
       <dependency>
