@@ -58,7 +58,7 @@ public class LegalService {
       .build();
 
     String response = bot.chat("When was the PRIVACY document updated?");
-    System.out.println(response); //The PRIVACY document was last updated on March 9, 2013
+    System.out.println(response); // The PRIVACY document was last updated on March 9, 2013
     // end::adocLegalAssistant[]
 
     System.exit(0);
