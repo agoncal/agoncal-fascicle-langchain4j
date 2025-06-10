@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 import static java.util.stream.Collectors.toList;
 
-public class ChatAssistant {
+public class LegalAssistant {
 
   public static void main(String[] args) throws Exception {
 
