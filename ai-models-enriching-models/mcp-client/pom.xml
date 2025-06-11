@@ -25,10 +25,12 @@
       <groupId>dev.langchain4j</groupId>
       <artifactId>langchain4j-open-ai</artifactId>
     </dependency>
+    <!-- tag::adocSnippet[] -->
     <dependency>
       <groupId>dev.langchain4j</groupId>
       <artifactId>langchain4j-mcp</artifactId>
     </dependency>
+    <!-- end::adocSnippet[] -->
     <!-- Other -->
     <dependency>
       <groupId>org.tinylog</groupId>
