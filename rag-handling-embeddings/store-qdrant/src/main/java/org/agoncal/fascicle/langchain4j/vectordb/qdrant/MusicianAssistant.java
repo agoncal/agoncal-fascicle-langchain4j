@@ -97,7 +97,7 @@ public class MusicianAssistant {
     embeddingStore.add(embedding2, segment2);
 
     TextSegment segment3 = TextSegment.from("Sketches of Spain (1960) ...");
-    Embedding embedding3 = embeddingModel.embed(segment2).content();
+    Embedding embedding3 = embeddingModel.embed(segment3).content();
     embeddingStore.add(embedding3, segment3);
     // end::adocQdrantToStoreEmbeddings[]
 
@@ -215,7 +215,7 @@ public class MusicianAssistant {
     embeddingStore.add(embedding2, segment2);
 
     TextSegment segment3 = TextSegment.from("Sketches of Spain (1960) ...");
-    Embedding embedding3 = embeddingModel.embed(segment2).content();
+    Embedding embedding3 = embeddingModel.embed(segment3).content();
     embeddingStore.add(embedding3, segment3);
     // end::adocQdrantToStoreListEmbeddings[]
 
@@ -252,7 +252,7 @@ public class MusicianAssistant {
     Embedding embedding2 = embeddingModel.embed(segment2).content();
 
     TextSegment segment3 = TextSegment.from("Sketches of Spain (1960) ...");
-    Embedding embedding3 = embeddingModel.embed(segment2).content();
+    Embedding embedding3 = embeddingModel.embed(segment3).content();
 
     // tag::adocQdrantToStoreAllListEmbeddings[]
     embeddingStore.addAll(
