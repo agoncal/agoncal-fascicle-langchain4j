@@ -173,11 +173,11 @@ public class MusicianAssistant {
     Thread.sleep(5000);
     // end::adocSkip[]
 
-    UserMessage forthMsg = UserMessage.from("What's the name of the singer?");
-    chatMemory.add(forthMsg);
-    AiMessage forthAnswer = model.chat(chatMemory.messages()).aiMessage();
-    chatMemory.add(forthAnswer);
-    System.out.println(forthAnswer.text()); // John Lennon and Paul McCartney
+    UserMessage fourthMsg = UserMessage.from("What's the name of the singer?");
+    chatMemory.add(fourthMsg);
+    AiMessage fourthAnswer = model.chat(chatMemory.messages()).aiMessage();
+    chatMemory.add(fourthAnswer);
+    System.out.println(fourthAnswer.text()); // John Lennon and Paul McCartney
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
