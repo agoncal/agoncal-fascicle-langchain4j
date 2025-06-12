@@ -45,7 +45,7 @@ public class MusicianAssistant {
   static void textToEmbeddingOpenAILarge() {
     System.out.println("### textToEmbeddingOpenAILarge");
 
-    // tag::adocTextToEmbeddingOpenAI[]
+    // tag::adocTextToEmbeddingOpenAILarge[]
     EmbeddingModel model = OpenAiEmbeddingModel.builder()
       .apiKey(OPENAI_API_KEY)
       .modelName(TEXT_EMBEDDING_3_LARGE)
@@ -54,7 +54,7 @@ public class MusicianAssistant {
     Response<Embedding> embedding = model.embed("Isaac Asimov is a writer and a biochemist");
 
     System.out.println(embedding.content());
-    // end::adocTextToEmbeddingOpenAI[]
+    // end::adocTextToEmbeddingOpenAILarge[]
   }
 
   static void textToEmbeddingOpenAISegment() {
