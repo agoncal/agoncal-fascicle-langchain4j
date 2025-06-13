@@ -2,8 +2,9 @@ package org.agoncal.fascicle.langchain4j.simplifying.accessing.openai;
 // tag::adocSnippet[]
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import dev.langchain4j.service.AiServices;
+
 import static java.lang.System.exit;
 
 // tag::adocSkip[]
@@ -23,7 +24,7 @@ public class AuthorService {
 
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(0.3)
       .logRequests(true)
       .logResponses(true)

@@ -5,7 +5,7 @@ package org.agoncal.fascicle.langchain4j.simplifying.memory;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import dev.langchain4j.service.AiServices;
 
 // tag::adocSkip[]
@@ -35,7 +35,7 @@ public class MusicianService {
     // tag::adocChatMemory[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(0.3)
       .build();
 

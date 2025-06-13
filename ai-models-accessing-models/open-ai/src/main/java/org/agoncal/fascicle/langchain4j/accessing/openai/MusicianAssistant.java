@@ -5,10 +5,8 @@ import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.image.Image;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
-
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponse;
 import static dev.langchain4j.model.LambdaStreamingResponseHandler.onPartialResponseAndError;
-
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.model.chat.request.ChatRequest;
@@ -25,28 +23,17 @@ import dev.langchain4j.model.language.LanguageModel;
 import dev.langchain4j.model.moderation.Moderation;
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_NANO;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
-
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
-
 import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDING_3_SMALL;
-
 import dev.langchain4j.model.openai.OpenAiImageModel;
-
 import static dev.langchain4j.model.openai.OpenAiImageModelName.DALL_E_3;
-
 import dev.langchain4j.model.openai.OpenAiLanguageModel;
-
 import static dev.langchain4j.model.openai.OpenAiLanguageModelName.GPT_3_5_TURBO_INSTRUCT;
-
 import dev.langchain4j.model.openai.OpenAiModerationModel;
-
 import static dev.langchain4j.model.openai.OpenAiModerationModelName.TEXT_MODERATION_STABLE;
-
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.model.output.FinishReason;
 import dev.langchain4j.model.output.Response;
@@ -261,7 +248,7 @@ public class MusicianAssistant {
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
       .organizationId(OPENAI_ORGANIZATION)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .frequencyPenalty(0.5)
       .temperature(0.9)
       .maxRetries(3)
@@ -288,7 +275,7 @@ public class MusicianAssistant {
       .build();
 
     ChatRequestParameters parameters = ChatRequestParameters.builder()
-      .modelName(GPT_4_O.toString())
+      .modelName(GPT_4_1.toString())
       .temperature(0.7)
       .frequencyPenalty(0.5)
       .temperature(0.9)
@@ -311,7 +298,7 @@ public class MusicianAssistant {
 
     // tag::adocChatRequestDefault[]
     ChatRequestParameters parameters = ChatRequestParameters.builder()
-      .modelName(GPT_4_O.toString())
+      .modelName(GPT_4_1.toString())
       .temperature(0.7)
       .frequencyPenalty(0.5)
       .temperature(0.9)
@@ -337,7 +324,7 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiResponseString");
 
     ChatRequestParameters parameters = ChatRequestParameters.builder()
-      .modelName(GPT_4_O.toString())
+      .modelName(GPT_4_1.toString())
       .temperature(0.7)
       .frequencyPenalty(0.5)
       .temperature(0.9)
@@ -360,7 +347,7 @@ public class MusicianAssistant {
     System.out.println("### useOpenAiChatResponse");
 
     ChatRequestParameters parameters = ChatRequestParameters.builder()
-      .modelName(GPT_4_O.toString())
+      .modelName(GPT_4_1.toString())
       .temperature(0.7)
       .frequencyPenalty(0.5)
       .temperature(0.9)

@@ -4,7 +4,7 @@ package org.agoncal.fascicle.langchain4j.simplifying.moderation;
 
 import dev.langchain4j.model.moderation.ModerationModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import dev.langchain4j.model.openai.OpenAiModerationModel;
 import static dev.langchain4j.model.openai.OpenAiModerationModelName.TEXT_MODERATION_LATEST;
 import dev.langchain4j.service.AiServices;
@@ -35,7 +35,7 @@ public class ChatService {
     // tag::adocWithModeration[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       // tag::adocSkip[]
       .logRequests(true)
       .logResponses(true)
@@ -68,7 +68,7 @@ public class ChatService {
     // tag::adocWithoutModeration[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       // tag::adocSkip[]
       .logRequests(true)
       .logResponses(true)

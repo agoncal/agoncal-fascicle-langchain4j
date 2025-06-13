@@ -2,13 +2,13 @@ package org.agoncal.fascicle.langchain4j.simplifying.memorystore;
 
 // tag::adocSnippet[]
 
+import dev.langchain4j.community.store.memory.chat.redis.RedisChatMemoryStore;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.store.memory.chat.ChatMemoryStore;
-import dev.langchain4j.community.store.memory.chat.redis.RedisChatMemoryStore;
 
 // tag::adocSkip[]
 
@@ -36,7 +36,7 @@ public class MusicianService {
     // tag::adocChatMemoryStore[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(0.3)
       .build();
 
@@ -65,7 +65,7 @@ public class MusicianService {
     // tag::adocChatMemoryStoreLastQuestion[]
     OpenAiChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)
-      .modelName(GPT_4_O)
+      .modelName(GPT_4_1)
       .temperature(0.3)
       .build();
 
