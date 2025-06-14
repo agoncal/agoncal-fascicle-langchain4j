@@ -1,5 +1,11 @@
 package org.agoncal.fascicle.langchain4j.gettingstarted;
 
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
+
+// @formatter:off
+// tag::adocHeader[]
 import com.github.dockerjava.api.model.Image;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
@@ -9,10 +15,6 @@ import org.testcontainers.DockerClientFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.ollama.OllamaContainer;
 import org.testcontainers.utility.DockerImageName;
-
-import java.io.IOException;
-import java.time.Duration;
-import java.util.List;
 
 @Testcontainers
 public class MusicianAssistantTest {
@@ -30,7 +32,7 @@ public class MusicianAssistantTest {
 
     ChatModel model = OllamaChatModel.builder()
       .baseUrl(String.format("http://%s:%d", ollamaContainer.getHost(),
-                                             ollamaContainer.getFirstMappedPort()))
+        ollamaContainer.getFirstMappedPort()))
       .modelName(MODEL_NAME)
       .temperature(0.0)
       .timeout(Duration.ofMinutes(5))

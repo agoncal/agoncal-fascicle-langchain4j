@@ -1,13 +1,14 @@
 package org.agoncal.fascicle.langchain4j.simplifying.accessing.openai;
 
+import static java.lang.System.exit;
+
+// @formatter:off
+// tag::adocSnippet[]
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import dev.langchain4j.service.AiServices;
 
-import static java.lang.System.exit;
-
 // tag::adocSkip[]
-
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
