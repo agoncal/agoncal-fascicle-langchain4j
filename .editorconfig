@@ -19,5 +19,5 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.json]
+[{*.json,*.xml,*.yml,*.yaml}]
 indent_size = 1

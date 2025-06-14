@@ -3,115 +3,115 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+ <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.langchain4j.first-steps</groupId>
-  <artifactId>getting-started</artifactId>
-  <version>1.0</version>
-  <!-- tag::adocSkip[] -->
-  <name>LangChain4j :: First Steps :: Getting Started</name>
-  <!-- end::adocSkip[] -->
+ <groupId>org.agoncal.fascicle.langchain4j.first-steps</groupId>
+ <artifactId>getting-started</artifactId>
+ <version>1.0</version>
+ <!-- tag::adocSkip[] -->
+ <name>LangChain4j :: First Steps :: Getting Started</name>
+ <!-- end::adocSkip[] -->
 
-  <properties>
-    <!-- Java -->
-    <maven.compiler.release>21</maven.compiler.release>
-    <!-- Langchain4j -->
-    <version.langchain4j>1.0.1</version.langchain4j>
-    <version.tinylog>2.7.0</version.tinylog>
-    <!-- Test -->
-    <version.testcontainers>1.21.0</version.testcontainers>
-    <version.junit>5.13.1</version.junit>
-    <!-- Maven Plugins -->
-    <version.exec.plugin>3.5.0</version.exec.plugin>
-    <!-- Project -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
-  <!-- end::adocHeader[] -->
-  <!-- tag::adocDependencyManagement[] -->
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>dev.langchain4j</groupId>
-        <artifactId>langchain4j-bom</artifactId>
-        <version>${version.langchain4j}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <!-- end::adocDependencyManagement[] -->
-  <!-- tag::adocDependencies[] -->
+ <properties>
+  <!-- Java -->
+  <maven.compiler.release>21</maven.compiler.release>
+  <!-- Langchain4j -->
+  <version.langchain4j>1.0.1</version.langchain4j>
+  <version.tinylog>2.7.0</version.tinylog>
+  <!-- Test -->
+  <version.testcontainers>1.21.0</version.testcontainers>
+  <version.junit>5.13.1</version.junit>
+  <!-- Maven Plugins -->
+  <version.exec.plugin>3.5.0</version.exec.plugin>
+  <!-- Project -->
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+ </properties>
+ <!-- end::adocHeader[] -->
+ <!-- tag::adocDependencyManagement[] -->
+ <dependencyManagement>
   <dependencies>
-    <!-- LangChain4j -->
-    <dependency>
-      <groupId>dev.langchain4j</groupId>
-      <artifactId>langchain4j</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>dev.langchain4j</groupId>
-      <artifactId>langchain4j-open-ai</artifactId>
-    </dependency>
-    <!-- Other -->
-    <dependency>
-      <groupId>org.tinylog</groupId>
-      <artifactId>slf4j-tinylog</artifactId>
-      <version>${version.tinylog}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.tinylog</groupId>
-      <artifactId>tinylog-impl</artifactId>
-      <version>${version.tinylog}</version>
-    </dependency>
-    <!-- end::adocDependencies[] -->
-    <!-- tag::adocDependenciesTest[] -->
-    <dependency>
-      <groupId>dev.langchain4j</groupId>
-      <artifactId>langchain4j-ollama</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${version.junit}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>testcontainers</artifactId>
-      <version>${version.testcontainers}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${version.testcontainers}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>ollama</artifactId>
-      <version>${version.testcontainers}</version>
-      <scope>test</scope>
-    </dependency>
+   <dependency>
+    <groupId>dev.langchain4j</groupId>
+    <artifactId>langchain4j-bom</artifactId>
+    <version>${version.langchain4j}</version>
+    <type>pom</type>
+    <scope>import</scope>
+   </dependency>
   </dependencies>
+ </dependencyManagement>
+ <!-- end::adocDependencyManagement[] -->
+ <!-- tag::adocDependencies[] -->
+ <dependencies>
+  <!-- LangChain4j -->
+  <dependency>
+   <groupId>dev.langchain4j</groupId>
+   <artifactId>langchain4j</artifactId>
+  </dependency>
+  <dependency>
+   <groupId>dev.langchain4j</groupId>
+   <artifactId>langchain4j-open-ai</artifactId>
+  </dependency>
+  <!-- Other -->
+  <dependency>
+   <groupId>org.tinylog</groupId>
+   <artifactId>slf4j-tinylog</artifactId>
+   <version>${version.tinylog}</version>
+  </dependency>
+  <dependency>
+   <groupId>org.tinylog</groupId>
+   <artifactId>tinylog-impl</artifactId>
+   <version>${version.tinylog}</version>
+  </dependency>
+  <!-- end::adocDependencies[] -->
+  <!-- tag::adocDependenciesTest[] -->
+  <dependency>
+   <groupId>dev.langchain4j</groupId>
+   <artifactId>langchain4j-ollama</artifactId>
+   <scope>test</scope>
+  </dependency>
+  <dependency>
+   <groupId>org.junit.jupiter</groupId>
+   <artifactId>junit-jupiter</artifactId>
+   <version>${version.junit}</version>
+   <scope>test</scope>
+  </dependency>
+  <dependency>
+   <groupId>org.testcontainers</groupId>
+   <artifactId>testcontainers</artifactId>
+   <version>${version.testcontainers}</version>
+   <scope>test</scope>
+  </dependency>
+  <dependency>
+   <groupId>org.testcontainers</groupId>
+   <artifactId>junit-jupiter</artifactId>
+   <version>${version.testcontainers}</version>
+   <scope>test</scope>
+  </dependency>
+  <dependency>
+   <groupId>org.testcontainers</groupId>
+   <artifactId>ollama</artifactId>
+   <version>${version.testcontainers}</version>
+   <scope>test</scope>
+  </dependency>
   <!-- end::adocDependenciesTest[] -->
+ </dependencies>
 
-  <!-- tag::adocBuild[] -->
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>${version.exec.plugin}</version>
-        <configuration>
-          <mainClass>org.agoncal.fascicle.langchain4j.gettingstarted.MusicianAssistant</mainClass>
-          <arguments>
-            <argument>Miles Davis</argument>
-          </arguments>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <!-- end::adocBuild[] -->
+ <!-- tag::adocBuild[] -->
+ <build>
+  <plugins>
+   <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>${version.exec.plugin}</version>
+    <configuration>
+     <mainClass>org.agoncal.fascicle.langchain4j.gettingstarted.MusicianAssistant</mainClass>
+     <arguments>
+      <argument>Miles Davis</argument>
+     </arguments>
+    </configuration>
+   </plugin>
+  </plugins>
+ </build>
+ <!-- end::adocBuild[] -->
 </project>
