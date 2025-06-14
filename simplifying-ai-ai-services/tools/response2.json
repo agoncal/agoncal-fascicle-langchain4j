@@ -1,12 +1,12 @@
 {
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": "The PRIVACY document was last updated on March 9, 2013."
-      },
-      "finish_reason": "stop"
-    }
-  ]
+ "choices": [
+  {
+   "index": 0,
+   "message": {
+    "role": "assistant",
+    "content": "The PRIVACY document was last updated on March 9, 2013."
+   },
+   "finish_reason": "stop"
+  }
+ ]
 }

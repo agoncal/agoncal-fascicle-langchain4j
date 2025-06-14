@@ -1,22 +1,22 @@
 {
-  "object": "chat.completion",
-  "model": "gpt-4.1-2025-04-14",
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "tool_calls": [
-          {
-            "type": "function",
-            "function": {
-              "name": "lastUpdatePrivacy"
-            }
-          }
-        ]
-      },
-      "finish_reason": "tool_calls"
-    }
-  ]
+ "object": "chat.completion",
+ "model": "gpt-4.1-2025-04-14",
+ "choices": [
+  {
+   "index": 0,
+   "message": {
+    "role": "assistant",
+    "tool_calls": [
+     {
+      "type": "function",
+      "function": {
+       "name": "lastUpdatePrivacy"
+      }
+     }
+    ]
+   },
+   "finish_reason": "tool_calls"
+  }
+ ]
 }
 

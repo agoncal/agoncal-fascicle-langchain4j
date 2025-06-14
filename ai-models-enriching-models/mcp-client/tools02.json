@@ -1,18 +1,18 @@
 {
-  "tools": [
-    {
-      "type": "function",
-      "function": {
-        "name": "last_update_privacy",
-        "description": "Returns the last time the PRIVACY document was updated"
-      }
-    },
-    {
-      "type": "function",
-      "function": {
-        "name": "last_update_terms",
-        "description": "Returns the last time the TERMS AND CONDITIONS document was updated"
-      }
-    }
-  ]
+ "tools": [
+  {
+   "type": "function",
+   "function": {
+    "name": "last_update_privacy",
+    "description": "Returns the last time the PRIVACY document was updated"
+   }
+  },
+  {
+   "type": "function",
+   "function": {
+    "name": "last_update_terms",
+    "description": "Returns the last time the TERMS AND CONDITIONS document was updated"
+   }
+  }
+ ]
 }

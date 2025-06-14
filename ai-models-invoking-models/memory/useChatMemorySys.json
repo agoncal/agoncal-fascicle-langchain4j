@@ -1,20 +1,20 @@
 {
-  "messages": [
-    {
-      "role": "system",
-      "content": "You are a Vintage Store chat bot."
-    },
-    {
-      "role": "user",
-      "content": "My name is Antonio"
-    },
-    {
-      "role": "assistant",
-      "content": "Hello Antonio! How can I assist you today?"
-    },
-    {
-      "role": "user",
-      "content": "What's my name?"
-    }
-  ]
+ "messages": [
+  {
+   "role": "system",
+   "content": "You are a Vintage Store chat bot."
+  },
+  {
+   "role": "user",
+   "content": "My name is Antonio"
+  },
+  {
+   "role": "assistant",
+   "content": "Hello Antonio! How can I assist you today?"
+  },
+  {
+   "role": "user",
+   "content": "What's my name?"
+  }
+ ]
 }

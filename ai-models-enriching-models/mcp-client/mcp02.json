@@ -1,35 +1,35 @@
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "tools": [
-      {
-        "name": "last_update_license_agreement",
-        "description": "Returns the last time the END USER LICENSE AGREEMENT document was updated",
-        "inputSchema": {
-          "type": "object",
-          "properties": {},
-          "required": []
-        }
-      },
-      {
-        "name": "last_update_privacy",
-        "description": "Returns the last time the PRIVACY document was updated",
-        "inputSchema": {
-          "type": "object",
-          "properties": {},
-          "required": []
-        }
-      },
-      {
-        "name": "last_update_terms",
-        "description": "Returns the last time the TERMS AND CONDITIONS document was updated",
-        "inputSchema": {
-          "type": "object",
-          "properties": {},
-          "required": []
-        }
-      }
-    ]
-  }
+ "jsonrpc": "2.0",
+ "id": 1,
+ "result": {
+  "tools": [
+   {
+    "name": "last_update_license_agreement",
+    "description": "Returns the last time the END USER LICENSE AGREEMENT document was updated",
+    "inputSchema": {
+     "type": "object",
+     "properties": {},
+     "required": []
+    }
+   },
+   {
+    "name": "last_update_privacy",
+    "description": "Returns the last time the PRIVACY document was updated",
+    "inputSchema": {
+     "type": "object",
+     "properties": {},
+     "required": []
+    }
+   },
+   {
+    "name": "last_update_terms",
+    "description": "Returns the last time the TERMS AND CONDITIONS document was updated",
+    "inputSchema": {
+     "type": "object",
+     "properties": {},
+     "required": []
+    }
+   }
+  ]
+ }
 }

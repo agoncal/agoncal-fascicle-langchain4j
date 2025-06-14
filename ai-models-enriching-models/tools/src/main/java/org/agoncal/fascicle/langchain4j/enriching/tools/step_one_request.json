@@ -1,33 +1,33 @@
 {
-  "model": "gpt-4.1",
-  "messages": [
-    {
-      "role": "user",
-      "content": "When was the PRIVACY document updated?"
-    }
-  ],
-  "temperature": 0.7,
-  "tools": [
-    {
-      "type": "function",
-      "function": {
-        "name": "lastUpdatePrivacy",
-        "description": "Returns the last time the PRIVACY document was updated"
-      }
-    },
-    {
-      "type": "function",
-      "function": {
-        "name": "lastUpdateTerms",
-        "description": "Returns the last time the TERMS AND CONDITIONS document was updated"
-      }
-    },
-    {
-      "type": "function",
-      "function": {
-        "name": "lastEndUserLicenseAgreement",
-        "description": "Returns the last time the END USER LICENSE AGREEMENT document was updated"
-      }
-    }
-  ]
+ "model": "gpt-4.1",
+ "messages": [
+  {
+   "role": "user",
+   "content": "When was the PRIVACY document updated?"
+  }
+ ],
+ "temperature": 0.7,
+ "tools": [
+  {
+   "type": "function",
+   "function": {
+    "name": "lastUpdatePrivacy",
+    "description": "Returns the last time the PRIVACY document was updated"
+   }
+  },
+  {
+   "type": "function",
+   "function": {
+    "name": "lastUpdateTerms",
+    "description": "Returns the last time the TERMS AND CONDITIONS document was updated"
+   }
+  },
+  {
+   "type": "function",
+   "function": {
+    "name": "lastEndUserLicenseAgreement",
+    "description": "Returns the last time the END USER LICENSE AGREEMENT document was updated"
+   }
+  }
+ ]
 }

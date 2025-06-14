@@ -1,19 +1,19 @@
 {
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "tool_calls": [
-          {
-            "type": "function",
-            "function": {
-              "name": "lastUpdatePrivacy"
-            }
-          }
-        ]
-      },
-      "finish_reason": "tool_calls"
-    }
-  ]
+ "choices": [
+  {
+   "index": 0,
+   "message": {
+    "role": "assistant",
+    "tool_calls": [
+     {
+      "type": "function",
+      "function": {
+       "name": "lastUpdatePrivacy"
+      }
+     }
+    ]
+   },
+   "finish_reason": "tool_calls"
+  }
+ ]
 }

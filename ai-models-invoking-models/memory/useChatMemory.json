@@ -1,40 +1,40 @@
 {
-  "messages": [
-    {
-      "role": "user",
-      "content": "My name is Antonio"
-    },
-    {
-      "role": "assistant",
-      "content": "Nice to meet you, Antonio!"
-    },
-    {
-      "role": "user",
-      "content": "My favourite Rock band is the Beatles"
-    },
-    {
-      "role": "assistant",
-      "content": "That's a great choice!"
-    },
-    {
-      "role": "user",
-      "content": "When was their first album released?"
-    },
-    {
-      "role": "assistant",
-      "content": "Please Please Me released on 22/03/1963."
-    },
-    {
-      "role": "user",
-      "content": "What's the name of the singer?"
-    },
-    {
-      "role": "assistant",
-      "content": "John Lennon and Paul McCartney."
-    },
-    {
-      "role": "user",
-      "content": "What's my name?"
-    }
-  ]
+ "messages": [
+  {
+   "role": "user",
+   "content": "My name is Antonio"
+  },
+  {
+   "role": "assistant",
+   "content": "Nice to meet you, Antonio!"
+  },
+  {
+   "role": "user",
+   "content": "My favourite Rock band is the Beatles"
+  },
+  {
+   "role": "assistant",
+   "content": "That's a great choice!"
+  },
+  {
+   "role": "user",
+   "content": "When was their first album released?"
+  },
+  {
+   "role": "assistant",
+   "content": "Please Please Me released on 22/03/1963."
+  },
+  {
+   "role": "user",
+   "content": "What's the name of the singer?"
+  },
+  {
+   "role": "assistant",
+   "content": "John Lennon and Paul McCartney."
+  },
+  {
+   "role": "user",
+   "content": "What's my name?"
+  }
+ ]
 }

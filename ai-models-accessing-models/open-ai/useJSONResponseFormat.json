@@ -1,21 +1,21 @@
 {
-  "type": "object",
-  "properties": [
-    {
-      "name": "Louis Armstrong",
-      "age": 69,
-      "instrument": "Trumpet"
-    },
-    {
-      "name": "Duke Ellington",
-      "age": 75,
-      "instrument": "Piano"
-    },
-    // ...
-    {
-      "name": "Stan Getz",
-      "age": 64,
-      "instrument": "Tenor Saxophone"
-    }
-  ]
+ "type": "object",
+ "properties": [
+  {
+   "name": "Louis Armstrong",
+   "age": 69,
+   "instrument": "Trumpet"
+  },
+  {
+   "name": "Duke Ellington",
+   "age": 75,
+   "instrument": "Piano"
+  },
+  // ...
+  {
+   "name": "Stan Getz",
+   "age": 64,
+   "instrument": "Tenor Saxophone"
+  }
+ ]
 }
