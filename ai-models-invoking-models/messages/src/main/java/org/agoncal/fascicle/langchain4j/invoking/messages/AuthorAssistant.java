@@ -34,11 +34,11 @@ public class AuthorAssistant {
 //    authorAssistant.useUserMessage();
 //    authorAssistant.useUserMessageFrom();
 //    authorAssistant.useSystemMessage();
-    authorAssistant.useUserMessageContent();
-//    authorAssistant.useUserMessagesPdfContent();
-//    authorAssistant.useUserMessagePdfContent();
-//    authorAssistant.useUserMessagesImageContent();
-//    authorAssistant.useUserMessageImageContent();
+//    authorAssistant.useUserMessageContent();
+    authorAssistant.useUserMessagesPdfContent();
+    authorAssistant.useUserMessagePdfContent();
+    authorAssistant.useUserMessagesImageContent();
+    authorAssistant.useUserMessageImageContent();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -109,8 +109,9 @@ public class AuthorAssistant {
     System.out.println(response.aiMessage().text());
   }
 
+  // TODO Fix this test
   public void useUserMessagesPdfContent() throws URISyntaxException {
-    System.out.println("### useUserMessagePdfContent");
+    System.out.println("### useUserMessagesPdfContent");
 
     ChatModel model = OpenAiChatModel.builder()
       .apiKey(OPENAI_API_KEY)

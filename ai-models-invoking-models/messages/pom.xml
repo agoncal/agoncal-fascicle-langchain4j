@@ -42,7 +42,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <configuration>
-          <mainClass>org.agoncal.fascicle.langchain4j.firstlook.AuthorService</mainClass>
+          <mainClass>org.agoncal.fascicle.langchain4j.invoking.messages.AuthorAssistant</mainClass>
         </configuration>
       </plugin>
     </plugins>
