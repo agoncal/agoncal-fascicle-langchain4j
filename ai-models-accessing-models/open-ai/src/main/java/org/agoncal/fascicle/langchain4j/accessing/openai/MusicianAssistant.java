@@ -122,7 +122,7 @@ public class MusicianAssistant {
       .modelName(GPT_3_5_TURBO_INSTRUCT)
       .build();
 
-    Response<String> response = model.generate("What is the history of jazz music?");
+    Response<String> response = model.generate("What's jazz's history?");
 
     System.out.println(response.content());
     // end::adocLanguageTypeOfModel[]
@@ -204,7 +204,7 @@ public class MusicianAssistant {
       .modelName(GPT_4_1_NANO)
       .build();
 
-    UserMessage userMessage = new UserMessage("Who composed the Moonlight Sonata?");
+    UserMessage userMessage = new UserMessage("Who composed Moonlight Sonata?");
     ChatResponse response = model.chat(userMessage);
 
     System.out.println(response.aiMessage().text());
@@ -283,7 +283,7 @@ public class MusicianAssistant {
       .build();
 
     ChatRequest chatRequest = ChatRequest.builder()
-      .messages(UserMessage.from("When was the first Rolling Stones album released?"))
+      .messages(UserMessage.from("When was the first Rolling Stones album out?"))
       .parameters(parameters)
       .build();
 
@@ -311,7 +311,7 @@ public class MusicianAssistant {
       .build();
 
     ChatRequest chatRequest = ChatRequest.builder()
-      .messages(UserMessage.from("When was the first Rolling Stones album released?"))
+      .messages(UserMessage.from("When was the first Rolling Stones album out?"))
       .build();
 
     ChatResponse chatResponse = model.chat(chatRequest);
@@ -361,7 +361,7 @@ public class MusicianAssistant {
 
     // tag::adocChatResponse[]
     ChatRequest chatRequest = ChatRequest.builder()
-      .messages(UserMessage.from("When was the first Rolling Stones album released?"))
+      .messages(UserMessage.from("When was the first Rolling Stones album out?"))
       .build();
 
     ChatResponse chatResponse = model.chat(chatRequest);
@@ -557,7 +557,7 @@ public class MusicianAssistant {
       .modelName(DALL_E_3)
       .build();
 
-    Response<Image> response = model.generate("Colourful CD album cover showing all main Jazz artists");
+    Response<Image> response = model.generate("Colourful jazz CD cover");
 
     Image image = response.content();
 
@@ -609,7 +609,7 @@ public class MusicianAssistant {
       .build();
 
     // tag::adocTypedUntypedResponseUserMessage[]
-    UserMessage message = new UserMessage("Who are the main characters in Moby Dick?");
+    UserMessage message = new UserMessage("Who are Moby Dick's main characters?");
     ChatResponse response = chatModel.chat(message);
 
     System.out.println(response.aiMessage().text()); // Captain Ahab, Captain Peleg, Flask
@@ -627,7 +627,7 @@ public class MusicianAssistant {
       .build();
 
     // tag::adocTypedUntypedResponseUserMessageOneLine[]
-    UserMessage message = new UserMessage("Who are the main characters in Moby Dick?");
+    UserMessage message = new UserMessage("Who are Moby Dick's main characters?");
     System.out.println(chatModel.chat(message).aiMessage().text());
     // end::adocTypedUntypedResponseUserMessageOneLine[]
   }
@@ -679,7 +679,7 @@ public class MusicianAssistant {
         .build())
       .build();
 
-    UserMessage userMessage = UserMessage.from("Return the top 10 Jazz musicians");
+    UserMessage userMessage = UserMessage.from("Top 10 Jazz musicians");
 
     ChatRequest chatRequest = ChatRequest.builder()
       .responseFormat(responseFormat)
@@ -708,7 +708,7 @@ public class MusicianAssistant {
       .modelName("deepseek-chat")
       .build();
 
-    String answer = model.chat("When was the first Rolling Stones album released?");
+    String answer = model.chat("When was the first Rolling Stones album out?");
 
     System.out.println(answer);
     // end::adocDeepSeek[]

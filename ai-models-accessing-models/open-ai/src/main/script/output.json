@@ -8,7 +8,7 @@
    "index": 0,
    "message": {
     "role": "assistant",
-    "content": "The first Beatles album, Please Please Me, was released on March 22, 1963."
+    "content": "The Beatles' Please Please Me was released on March 22, 1963."
    },
    "logprobs": null,
    "finish_reason": "stop"

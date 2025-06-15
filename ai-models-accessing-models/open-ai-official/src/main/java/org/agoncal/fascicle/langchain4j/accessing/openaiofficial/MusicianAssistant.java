@@ -55,7 +55,7 @@ public class MusicianAssistant {
       .modelName("deepseek-chat")
       .build();
 
-    String answer = model.chat("When was the first Rolling Stones album released?");
+    String answer = model.chat("When was the first Rolling Stones album out?");
 
     System.out.println(answer);
     // end::adocDeepSeek[]

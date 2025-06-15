@@ -26,10 +26,10 @@ public class MusicianAssistant {
     // tag::adocCohereScoringModel[]
     String bio = """
       Brooklyn native, she is a groundbreaking figure in speculative fiction.
-      Her debut novel, "The Hundred Thousand Kingdoms," launched her into literary stardom
-      with its intricate world-building and exploration of power dynamics.
-      Her Broken Earth trilogy, starting with "The Fifth Season," further solidified
-      her reputation, winning consecutive Hugo Awards for Best Novel—a first in the genre.
+      Her debut novel, "The Hundred Thousand Kingdoms," launched her into literary
+      stardom with its intricate world-building and exploration of power dynamics.
+      Her Broken Earth trilogy, starting with "The Fifth Season," further
+      solidified her reputation, winning consecutive awards in the genre.
       """;
     ScoringModel model = CohereScoringModel.builder()
       .apiKey(COHERE_API_KEY)
