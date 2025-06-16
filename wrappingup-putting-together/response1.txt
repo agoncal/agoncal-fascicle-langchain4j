@@ -1,33 +1,33 @@
 - status code: 200
 - headers: [content-type: application/json], [openai-processing-ms: 546]
 - body: {
-  "id": "chatcmpl-9cTB6iPJtQTitmZ",
-  "object": "chat.completion",
-  "model": "gpt-4o-2024-05-13",
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": null,
-        "tool_calls": [
-          {
-            "id": "call_8EeJLmg1x2BhVxbYNXhZoFOQ",
-            "type": "function",
-            "function": {
-              "name": "lastUpdateTerms",
-              "arguments": "{}"
-            }
-          }
-        ]
-      },
-      "logprobs": null,
-      "finish_reason": "tool_calls"
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 700,
-    "completion_tokens": 11,
-    "total_tokens": 711
-  },
+ "id": "chatcmpl-9cTB6iPJtQTitmZ",
+ "object": "chat.completion",
+ "model": "gpt-4o-2024-05-13",
+ "choices": [
+  {
+   "index": 0,
+   "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+     {
+      "id": "call_8EeJLmg1x2BhVxbYNXhZoFOQ",
+      "type": "function",
+      "function": {
+       "name": "lastUpdateTerms",
+       "arguments": "{}"
+      }
+     }
+    ]
+   },
+   "logprobs": null,
+   "finish_reason": "tool_calls"
+  }
+ ],
+ "usage": {
+  "prompt_tokens": 700,
+  "completion_tokens": 11,
+  "total_tokens": 711
+ }
 }
