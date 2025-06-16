@@ -7,13 +7,11 @@ import dev.langchain4j.mcp.client.transport.McpTransport;
 import dev.langchain4j.mcp.client.transport.stdio.StdioMcpTransport;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
 import dev.langchain4j.service.AiServices;
 
-import java.util.List;
-
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1;
-
 import static java.time.Duration.ofSeconds;
+import java.util.List;
 
 public class LegalService {
 
@@ -31,7 +29,7 @@ public class LegalService {
     //       .command(List.of("/usr/bin/java", "-jar", "/Users/agoncal/Documents/Code/Agoncal/agoncal-fascicle-langchain4j/ai-models-enriching-models/mcp-server/target/legal-documents-mcp-server-runner.jar"))
     // tag::adocMcpTransport[]
     McpTransport transport = new StdioMcpTransport.Builder()
-      .command(List.of("/usr/bin/java", "-jar", "~/mcp-server/legal-documents-mcp-server.jar"))
+      .command(List.of("/usr/bin/java", "-jar", "~/legal-documents-mcp-server.jar"))
       .logEvents(true)
       .build();
     // end::adocMcpTransport[]
