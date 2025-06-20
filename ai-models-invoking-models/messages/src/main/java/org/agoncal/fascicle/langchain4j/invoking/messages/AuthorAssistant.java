@@ -1,31 +1,29 @@
 package org.agoncal.fascicle.langchain4j.invoking.messages;
 
-// tag::adocSnippet[]
-
 import dev.langchain4j.data.image.Image;
 import dev.langchain4j.data.message.ImageContent;
 import dev.langchain4j.data.message.PdfFileContent;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.TextContent;
 import dev.langchain4j.data.message.UserMessage;
-import dev.langchain4j.data.pdf.PdfFile;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-
-// tag::adocSkip[]
+import java.util.Base64;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-// end::adocSkip[]
 public class AuthorAssistant {
 
   public static void main(String[] args) throws Exception {
@@ -36,9 +34,9 @@ public class AuthorAssistant {
 //    authorAssistant.useSystemMessage();
 //    authorAssistant.useUserMessageContent();
     authorAssistant.useUserMessagesPdfContent();
-    authorAssistant.useUserMessagePdfContent();
-    authorAssistant.useUserMessagesImageContent();
-    authorAssistant.useUserMessageImageContent();
+//    authorAssistant.useUserMessagePdfContent();
+//    authorAssistant.useUserMessagesImageContent();
+//    authorAssistant.useUserMessageImageContent();
   }
 
   private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
@@ -109,8 +107,7 @@ public class AuthorAssistant {
     System.out.println(response.aiMessage().text());
   }
 
-  // TODO Fix this test
-  public void useUserMessagesPdfContent() throws URISyntaxException {
+  public void useUserMessagesPdfContent() throws URISyntaxException, IOException {
     System.out.println("### useUserMessagesPdfContent");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -119,15 +116,14 @@ public class AuthorAssistant {
       .build();
 
     // tag::adocUserMessagesPdfContent[]
-    PdfFile urlPdfFile = PdfFile.builder()
-      .url("src/main/resources/brave_new_world_chapter_I.pdf")
-      .build();
-    PdfFileContent pdfFileContent = new PdfFileContent(urlPdfFile);
+    Path pdfPath = Path.of(Paths.get("src/main/resources/brave_new_world_chapter_I.pdf").toUri());
+    String pdfBase64 = Base64.getEncoder().encodeToString(Files.readAllBytes(pdfPath));
 
-    UserMessage userMessage = UserMessage.from(
-      TextContent.from("Summarize the following PDF file"),
-      pdfFileContent
-    );
+    UserMessage userMessage = UserMessage.builder()
+      .addContent(TextContent.from("Summarize the following PDF file"))
+      .addContent(PdfFileContent.from(pdfBase64, "application/pdf"))
+      .build();
+
     ChatResponse response = model.chat(userMessage);
     // end::adocUserMessagesPdfContent[]
 
