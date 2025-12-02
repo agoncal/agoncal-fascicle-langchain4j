@@ -16,7 +16,7 @@
   <!-- Java -->
   <maven.compiler.release>21</maven.compiler.release>
   <!-- Langchain4j -->
-  <version.langchain4j>1.2.0</version.langchain4j>
+  <version.langchain4j>1.9.1</version.langchain4j>
   <version.tinylog>2.7.0</version.tinylog>
   <!-- Test -->
   <version.testcontainers>1.21.0</version.testcontainers>
