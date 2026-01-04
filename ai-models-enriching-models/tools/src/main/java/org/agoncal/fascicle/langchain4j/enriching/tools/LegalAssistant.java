@@ -24,10 +24,12 @@ import static java.util.stream.Collectors.toList;
 
 public class LegalAssistant {
 
-  public static void main(String[] args) throws Exception {
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+
+  public String askAboutDocument(String question) {
 
     ChatModel model = OpenAiChatModel.builder()
-      .apiKey(System.getenv("OPENAI_API_KEY"))
+      .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_1)
       .temperature(0.7)
       .timeout(ofSeconds(60))
@@ -88,10 +90,11 @@ public class LegalAssistant {
     AiMessage finalResponse = model.chat(chatMessages).aiMessage();
     System.out.println(finalResponse.text());
     // end::adocStepFour[]
+    return finalResponse.text();
   }
   // end::adocMethod[]
 
-  private static List<ToolExecutionResultMessage> toolExecutor(
+  private List<ToolExecutionResultMessage> toolExecutor(
     Object objectWithTools,
     List<ToolExecutionRequest> toolExecutionRequests) throws Exception {
     String memoryId = UUID.randomUUID().toString();

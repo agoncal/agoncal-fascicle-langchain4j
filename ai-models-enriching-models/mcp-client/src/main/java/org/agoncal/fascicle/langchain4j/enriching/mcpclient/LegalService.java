@@ -15,10 +15,12 @@ import java.util.List;
 
 public class LegalService {
 
-  public static void main(String[] args) throws Exception {
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+
+  public String askLegalQuestion(String mcpServerJarPath, String question) {
 
     ChatModel model = OpenAiChatModel.builder()
-      .apiKey(System.getenv("OPENAI_API_KEY"))
+      .apiKey(OPENAI_API_KEY)
       .modelName(GPT_4_1)
       .temperature(0.7)
       .timeout(ofSeconds(60))
@@ -59,6 +61,6 @@ public class LegalService {
     System.out.println(response); //The PRIVACY document was last updated on 09/03/2013
     // end::adocLegalAssistant[]
 
-    System.exit(0);
+    return response;
   }
 }
