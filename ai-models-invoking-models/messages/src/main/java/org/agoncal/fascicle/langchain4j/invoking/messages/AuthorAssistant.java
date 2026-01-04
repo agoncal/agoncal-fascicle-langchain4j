@@ -26,22 +26,9 @@ import java.util.Base64;
  */
 public class AuthorAssistant {
 
-  public static void main(String[] args) throws Exception {
-    AuthorAssistant authorAssistant = new AuthorAssistant();
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
-//    authorAssistant.useUserMessage();
-//    authorAssistant.useUserMessageFrom();
-//    authorAssistant.useSystemMessage();
-//    authorAssistant.useUserMessageContent();
-    authorAssistant.useUserMessagesPdfContent();
-//    authorAssistant.useUserMessagePdfContent();
-//    authorAssistant.useUserMessagesImageContent();
-//    authorAssistant.useUserMessageImageContent();
-  }
-
-  private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
-
-  public void useUserMessage() {
+  public String useUserMessage() {
     System.out.println("### useUserMessage");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -55,9 +42,10 @@ public class AuthorAssistant {
     // end::adocUserMessage[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 
-  public void useUserMessageFrom() {
+  public String useUserMessageFrom() {
     System.out.println("### useUserMessageFrom");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -71,9 +59,10 @@ public class AuthorAssistant {
     // end::adocUserMessageFrom[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 
-  public void useSystemMessage() {
+  public String useSystemMessage() {
     System.out.println("### useSystemMessage");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -88,9 +77,10 @@ public class AuthorAssistant {
     // end::adocSystemMessage[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 
-  public void useUserMessageContent() {
+  public String useUserMessageContent() {
     System.out.println("### useUserMessageContent");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -105,9 +95,10 @@ public class AuthorAssistant {
     // end::adocUserMessageContent[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 
-  public void useUserMessagesPdfContent() throws URISyntaxException, IOException {
+  public String useUserMessagesPdfContent() throws URISyntaxException, IOException {
     System.out.println("### useUserMessagesPdfContent");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -128,9 +119,10 @@ public class AuthorAssistant {
     // end::adocUserMessagesPdfContent[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 
-  public void useUserMessagePdfContent() {
+  public String useUserMessagePdfContent() {
     System.out.println("### useUserMessagePdfContent");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -148,9 +140,10 @@ public class AuthorAssistant {
     // end::adocUserMessagePdfContent[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 
-  public void useUserMessagesImageContent() {
+  public String useUserMessagesImageContent() {
     System.out.println("### useUserMessagesImageContent");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -172,9 +165,10 @@ public class AuthorAssistant {
     // end::adocUserMessagesImageContent[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 
-  public void useUserMessageImageContent() {
+  public String useUserMessageImageContent() {
     System.out.println("### useUserMessageImageContent");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -191,5 +185,6 @@ public class AuthorAssistant {
     // end::adocUserMessageImageContent[]
 
     System.out.println(response.aiMessage().text());
+    return response.aiMessage().text();
   }
 }

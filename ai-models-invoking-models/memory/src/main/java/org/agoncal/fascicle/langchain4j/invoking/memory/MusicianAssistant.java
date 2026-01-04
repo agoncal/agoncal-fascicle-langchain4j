@@ -22,21 +22,12 @@ import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_1_MINI;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) throws InterruptedException {
-//    useNoMemory();
-//    sendingOneMessage();
-//    sendingTwoMessages();
-//    sendingThreeMessages();
-    useChatMemory();
-//    useChatMemoryWithSystemMessage();
-  }
-
-  private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
   // #################
   // ### NO MEMORY ###
   // #################
-  private static void useNoMemory() throws InterruptedException {
+  public String useNoMemory() throws InterruptedException {
     System.out.println("### useNoMemory");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -65,15 +56,17 @@ public class MusicianAssistant {
     // tag::adocSkip[]
     Thread.sleep(5000);
     // end::adocSkip[]
-    System.out.println(model.chat("What's my name?"));
+    String response = model.chat("What's my name?");
+    System.out.println(response);
     // I'm sorry, I don't know your name. Can you please tell me?
     // end::adocNoMemory[]
+    return response;
   }
 
   // #################################
   // ### SENDING MULTIPLE MESSAGES ###
   // #################################
-  private static void sendingOneMessage() {
+  public String sendingOneMessage() {
     System.out.println("### sendingOneMessage");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -88,9 +81,10 @@ public class MusicianAssistant {
     System.out.println(firstAnswer.aiMessage().text());
     // Nice to meet you Antonio! How can I assist you today?
     // end::adocOneMessage[]
+    return firstAnswer.aiMessage().text();
   }
 
-  private static void sendingTwoMessages() throws InterruptedException {
+  public String sendingTwoMessages() {
     System.out.println("### sendingTwoMessages");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -107,9 +101,10 @@ public class MusicianAssistant {
     System.out.println(secondAnswer.text());
     // The Beatles are a legendary rock band
     // end::adocTwoMessages[]
+    return secondAnswer.text();
   }
 
-  private static void sendingThreeMessages() throws InterruptedException {
+  public String sendingThreeMessages() {
     System.out.println("### sendingThreeMessages");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -128,12 +123,13 @@ public class MusicianAssistant {
     System.out.println(thirdAnswer.text());
     // Your name is Antonio, and your favorite band the Beatles.
     // end::adocThreeMessages[]
+    return thirdAnswer.text();
   }
 
   // ###################
   // ### CHAT MEMORY ###
   // ####################
-  private static void useChatMemory() throws InterruptedException {
+  public String useChatMemory() throws InterruptedException {
     System.out.println("### useChatMemory");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -188,9 +184,10 @@ public class MusicianAssistant {
     chatMemory.add(fifthAnswer);
     System.out.println(fifthAnswer.text()); // Antonio, as you mentioned earlier
     // end::adocChatMemory[]
+    return fifthAnswer.text();
   }
 
-  private static void useChatMemoryWithSystemMessage() throws InterruptedException {
+  public String useChatMemoryWithSystemMessage() throws InterruptedException {
     System.out.println("### useChatMemoryWithSystemMessage");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -218,5 +215,6 @@ public class MusicianAssistant {
     chatMemory.add(secondAnswer);
     // end::adocChatMemorySystem[]
     System.out.println(secondAnswer.text());
+    return secondAnswer.text();
   }
 }

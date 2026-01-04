@@ -22,21 +22,13 @@ import java.util.Map;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
-
-  public static void main(String[] args) throws InterruptedException {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-//    musicianAssistant.usePromptTemplate();
-    musicianAssistant.useMultiplePromptTemplate();
-//    musicianAssistant.usePromptTemplateCurrentDate();
-  }
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
   // #######################
   // ### PROMPT TEMPLATE ###
   // #######################
 
-  public void usePromptTemplate() {
+  public String usePromptTemplate() {
     System.out.println("### usePromptTemplate");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -54,9 +46,10 @@ public class MusicianAssistant {
     ChatResponse response = model.chat(prompt.toUserMessage());
     System.out.println(response.aiMessage().text());
     // end::adocPromptTemplate[]
+    return response.aiMessage().text();
   }
 
-  public void useMultiplePromptTemplate() {
+  public String useMultiplePromptTemplate() {
     System.out.println("### useMultiplePromptTemplate");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -76,9 +69,10 @@ public class MusicianAssistant {
     ChatResponse response = model.chat(prompt.toUserMessage());
     System.out.println(response.aiMessage().text());
     // end::adocMultiplePromptTemplate[]
+    return response.aiMessage().text();
   }
 
-  public void usePromptTemplateCurrentDate() {
+  public String usePromptTemplateCurrentDate() {
     System.out.println("### usePromptTemplateCurrentDate");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -96,5 +90,6 @@ public class MusicianAssistant {
     ChatResponse response = model.chat(prompt.toUserMessage());
     System.out.println(response.aiMessage().text());
     // end::adocPromptTemplateCurrentDate[]
+    return response.aiMessage().text();
   }
 }

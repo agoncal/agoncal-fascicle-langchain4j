@@ -21,17 +21,12 @@ import dev.langchain4j.community.store.memory.chat.redis.RedisChatMemoryStore;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) throws InterruptedException {
-//    useRedisChatMemoryStore();
-    useRedisChatMemoryStoreQuestion();
-  }
-
-  private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
   // ###############################
   // ### REDIS CHAT MEMORY STORE ###
   // ###############################
-  private static void useRedisChatMemoryStore() throws InterruptedException {
+  public String useRedisChatMemoryStore() {
     System.out.println("### useRedisChatMemoryStore");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -56,9 +51,10 @@ public class MusicianAssistant {
     chatMemory.add(answer);
     System.out.println(answer.text());
     // end::adocChatMemoryStore[]
+    return answer.text();
   }
 
-  private static void useRedisChatMemoryStoreQuestion() throws InterruptedException {
+  public String useRedisChatMemoryStoreQuestion() {
     System.out.println("### useRedisChatMemoryStoreLastQuestion");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -81,5 +77,6 @@ public class MusicianAssistant {
     chatMemory.add(answer);
     System.out.println(answer.text());
     // end::adocChatMemoryStoreQuestion[]
+    return answer.text();
   }
 }

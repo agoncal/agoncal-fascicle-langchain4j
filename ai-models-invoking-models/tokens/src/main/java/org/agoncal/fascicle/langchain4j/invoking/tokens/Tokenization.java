@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Tokenization {
 
-  private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
   // tag::adocPrompt[]
   String prompt = """
@@ -29,16 +29,7 @@ public class Tokenization {
     """;
   // end::adocPrompt[]
 
-  public static void main(String[] args) {
-    Tokenization tokenization = new Tokenization();
-    tokenization.tokenizeOpenAIIsaacAsimov();
-    tokenization.tokenizeOpenAIIsaacAsimovMedium();
-    tokenization.tokenizeOpenAIIsaacAsimovLong();
-    tokenization.tokenizeOpenAI();
-    tokenization.tokenUsage();
-  }
-
-  private void tokenizeOpenAIIsaacAsimov() {
+  public int tokenizeOpenAIIsaacAsimov() {
     System.out.println("### tokenizeOpenAIIsaacAsimov");
     // tag::adocTokenize[]
     OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_4_1);
@@ -67,9 +58,10 @@ public class Tokenization {
     System.out.println("Decoded tokens: " + prompt);
     // end::adocSkip[]
     // end::adocTokenize[]
+    return nbOfTokens;
   }
 
-  private void tokenizeOpenAIIsaacAsimovMedium() {
+  public int tokenizeOpenAIIsaacAsimovMedium() {
     System.out.println("### tokenizeOpenAIIsaacAsimovMedium");
     // tag::adocTokenizeMedium[]
     OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_4_1);
@@ -98,9 +90,10 @@ public class Tokenization {
     System.out.println("Decoded tokens: " + prompt);
     // end::adocSkip[]
     // end::adocTokenizeMedium[]
+    return nbOfTokens;
   }
 
-  private void tokenizeOpenAIIsaacAsimovLong() {
+  public int tokenizeOpenAIIsaacAsimovLong() {
     System.out.println("### tokenizeOpenAIIsaacAsimovLong");
     // tag::adocTokenizeLong[]
     OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_4_1);
@@ -129,9 +122,10 @@ public class Tokenization {
     System.out.println("Decoded tokens: " + prompt);
     // end::adocSkip[]
     // end::adocTokenizeLong[]
+    return nbOfTokens;
   }
 
-  private void tokenizeOpenAI() {
+  public int tokenizeOpenAI() {
     System.out.println("### tokenizeOpenAI");
     OpenAiTokenCountEstimator estimator = new OpenAiTokenCountEstimator(GPT_3_5_TURBO);
 
@@ -146,11 +140,12 @@ public class Tokenization {
     System.out.println("\n");
 
     // Decode
-    String prompt = estimator.decode(tokens);
-    System.out.println("Decoded tokens: " + prompt);
+    String decodedPrompt = estimator.decode(tokens);
+    System.out.println("Decoded tokens: " + decodedPrompt);
+    return nbOfTokens;
   }
 
-  public void tokenUsage() {
+  public TokenUsage tokenUsage() {
     System.out.println("### tokenUsage");
 
     ChatModel model = OpenAiChatModel.builder()
@@ -170,5 +165,6 @@ public class Tokenization {
     System.out.println(tokenUsage.outputTokenCount()); // 17
     System.out.println(tokenUsage.totalTokenCount());  // 35
     // end::adocTokenUsage[]
+    return tokenUsage;
   }
 }
