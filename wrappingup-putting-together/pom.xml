@@ -15,7 +15,7 @@
   <version.tinylog>2.7.0</version.tinylog>
   <!-- tag::adocSkip[] -->
   <maven.compiler.release>21</maven.compiler.release>
-  <version.exec.plugin>3.5.0</version.exec.plugin>
+  <version.exec.plugin>3.6.3</version.exec.plugin>
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   <!-- end::adocSkip[] -->
