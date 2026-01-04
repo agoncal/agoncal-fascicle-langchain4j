@@ -42,7 +42,7 @@
     <version.testcontainers>1.21.0</version.testcontainers>
     <version.wiremock>3.3.1</version.wiremock>
     <!-- Core Maven Plugins -->
-    <version.antrun.plugin>3.1.0</version.antrun.plugin>
+    <version.antrun.plugin>3.2.0</version.antrun.plugin>
     <version.archetype.plugin>3.3.1</version.archetype.plugin>
     <version.assembly.plugin>3.7.1</version.assembly.plugin>
     <version.clean.plugin>3.4.0</version.clean.plugin>
