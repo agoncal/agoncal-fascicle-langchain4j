@@ -11,7 +11,7 @@
 
  <!-- tag::adocDependencyManagement[] -->
  <properties>
-  <version.langchain4j>1.9.1</version.langchain4j>
+  <version.langchain4j>1.10.0</version.langchain4j>
   <version.tinylog>2.7.0</version.tinylog>
   <!-- tag::adocSkip[] -->
   <maven.compiler.release>21</maven.compiler.release>
