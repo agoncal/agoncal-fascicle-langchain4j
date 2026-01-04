@@ -22,7 +22,7 @@
   <version.testcontainers>1.21.0</version.testcontainers>
   <version.junit>5.13.1</version.junit>
   <!-- Maven Plugins -->
-  <version.exec.plugin>3.5.0</version.exec.plugin>
+  <version.exec.plugin>3.6.3</version.exec.plugin>
   <!-- Project -->
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
