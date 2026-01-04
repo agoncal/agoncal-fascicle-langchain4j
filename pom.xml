@@ -43,7 +43,7 @@
     <version.wiremock>3.3.1</version.wiremock>
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>3.1.0</version.antrun.plugin>
-    <version.archetype.plugin>3.3.1</version.archetype.plugin>
+    <version.archetype.plugin>3.4.1</version.archetype.plugin>
     <version.assembly.plugin>3.7.1</version.assembly.plugin>
     <version.clean.plugin>3.4.0</version.clean.plugin>
     <version.compiler.plugin>3.13.0</version.compiler.plugin>
