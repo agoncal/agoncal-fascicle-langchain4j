@@ -14,13 +14,9 @@ import dev.langchain4j.model.scoring.ScoringModel;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useCohereScoringModel();
-  }
+  private final String COHERE_API_KEY = System.getenv("COHERE_API_KEY");
 
-  private static final String COHERE_API_KEY = System.getenv("COHERE_API_KEY");
-
-  public static void useCohereScoringModel() {
+  public Response<Double> useCohereScoringModel() {
     System.out.println("### useCohereScoringModel");
 
     // tag::adocCohereScoringModel[]
@@ -41,5 +37,6 @@ public class MusicianAssistant {
     score = model.score(bio, "Is this John Lennon?");
     System.out.println(score.content()); // 0.06198946
     // end::adocCohereScoringModel[]
+    return score;
   }
 }

@@ -14,19 +14,15 @@ import software.amazon.awssdk.regions.Region;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useBedrockTitanChatModel();
-  }
+  private final String AWS_ACCESS_KEY_ID = System.getenv("AWS_ACCESS_KEY_ID");
+  private final String AWS_SECRET_ACCESS_KEY = System.getenv("AWS_SECRET_ACCESS_KEY");
 
-  private static final String AWS_ACCESS_KEY_ID = System.getenv("AWS_ACCESS_KEY_ID");
-  private static final String AWS_SECRET_ACCESS_KEY = System.getenv("AWS_SECRET_ACCESS_KEY");
-
-  private static final String PROMPT = "When was the first Beatles album released?";
+  private final String PROMPT = "When was the first Beatles album released?";
 
   // ##############################
   // ### BEDROCK LANGUAGE MODEL ###
   // ##############################
-  public void useBedrockLanguageModelBuilder() {
+  public String useBedrockLanguageModelBuilder() {
     System.out.println("### useBedrockLanguageModelBuilder");
 
     // tag::adocSnippet[]
@@ -42,12 +38,13 @@ public class MusicianAssistant {
     String completion = model.chat(PROMPT);
 
     System.out.println(completion);
+    return completion;
   }
 
   // ##########################
   // ### BEDROCK CHAT MODEL ###
   // ##########################
-  private static void useBedrockTitanChatModel() {
+  public String useBedrockTitanChatModel() {
     System.out.println("### useBedrockTitanChatModel");
 
     // tag::adocRequest[]
@@ -63,6 +60,7 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
+    return completion;
   }
 
 }

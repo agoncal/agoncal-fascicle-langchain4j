@@ -15,22 +15,13 @@ import dev.langchain4j.model.output.Response;
  */
 public class MusicianAssistant {
 
-  public static void main(String[] args) throws JsonProcessingException {
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+  private final String DEEPSEEK_API_KEY = System.getenv("DEEPSEEK_API_KEY");
 
-//    useOpenAIOfficial();
-//    useOpenAIForDeepSeek();
-//    useOpenAIForFoundryChat();
-    useOpenAIForFoundryImage();
+  private final String AZURE_FOUNDRY_KEY = System.getenv("AZURE_OPENAI_KEY");
+  private final String AZURE_FOUNDRY_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
 
-  }
-
-  private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
-  private static final String DEEPSEEK_API_KEY = System.getenv("DEEPSEEK_API_KEY");
-
-  private static final String AZURE_FOUNDRY_KEY = System.getenv("AZURE_OPENAI_KEY");
-  private static final String AZURE_FOUNDRY_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
-
-  private static void useOpenAIOfficial() {
+  public String useOpenAIOfficial() {
     System.out.println("### useOpenAIOfficial");
 
     // tag::adocSnippet[]
@@ -43,9 +34,10 @@ public class MusicianAssistant {
 
     System.out.println(answer);
     // end::adocSnippet[]
+    return answer;
   }
 
-  private static void useOpenAIForDeepSeek() {
+  public String useOpenAIForDeepSeek() {
     System.out.println("### useOpenAIForDeepSeek");
 
     // tag::adocDeepSeek[]
@@ -59,12 +51,13 @@ public class MusicianAssistant {
 
     System.out.println(answer);
     // end::adocDeepSeek[]
+    return answer;
   }
 
   // ################################
   // ### AZURE FOUNDRY CHAT MODEL ###
   // ################################
-  static void useOpenAIForFoundryChat() {
+  public String useOpenAIForFoundryChat() {
     System.out.println("### useOpenAIForFoundryChat");
 
     // tag::adocUseOpenAIForFoundryChat[]
@@ -81,12 +74,13 @@ public class MusicianAssistant {
 
     System.out.println(answer);
     System.out.println("##################");
+    return answer;
   }
 
   // #################################
   // ### AZURE FOUNDRY IMAGE MODEL ###
   // #################################
-  static void useOpenAIForFoundryImage() {
+  public Response<Image> useOpenAIForFoundryImage() {
     System.out.println("### useOpenAIForFoundryImage");
 
     // tag::adocUseOpenAIForFoundryImage[]
@@ -103,5 +97,6 @@ public class MusicianAssistant {
 
     System.out.println(answer);
     System.out.println("##################");
+    return answer;
   }
 }

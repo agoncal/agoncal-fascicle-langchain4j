@@ -13,14 +13,10 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useOpenAIForFoundryLocal();
-  }
-
   // ################################
   // ### FOUNDRY LOCAL CHAT MODEL ###
   // ################################
-  static void useOpenAIForFoundryLocal() {
+  public String useOpenAIForFoundryLocal() {
     System.out.println("### useOpenAIForFoundryLocal");
 
     // tag::adocUseOpenAIForFoundryLocal[]
@@ -34,5 +30,6 @@ public class MusicianAssistant {
 
     System.out.println(answer);
     System.out.println("##################");
+    return answer;
   }
 }

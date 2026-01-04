@@ -14,16 +14,12 @@ import static dev.langchain4j.model.anthropic.AnthropicChatModelName.CLAUDE_3_7_
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useAnthropicChatModel();
-  }
-
-  private static final String ANTHROPIC_API_KEY = System.getenv("ANTHROPIC_API_KEY");
+  private final String ANTHROPIC_API_KEY = System.getenv("ANTHROPIC_API_KEY");
 
   // ################################
   // ### ANTHROPIC LANGUAGE MODEL ###
   // ################################
-  private static void useAnthropicChatModel() {
+  public String useAnthropicChatModel() {
     System.out.println("### useAnthropicChatModel");
 
     // tag::adocSnippet[]
@@ -38,5 +34,6 @@ public class MusicianAssistant {
 
     System.out.println(model.chat("List some influential Jazz musicians"));
     // end::adocSnippet[]
+    return model.chat("List some influential Jazz musicians");
   }
 }

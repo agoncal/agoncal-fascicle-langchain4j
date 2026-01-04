@@ -12,17 +12,13 @@ import dev.langchain4j.community.model.dashscope.QwenChatModel;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useQwenChatModelBuilder();
-  }
-
-  private static final String AWS_ACCESS_KEY_ID = System.getenv("AWS_ACCESS_KEY_ID");
-  private static final String AWS_SECRET_ACCESS_KEY = System.getenv("AWS_SECRET_ACCESS_KEY");
+  private final String AWS_ACCESS_KEY_ID = System.getenv("AWS_ACCESS_KEY_ID");
+  private final String AWS_SECRET_ACCESS_KEY = System.getenv("AWS_SECRET_ACCESS_KEY");
 
   // ##############################
   // ### BEDROCK LANGUAGE MODEL ###
   // ##############################
-  private static void useQwenChatModelBuilder() {
+  public String useQwenChatModelBuilder() {
     System.out.println("### useQwenChatModelBuilder");
 
     // tag::adocSnippet[]
@@ -34,5 +30,6 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Beatles album released?");
 
     System.out.println(completion);
+    return completion;
   }
 }

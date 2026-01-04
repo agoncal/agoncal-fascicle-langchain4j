@@ -23,21 +23,16 @@ import java.time.Duration;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useAzureOpenAiOllamaModel();
-//    useAzureOpenAiChatModelSimple();
-  }
+  private final String AZURE_OPENAI_KEY = System.getenv("AZURE_OPENAI_KEY");
+  private final String AZURE_OPENAI_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
+  private final String AZURE_OPENAI_DEPLOYMENT_NAME = System.getenv("AZURE_OPENAI_DEPLOYMENT_NAME");
 
-  private static final String AZURE_OPENAI_KEY = System.getenv("AZURE_OPENAI_KEY");
-  private static final String AZURE_OPENAI_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
-  private static final String AZURE_OPENAI_DEPLOYMENT_NAME = System.getenv("AZURE_OPENAI_DEPLOYMENT_NAME");
-
-  private static final String PROMPT = "When was the first Beatles album released?";
+  private final String PROMPT = "When was the first Beatles album released?";
 
   // ###################################
   // ### AZURE OPENAI LANGUAGE MODEL ###
   // ###################################
-  public void useAzureOpenAiLanguageModelBuilder() {
+  public Response<String> useAzureOpenAiLanguageModelBuilder() {
     System.out.println("### useAzureOpenAiLanguageModelBuilder");
 
     AzureOpenAiLanguageModel model = AzureOpenAiLanguageModel.builder()
@@ -53,9 +48,10 @@ public class MusicianAssistant {
     System.out.println(completion.content());
     System.out.println(completion.finishReason());
     System.out.println(completion.tokenUsage());
+    return completion;
   }
 
-  public void useAzureOpenAiLanguageModelPrompt() {
+  public Response<String> useAzureOpenAiLanguageModelPrompt() {
     System.out.println("### useAzureOpenAiLanguageModelPrompt");
 
     AzureOpenAiLanguageModel model = AzureOpenAiLanguageModel.builder()
@@ -78,12 +74,13 @@ public class MusicianAssistant {
     System.out.println(tokenUsage.inputTokenCount());
     System.out.println(tokenUsage.outputTokenCount());
     System.out.println(tokenUsage.totalTokenCount());
+    return completion;
   }
 
   // ###############################
   // ### AZURE OPENAI CHAT MODEL ###
   // ###############################
-  public void useAzureOpenAiChatModel() {
+  public String useAzureOpenAiChatModel() {
     System.out.println("### useAzureOpenAiChatModel");
 
     // tag::adocSnippet[]
@@ -99,9 +96,10 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
+    return completion;
   }
 
-  public void useAzureOpenAiChatModelBuilder() {
+  public String useAzureOpenAiChatModelBuilder() {
     System.out.println("### useAzureOpenAiChatModelBuilder");
 
     AzureChatEnhancementConfiguration enhancementConfiguration = new AzureChatEnhancementConfiguration();
@@ -128,9 +126,10 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
+    return completion;
   }
 
-  private static void useAzureOpenAiChatModelSimple() {
+  public String useAzureOpenAiChatModelSimple() {
     System.out.println("### useAzureOpenAiChatModelSimple");
 
     // tag::adocSimple[]
@@ -144,9 +143,10 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
+    return completion;
   }
 
-  public void useAzureOpenAiChatModelAiMessage() {
+  public ChatResponse useAzureOpenAiChatModelAiMessage() {
     System.out.println("### useAzureOpenAiChatModelAiMessage");
 
     AzureOpenAiChatModel model = AzureOpenAiChatModel.builder()
@@ -162,12 +162,13 @@ public class MusicianAssistant {
     ChatResponse completion = model.chat(sysMsg, userMsg);
 
     System.out.println(completion);
+    return completion;
   }
 
   // ####################
   // ### OLLAMA MODEL ###
   // ####################
-  private static void useAzureOpenAiOllamaModel() {
+  public String useAzureOpenAiOllamaModel() {
     System.out.println("### useAzureOpenAiOllamaModel");
 
     // tag::adocLlama[]
@@ -180,5 +181,6 @@ public class MusicianAssistant {
 
     System.out.println(model.chat("When was the first Rolling Stones album released?"));
     // end::adocLlama[]
+    return model.chat("When was the first Rolling Stones album released?");
   }
 }

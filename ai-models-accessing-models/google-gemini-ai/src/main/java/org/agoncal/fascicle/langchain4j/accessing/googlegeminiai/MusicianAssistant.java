@@ -12,16 +12,12 @@ import dev.langchain4j.model.googleai.GoogleAiGeminiChatModel;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useGoogleAiGeminiChatModel();
-  }
-
-  private static final String GOOGLE_AI_GEMINI_API_KEY = System.getenv("GOOGLE_AI_GEMINI_API_KEY");
+  private final String GOOGLE_AI_GEMINI_API_KEY = System.getenv("GOOGLE_AI_GEMINI_API_KEY");
 
   // ###################################
   // ### GOOGLE AI GEMINI CHAT MODEL ###
   // ###################################
-  private static void useGoogleAiGeminiChatModel() {
+  public String useGoogleAiGeminiChatModel() {
     System.out.println("### useGoogleAiGeminiChatModel");
 
     // tag::adocSnippet[]
@@ -35,5 +31,6 @@ public class MusicianAssistant {
 
     System.out.println(model.chat("List some influential Jazz musicians"));
     // end::adocSnippet[]
+    return model.chat("List some influential Jazz musicians");
   }
 }

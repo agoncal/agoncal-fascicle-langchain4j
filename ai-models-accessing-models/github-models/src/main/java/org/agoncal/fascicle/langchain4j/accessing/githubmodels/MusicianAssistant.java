@@ -13,16 +13,12 @@ import static dev.langchain4j.model.github.GitHubModelsChatModelName.GPT_4_O_MIN
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    useGitHubModelsChatModel();
-  }
-
-  private static final String GITHUB_TOKEN = System.getenv("GITHUB_TOKEN");
+  private final String GITHUB_TOKEN = System.getenv("GITHUB_TOKEN");
 
   // ################################
   // ### GITHUB MODELS CHAT MODEL ###
   // ################################
-  private static void useGitHubModelsChatModel() {
+  public String useGitHubModelsChatModel() {
     System.out.println("### useGitHubModelsChatModel");
 
     // tag::adocSnippet[]
@@ -36,5 +32,6 @@ public class MusicianAssistant {
 
     System.out.println(model.chat("List some influential Jazz musicians"));
     // end::adocSnippet[]
+    return model.chat("List some influential Jazz musicians");
   }
 }

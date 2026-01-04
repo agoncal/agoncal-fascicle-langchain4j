@@ -13,18 +13,12 @@ import static dev.langchain4j.model.mistralai.MistralAiChatModelName.OPEN_MISTRA
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useMistralAiChatModel();
-  }
-
-  private static final String MISTRAL_AI_API_KEY = System.getenv("MISTRAL_AI_API_KEY");
+  private final String MISTRAL_AI_API_KEY = System.getenv("MISTRAL_AI_API_KEY");
 
   // ##########################
   // ### MISTRAL CHAT MODEL ###
   // ##########################
-  public void useMistralAiChatModel() {
+  public String useMistralAiChatModel() {
     System.out.println("### useMistralAiChatModel");
 
     // tag::adocSnippet[]
@@ -35,5 +29,6 @@ public class MusicianAssistant {
 
     System.out.println(model.chat("When was the first Rolling Stones album released?"));
     // end::adocSnippet[]
+    return model.chat("When was the first Rolling Stones album released?");
   }
 }

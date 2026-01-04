@@ -15,16 +15,12 @@ import java.time.Duration;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  private static final String DEEPSEEK_API_KEY = System.getenv("DEEPSEEK_API_KEY");
-
-  public static void main(String[] args) {
-    useOpenAIForDeepSeek();
-  }
+  private final String DEEPSEEK_API_KEY = System.getenv("DEEPSEEK_API_KEY");
 
   // #############################
   // ### DEEPSEEK CHAT MODEL ###
   // #############################
-  static void useOpenAIForDeepSeek() {
+  public String useOpenAIForDeepSeek() {
     System.out.println("### useOpenAIForDeepSeek");
 
     // tag::adocUseOpenAIForDeepSeek[]
@@ -42,5 +38,6 @@ public class MusicianAssistant {
 
     System.out.println(answer);
     // end::adocUseOpenAIForDeepSeek[]
+    return answer;
   }
 }

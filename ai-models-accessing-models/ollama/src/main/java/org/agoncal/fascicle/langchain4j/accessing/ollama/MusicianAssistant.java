@@ -20,22 +20,12 @@ import dev.langchain4j.model.output.TokenUsage;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-//    musicianService.useOllamaLanguageModel();
-//    musicianService.useOllamaLanguageModelPrompt();
-//    musicianService.useOllamaLanguageModelBuilder();
-//    musicianService.useOllamaChatModel();
-    musicianAssistant.useOllamaChatModelBuilder();
-  }
-
-  private static final String PROMPT = "When was the first Beatles album released?";
+  private final String PROMPT = "When was the first Beatles album released?";
 
   // #############################
   // ### OLLAMA LANGUAGE MODEL ###
   // #############################
-  public void useOllamaLanguageModel() {
+  public Response<String> useOllamaLanguageModel() {
     System.out.println("### useOpenAiLanguageModel");
 
     // tag::adocSnippet[]
@@ -54,9 +44,10 @@ public class MusicianAssistant {
     System.out.println(tokenUsage.inputTokenCount());
     System.out.println(tokenUsage.outputTokenCount());
     System.out.println(tokenUsage.totalTokenCount());
+    return completion;
   }
 
-  public void useOllamaLanguageModelPrompt() {
+  public Response<String> useOllamaLanguageModelPrompt() {
     System.out.println("### useOpenAiLanguageModelPrompt");
 
     OllamaLanguageModel model = OllamaLanguageModel.builder()
@@ -76,9 +67,10 @@ public class MusicianAssistant {
     System.out.println(tokenUsage.inputTokenCount());
     System.out.println(tokenUsage.outputTokenCount());
     System.out.println(tokenUsage.totalTokenCount());
+    return completion;
   }
 
-  public void useOllamaLanguageModelBuilder() {
+  public Response<String> useOllamaLanguageModelBuilder() {
     System.out.println("### useOpenAiLanguageModelBuilder");
 
     OllamaLanguageModel model = OllamaLanguageModel.builder()
@@ -92,12 +84,13 @@ public class MusicianAssistant {
     System.out.println(completion.content());
     System.out.println(completion.finishReason());
     System.out.println(completion.tokenUsage());
+    return completion;
   }
 
   // #########################
   // ### OLLAMA CHAT MODEL ###
   // #########################
-  public void useOllamaChatModel() {
+  public String useOllamaChatModel() {
     System.out.println("### useOpenAiChatModel");
 
     OllamaChatModel model = OllamaChatModel.builder().build();
@@ -105,9 +98,10 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
+    return completion;
   }
 
-  public void useOllamaChatModelBuilder() {
+  public String useOllamaChatModelBuilder() {
     System.out.println("### useOllamaChatModelBuilder");
 
     // tag::adocChatModel[]
@@ -122,9 +116,10 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
+    return completion;
   }
 
-  public void useOllamaChatModelAiMessage() {
+  public ChatResponse useOllamaChatModelAiMessage() {
     System.out.println("### useOpenAiChatModelAiMessage");
 
     OllamaChatModel model = OllamaChatModel.builder().build();
@@ -134,5 +129,6 @@ public class MusicianAssistant {
     ChatResponse completion = model.chat(sysMsg, userMsg);
 
     System.out.println(completion);
+    return completion;
   }
 }

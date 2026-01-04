@@ -13,20 +13,14 @@ import static dev.langchain4j.model.huggingface.HuggingFaceModelName.TII_UAE_FAL
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
+  private final String HF_API_KEY = System.getenv("HF_API_KEY");
 
-    musicianAssistant.useHuggingFaceChatModel();
-  }
-
-  private static final String HF_API_KEY = System.getenv("HF_API_KEY");
-
-  private static final String PROMPT = "When was the first Beatles album released?";
+  private final String PROMPT = "When was the first Beatles album released?";
 
   // ###############################
   // ### AZURE OPENAI CHAT MODEL ###
   // ###############################
-  public void useHuggingFaceChatModel() {
+  public String useHuggingFaceChatModel() {
     System.out.println("### useHuggingFaceChatModel");
 
     // tag::adocSnippet[]
@@ -40,5 +34,6 @@ public class MusicianAssistant {
     String completion = model.chat("When was the first Rolling Stones album released?");
 
     System.out.println(completion);
+    return completion;
   }
 }
