@@ -35,7 +35,7 @@
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
     <quarkus.platform.version>3.6.5</quarkus.platform.version>
     <version.tinylog>2.7.0</version.tinylog>
-    <version.log4j>2.24.3</version.log4j>
+    <version.log4j>2.25.3</version.log4j>
     <version.okhttp>4.10.0</version.okhttp>
     <!-- Test -->
     <version.junit>6.0.1</version.junit>
