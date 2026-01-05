@@ -36,7 +36,7 @@
     <quarkus.platform.version>3.6.5</quarkus.platform.version>
     <version.tinylog>2.7.0</version.tinylog>
     <version.log4j>2.25.3</version.log4j>
-    <version.okhttp>4.10.0</version.okhttp>
+    <version.okhttp>5.3.2</version.okhttp>
     <!-- Test -->
     <version.junit>6.0.1</version.junit>
     <version.testcontainers>2.0.3</version.testcontainers>
