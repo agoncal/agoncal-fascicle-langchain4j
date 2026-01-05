@@ -21,19 +21,9 @@ import java.nio.file.Paths;
 
 public class DocumentLoaderExamples {
 
-  private static final Logger log = LoggerFactory.getLogger(DocumentLoaderExamples.class);
+  private final Logger log = LoggerFactory.getLogger(DocumentLoaderExamples.class);
 
-  public static void main(String[] args) throws MalformedURLException {
-//    loadFromDocumentLoaderFile();
-    loadFromDocumentLoaderFileNoParser();
-//    loadFromDocumentLoaderURL();
-//    loadFromDocumentLoaderAzure();
-//    loadFromFileSystemDocumentLoader();
-//    loadFromUrlDocumentLoader();
-//    loadFromAzureDocumentLoader();
-  }
-
-  private static void loadFromDocumentLoaderFile() {
+  public Document loadFromDocumentLoaderFile() {
     System.out.println("\n### loadFromDocumentLoaderFile");
     // tag::adocLoadFromDocumentLoaderFile[]
     Path documentPath = toPath("data/bio-ella-fitzgerald.txt");
@@ -44,9 +34,10 @@ public class DocumentLoaderExamples {
     log.info(document.metadata().getString(Document.FILE_NAME));
     log.info(document.metadata().getString(Document.ABSOLUTE_DIRECTORY_PATH));
     // end::adocLoadFromDocumentLoaderFile[]
+    return document;
   }
 
-  private static void loadFromDocumentLoaderFileNoParser() {
+  public Document loadFromDocumentLoaderFileNoParser() {
     System.out.println("\n### loadFromDocumentLoaderFileNoParser");
     // tag::adocLoadFromDocumentLoaderFileNoParser[]
     Path documentPath = toPath("data/bio-ella-fitzgerald.txt");
@@ -57,9 +48,10 @@ public class DocumentLoaderExamples {
     log.info(document.text().trim().substring(0, 50));
     log.info(document.metadata().getString(Document.FILE_NAME));
     log.info(document.metadata().getString(Document.ABSOLUTE_DIRECTORY_PATH));
+    return document;
   }
 
-  private static void loadFromFileSystemDocumentLoader() {
+  public Document loadFromFileSystemDocumentLoader() {
     System.out.println("\n### loadFromFileSystemDocumentLoader");
     // tag::adocLoadFromFileSystemDocumentLoader[]
     Path documentPath = toPath("data/bio-ella-fitzgerald.txt");
@@ -70,9 +62,10 @@ public class DocumentLoaderExamples {
     log.info(document.metadata().getString(Document.FILE_NAME));
     log.info(document.metadata().getString(Document.ABSOLUTE_DIRECTORY_PATH));
     log.info(document.text().trim().substring(0, 50));
+    return document;
   }
 
-  private static void loadFromDocumentLoaderURL() throws Exception {
+  public Document loadFromDocumentLoaderURL() throws Exception {
     System.out.println("\n### loadFromDocumentLoaderURL");
     // tag::adocLoadFromDocumentLoaderURL[]
     URL documentUrl = new URI("https://raw.githubusercontent.com/agoncal/agoncal-sample-langchain4j/main/rag-processing-documents/loader/src/main/resources/data/bio-duke-ellington.txt").toURL();
@@ -82,9 +75,10 @@ public class DocumentLoaderExamples {
     log.info(document.metadata().getString(Document.URL));
     // end::adocLoadFromDocumentLoaderURL[]
     log.info(document.text().trim().substring(0, 50));
+    return document;
   }
 
-  private static void loadFromDocumentLoaderAzure() {
+  public Document loadFromDocumentLoaderAzure() {
     System.out.println("\n### loadFromDocumentLoaderAzure");
     // tag::adocLoadFromDocumentLoaderAzure[]
     Document document = DocumentLoader.load(new AzureBlobStorageSource(null, null, null, null, null), new TextDocumentParser());
@@ -95,9 +89,10 @@ public class DocumentLoaderExamples {
     log.info(document.metadata().getString("azure_storage_blob_content_length"));
     log.info(document.text().trim().substring(0, 50));
     // end::adocLoadFromDocumentLoaderAzure[]
+    return document;
   }
 
-  private static void loadFromUrlDocumentLoader() throws Exception {
+  public Document loadFromUrlDocumentLoader() throws Exception {
     System.out.println("\n### loadFromUrlDocumentLoader");
     // tag::loadFromUrlDocumentLoader[]
     URL documentUrl = new URI("https://raw.githubusercontent.com/agoncal/agoncal-sample-langchain4j/main/rag-processing-documents/loader/src/main/resources/data/bio-duke-ellington.txt").toURL();
@@ -107,9 +102,10 @@ public class DocumentLoaderExamples {
 
     log.info(document.metadata().getString(Document.URL));
     log.info(document.text().trim().substring(0, 50));
+    return document;
   }
 
-  private static void loadFromAzureDocumentLoader() throws Exception {
+  public Document loadFromAzureDocumentLoader() throws Exception {
     System.out.println("\n### loadFromAzureDocumentLoader");
     // tag::loadFromAzureDocumentLoader[]
     URL documentUrl = new URI("https://en.wikipedia.org/wiki/Ella_Fitzgerald").toURL();
@@ -122,9 +118,10 @@ public class DocumentLoaderExamples {
     log.info(document.metadata().getString("azure_storage_blob_content_length"));
     log.info(document.text().trim().substring(0, 50));
     // end::loadFromAzureDocumentLoader[]
+    return document;
   }
 
-  private static Path toPath(String fileName) {
+  private Path toPath(String fileName) {
     try {
       URL fileUrl = DocumentLoaderExamples.class.getClassLoader().getResource(fileName);
       return Paths.get(fileUrl.toURI());

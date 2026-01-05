@@ -13,16 +13,9 @@ import java.net.MalformedURLException;
 
 public class DocumentParserExamples {
 
-  private static final Logger log = LoggerFactory.getLogger(DocumentParserExamples.class);
+  private final Logger log = LoggerFactory.getLogger(DocumentParserExamples.class);
 
-  public static void main(String[] args) throws MalformedURLException {
-    parseWithTextDocumentParser();
-    parseWithPDFBox();
-    parseWithTika();
-    parseWithPoi();
-  }
-
-  private static void parseWithTextDocumentParser() {
+  public Document parseWithTextDocumentParser() {
     System.out.println("\n### parseWithTextDocumentParser");
     // tag::adocParseWithTextDocumentParser[]
     InputStream documentStream = toStream("data/bio-ella-fitzgerald.txt");
@@ -31,9 +24,10 @@ public class DocumentParserExamples {
 
     log.info(document.text());
     // end::adocParseWithTextDocumentParser[]
+    return document;
   }
 
-  private static void parseWithPDFBox() {
+  public Document parseWithPDFBox() {
     System.out.println("\n### parseWithPDFBox");
     // tag::adocParseWithApachePdfBoxDocumentParser[]
     InputStream documentStream = toStream("data/history-of-audiotapes.pdf");
@@ -42,9 +36,10 @@ public class DocumentParserExamples {
     // end::adocParseWithApachePdfBoxDocumentParser[]
 
     log.info(document.text().trim().substring(0, 100));
+    return document;
   }
 
-  private static void parseWithTika() {
+  public Document parseWithTika() {
     System.out.println("\n### parseWithTika");
     // tag::adocParseWithApacheTikaDocumentParser[]
     InputStream documentStream = toStream("data/history-of-audiotapes.pdf");
@@ -53,9 +48,10 @@ public class DocumentParserExamples {
     // end::adocParseWithApacheTikaDocumentParser[]
 
     log.info(document.text().trim().substring(0, 100));
+    return document;
   }
 
-  private static void parseWithPoi() {
+  public Document parseWithPoi() {
     System.out.println("\n### parseWithPoi");
     // tag::adocParseWithApachePoiDocumentParser[]
     InputStream documentStream = toStream("data/history-of-videotapes.docx");
@@ -64,10 +60,11 @@ public class DocumentParserExamples {
     // end::adocParseWithApachePoiDocumentParser[]
 
     log.info(document.text().trim().substring(0, 100));
+    return document;
   }
 
   // tag::adocToStream[]
-  private static InputStream toStream(String fileName) {
+  private InputStream toStream(String fileName) {
     InputStream fileStream = DocumentParserExamples.class.getClassLoader().getResourceAsStream(fileName);
     return fileStream;
   }

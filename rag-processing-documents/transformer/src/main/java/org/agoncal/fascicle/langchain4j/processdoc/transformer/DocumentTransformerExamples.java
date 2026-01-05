@@ -12,15 +12,9 @@ import java.net.MalformedURLException;
 
 public class DocumentTransformerExamples {
 
-  private static final Logger log = LoggerFactory.getLogger(DocumentTransformerExamples.class);
+  private final Logger log = LoggerFactory.getLogger(DocumentTransformerExamples.class);
 
-  public static void main(String[] args) throws MalformedURLException {
-//    transformWithTextDocumentParser();
-    transformWithCSSSelector();
-//    transformWithTikaDocumentParser();
-  }
-
-  private static void transformWithTextDocumentParser() {
+  public Document transformWithTextDocumentParser() {
     // tag::adocTransformWithTextDocumentParser[]
     InputStream documentStream = toStream("data/history-of-cds.html");
 
@@ -34,9 +28,10 @@ public class DocumentTransformerExamples {
 
     log.info(transformedDocument.text().trim().substring(0, 50));
     // end::adocTransformWithTextDocumentParser[]
+    return transformedDocument;
   }
 
-  private static void transformWithCSSSelector() {
+  public Document transformWithCSSSelector() {
     // tag::adocTransformWithCSSSelector[]
     InputStream documentStream = toStream("data/history-of-cds.html");
 
@@ -51,9 +46,10 @@ public class DocumentTransformerExamples {
     // end::adocTransformWithCSSSelector[]
 
     log.info(transformedDocument.text().trim().substring(0, 50));
+    return transformedDocument;
   }
 
-  private static void transformWithTikaDocumentParser() {
+  public Document transformWithTikaDocumentParser() {
     // tag::adocParseWithTikaDocumentParser[]
     InputStream documentStream = toStream("data/history-of-cds.html");
 
@@ -67,9 +63,10 @@ public class DocumentTransformerExamples {
 
     log.info(transformedDocument.text().trim().substring(0, 50));
     // end::adocParseWithTikaDocumentParser[]
+    return transformedDocument;
   }
 
-  private static InputStream toStream(String fileName) {
+  private InputStream toStream(String fileName) {
     InputStream fileStream = DocumentTransformerExamples.class.getClassLoader().getResourceAsStream(fileName);
     return fileStream;
   }

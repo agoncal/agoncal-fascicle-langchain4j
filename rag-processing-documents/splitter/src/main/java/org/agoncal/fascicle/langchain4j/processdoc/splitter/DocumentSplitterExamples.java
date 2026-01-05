@@ -23,16 +23,9 @@ import java.util.List;
 
 public class DocumentSplitterExamples {
 
-  private static final Logger log = LoggerFactory.getLogger(DocumentSplitterExamples.class);
+  private final Logger log = LoggerFactory.getLogger(DocumentSplitterExamples.class);
 
-  public static void main(String[] args) throws MalformedURLException {
-//    splitWithDocumentBySentenceSplitter();
-//    splitWithDocumentByLineSplitter();
-//    splitWithDocumentByWordSplitter();
-    splitWithDocumentSplitters();
-  }
-
-  private static void splitWithDocumentBySentenceSplitterLoad() {
+  public List<TextSegment> splitWithDocumentBySentenceSplitterLoad() {
     System.out.println("\n### splitWithDocumentBySentenceSplitterLoad");
 
     // tag::adocSplitWithDocumentBySentenceSplitterLoad[]
@@ -47,9 +40,10 @@ public class DocumentSplitterExamples {
     segments.forEach(segment -> System.out.println(segment.text().length()));
 
     // end::adocSplitWithDocumentBySentenceSplitterLoad[]
+    return segments;
   }
 
-  private static void splitWithDocumentBySentenceSplitter() {
+  public List<TextSegment> splitWithDocumentBySentenceSplitter() {
     System.out.println("\n### splitWithDocumentBySentenceSplitter");
     // tag::adocSplitWithDocumentBySentenceSplitter[]
     Path documentPath = toPath("data/biography-of-isaac-asimov.txt");
@@ -64,9 +58,10 @@ public class DocumentSplitterExamples {
 
     segments.forEach(segment -> System.out.println(segment.text()));
     // end::adocSplitWithDocumentBySentenceSplitter[]
+    return segments;
   }
 
-  private static void splitWithDocumentByLineSplitter() {
+  public List<TextSegment> splitWithDocumentByLineSplitter() {
     System.out.println("\n### splitWithDocumentByLineSplitter");
     Path documentPath = toPath("data/biography-of-isaac-asimov.txt");
 
@@ -79,10 +74,11 @@ public class DocumentSplitterExamples {
     // end::adocSplitWithDocumentByLineSplitter[]
 
     segments.forEach(segment -> System.out.println(">>" + segment.text()));
+    return segments;
   }
 
 
-  private static void splitWithDocumentByWordSplitter() {
+  public List<TextSegment> splitWithDocumentByWordSplitter() {
     System.out.println("\n### splitWithDocumentByWordSplitter");
     Path documentPath = toPath("data/biography-of-isaac-asimov.txt");
 
@@ -95,9 +91,10 @@ public class DocumentSplitterExamples {
     // end::adocSplitWithDocumentByWordSplitter[]
 
     segments.forEach(segment -> System.out.println(">>" + segment.text()));
+    return segments;
   }
 
-  private static void splitWithDocumentSplitters() {
+  public List<TextSegment> splitWithDocumentSplitters() {
     System.out.println("\n### splitWithDocumentSplitters");
     Path documentPath = toPath("data/biography-of-isaac-asimov.txt");
 
@@ -110,9 +107,10 @@ public class DocumentSplitterExamples {
     // end::adocSplitWithDocumentSplitters[]
 
     segments.forEach(segment -> System.out.println(">>" + segment.text()));
+    return segments;
   }
 
-  private static Path toPath(String fileName) {
+  private Path toPath(String fileName) {
     try {
       URL fileUrl = DocumentSplitterExamples.class.getClassLoader().getResource(fileName);
       return Paths.get(fileUrl.toURI());
