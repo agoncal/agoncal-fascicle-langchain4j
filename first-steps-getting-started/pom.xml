@@ -20,7 +20,7 @@
   <version.tinylog>2.7.0</version.tinylog>
   <!-- Test -->
   <version.testcontainers>1.21.4</version.testcontainers>
-  <version.junit>5.13.1</version.junit>
+  <version.junit>6.0.1</version.junit>
   <!-- Maven Plugins -->
   <version.exec.plugin>3.6.3</version.exec.plugin>
   <!-- Project -->
