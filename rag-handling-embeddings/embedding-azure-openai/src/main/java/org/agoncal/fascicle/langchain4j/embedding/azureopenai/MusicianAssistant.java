@@ -16,14 +16,10 @@ import dev.langchain4j.model.output.Response;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  private static final String AZURE_OPENAI_KEY = System.getenv("OPENAI_API_KEY");
-  private static final String AZURE_OPENAI_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
+  private final String AZURE_OPENAI_KEY = System.getenv("OPENAI_API_KEY");
+  private final String AZURE_OPENAI_ENDPOINT = System.getenv("AZURE_OPENAI_ENDPOINT");
 
-  public static void main(String[] args) {
-    textToEmbeddingAzureOpenAI();
-  }
-
-  private static void textToEmbeddingAzureOpenAI() {
+  public Response<Embedding> textToEmbeddingAzureOpenAI() {
     System.out.println("### textToEmbeddingAzureOpenAI");
 
     // tag::adocTextToEmbeddingOpenAI[]
@@ -38,5 +34,6 @@ public class MusicianAssistant {
     System.out.println(response.toString());
 
     // end::adocTextToEmbeddingOpenAI[]
+    return response;
   }
 }

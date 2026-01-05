@@ -24,13 +24,7 @@ public class MusicianAssistant {
   public static final String ADMIN_PASSWORD = "adminPass";
 
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useNeo4jToStoreEmbeddings();
-  }
-
-  public void useNeo4jToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> useNeo4jToStoreEmbeddings() {
     System.out.println("### useNeo4jToStoreEmbeddings");
 
     // tag::adocNeo4jToStoreEmbeddingsConnect[]
@@ -63,5 +57,6 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 }

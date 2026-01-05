@@ -19,15 +19,9 @@ import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDI
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+  private final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
-  public static void main(String[] args) {
-    textToEmbeddingOpenAI();
-    textToEmbeddingOpenAILarge();
-    textToEmbeddingOpenAISegment();
-  }
-
-  static void textToEmbeddingOpenAI() {
+  public Response<Embedding> textToEmbeddingOpenAI() {
     System.out.println("### textToEmbeddingOpenAI");
 
     // tag::adocTextToEmbeddingOpenAI[]
@@ -40,9 +34,10 @@ public class MusicianAssistant {
 
     System.out.println(embedding.content());
     // end::adocTextToEmbeddingOpenAI[]
+    return embedding;
   }
 
-  static void textToEmbeddingOpenAILarge() {
+  public Response<Embedding> textToEmbeddingOpenAILarge() {
     System.out.println("### textToEmbeddingOpenAILarge");
 
     // tag::adocTextToEmbeddingOpenAILarge[]
@@ -55,9 +50,10 @@ public class MusicianAssistant {
 
     System.out.println(embedding.content());
     // end::adocTextToEmbeddingOpenAILarge[]
+    return embedding;
   }
 
-  static void textToEmbeddingOpenAISegment() {
+  public Response<Embedding> textToEmbeddingOpenAISegment() {
     System.out.println("### textToEmbeddingOpenAISegment");
 
     EmbeddingModel model = OpenAiEmbeddingModel.builder()
@@ -71,5 +67,6 @@ public class MusicianAssistant {
     // end::adocTextToEmbeddingOpenAISegment[]
 
     System.out.println(embedding.content());
+    return embedding;
   }
 }

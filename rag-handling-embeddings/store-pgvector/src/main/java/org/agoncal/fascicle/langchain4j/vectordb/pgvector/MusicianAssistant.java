@@ -23,13 +23,7 @@ public class MusicianAssistant {
   public static final String USERNAME = "neo4j";
   public static final String PASSWORD = "adminPass";
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.usePGVectorToStoreEmbeddings();
-  }
-
-  public void usePGVectorToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> usePGVectorToStoreEmbeddings() {
     System.out.println("### usePGVectorToStoreEmbeddings");
 
     // tag::adocPGVectorToStoreEmbeddings[]
@@ -66,5 +60,6 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 }

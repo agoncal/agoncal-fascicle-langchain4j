@@ -28,21 +28,7 @@ import java.util.List;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-//    musicianAssistant.useQdrantToStoreEmbeddingsSimple();
-//    musicianAssistant.useQdrantToStoreEmbeddingsComplex();
-//    musicianAssistant.useQdrantToStoreListEmbeddings();
-//    musicianAssistant.useQdrantToStoreAllListEmbeddings();
-//    musicianAssistant.useQdrantToStoreJustEmbeddings();
-//    musicianAssistant.useQdrantToRemoveEmbeddings();
-//    musicianAssistant.useQdrantToRemoveEmbeddings();
-    musicianAssistant.useQdrantToRemoveAllEmbeddings();
-
-  }
-
-  public void useQdrantToStoreEmbeddingsConnect() {
+  public EmbeddingMatch<TextSegment> useQdrantToStoreEmbeddingsConnect() {
     System.out.println("### useQdrantToStoreEmbeddingsConnect");
 
     // tag::adocQdrantToStoreEmbeddingsConnect[]
@@ -71,9 +57,10 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 
-  public void useQdrantToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> useQdrantToStoreEmbeddings() {
     System.out.println("### useQdrantToStoreEmbeddings");
 
     createCollection();
@@ -111,9 +98,10 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 
-  public void useQdrantToStoreJustEmbeddings() {
+  public EmbeddingMatch<TextSegment> useQdrantToStoreJustEmbeddings() {
     System.out.println("### useQdrantToStoreJustEmbeddings");
 
     createCollection();
@@ -148,9 +136,10 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
+    return embeddingMatch;
   }
 
-  public void useQdrantToStoreJustListEmbeddings() {
+  public EmbeddingMatch<TextSegment> useQdrantToStoreJustListEmbeddings() {
     System.out.println("### useQdrantToStoreJustListEmbeddings");
 
     createCollection();
@@ -189,9 +178,10 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
+    return embeddingMatch;
   }
 
-  public void useQdrantToStoreListEmbeddings() {
+  public EmbeddingMatch<TextSegment> useQdrantToStoreListEmbeddings() {
     System.out.println("### useQdrantToStoreListEmbeddings");
 
     createCollection();
@@ -229,9 +219,10 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 
-  public void useQdrantToStoreAllListEmbeddings() {
+  public EmbeddingMatch<TextSegment> useQdrantToStoreAllListEmbeddings() {
     System.out.println("### useQdrantToStoreListEmbeddings");
 
     createCollection();
@@ -271,9 +262,10 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 
-  public void useInMemoryToQuery() {
+  public EmbeddingSearchResult<TextSegment> useInMemoryToQuery() {
     System.out.println("### useInMemoryToQuery");
 
     InMemoryEmbeddingStore<TextSegment> embeddingStore = new InMemoryEmbeddingStore<>();
@@ -318,9 +310,10 @@ public class MusicianAssistant {
       System.out.println(match.embedded().text());
     });
     // end::adocInMemoryToQuery4[]
+    return searchResult;
   }
 
-  public void useQdrantToStoreEmbeddingsComplex() {
+  public EmbeddingMatch<TextSegment> useQdrantToStoreEmbeddingsComplex() {
     System.out.println("### useQdrantToStoreEmbeddingsSimple");
 
     createCollection();
@@ -355,9 +348,10 @@ public class MusicianAssistant {
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
     // end::adocSnippet[]
+    return embeddingMatch;
   }
 
-  public void useQdrantToRemoveEmbeddings() {
+  public EmbeddingMatch<TextSegment> useQdrantToRemoveEmbeddings() {
     System.out.println("### useQdrantToRemoveEmbeddings");
 
     createCollection();
@@ -389,9 +383,10 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
+    return embeddingMatch;
   }
 
-  public void useQdrantToRemoveAllEmbeddings() {
+  public EmbeddingMatch<TextSegment> useQdrantToRemoveAllEmbeddings() {
     System.out.println("### useQdrantToRemoveEmbeddings");
 
     createCollection();
@@ -421,6 +416,7 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedding().dimension());
+    return embeddingMatch;
   }
 
   private static void createCollection() {

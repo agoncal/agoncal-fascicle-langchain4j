@@ -21,13 +21,7 @@ import dev.langchain4j.community.store.embedding.redis.RedisEmbeddingStore;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useRedisToStoreEmbeddings();
-  }
-
-  public void useRedisToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> useRedisToStoreEmbeddings() {
     System.out.println("### useRedisToStoreEmbeddings");
 
     // tag::adocRedisToStoreEmbeddingsConnect[]
@@ -60,6 +54,7 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 
   protected Metadata createMetadata() {

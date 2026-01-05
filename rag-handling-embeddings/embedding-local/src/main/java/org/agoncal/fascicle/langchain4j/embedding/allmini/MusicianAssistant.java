@@ -18,15 +18,7 @@ import dev.langchain4j.store.embedding.CosineSimilarity;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-//    musicianAssistant.textToEmbeddingAllMiniLmL6V2();
-//    musicianAssistant.textToEmbeddingBgeSmall();
-    musicianAssistant.cosineSimilarityBetween();
-  }
-
-  public void textToEmbeddingAllMiniLmL6V2() {
+  public Response<Embedding> textToEmbeddingAllMiniLmL6V2() {
     System.out.println("### textToEmbeddingAllMiniLmL6V2");
 
     // tag::adocTextToEmbeddingAllMiniLmL6V2[]
@@ -37,9 +29,10 @@ public class MusicianAssistant {
 
     System.out.println(embedding.content());
     // end::adocTextToEmbeddingAllMiniLmL6V2[]
+    return embedding;
   }
 
-  public void textToEmbeddingBgeSmall() {
+  public Response<Embedding> textToEmbeddingBgeSmall() {
     System.out.println("### textToEmbeddingBgeSmall");
 
     // tag::adocTextToEmbeddingBgeSmall[]
@@ -50,9 +43,10 @@ public class MusicianAssistant {
 
     System.out.println(embedding.content());
     // end::adocTextToEmbeddingBgeSmall[]
+    return embedding;
   }
 
-  public void cosineSimilarityBetween() {
+  public double cosineSimilarityBetween() {
     System.out.println("### cosineSimilarityBetween");
 
     EmbeddingModel model = new BgeSmallEnEmbeddingModel();
@@ -71,5 +65,6 @@ public class MusicianAssistant {
     System.out.println(CosineSimilarity.between(isaacAsimov, noraJemisin));
     System.out.println(CosineSimilarity.between(isaacAsimov, fenderGuitar));
     System.out.println(CosineSimilarity.between(isaacAsimov, table));
+    return CosineSimilarity.between(isaacAsimov, noraJemisin);
   }
 }

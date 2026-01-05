@@ -24,21 +24,14 @@ import org.apache.commons.compress.utils.Sets;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  static MongoClient client;
+  private MongoClient client;
 
-  IndexMapping indexMapping = IndexMapping.builder()
+  private IndexMapping indexMapping = IndexMapping.builder()
     .dimension(384)
     .metadataFieldNames(Sets.newHashSet("test-key"))
     .build();
 
-
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useMongoToStoreEmbeddings();
-  }
-
-  public void useMongoToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> useMongoToStoreEmbeddings() {
     System.out.println("### useMongoToStoreEmbeddings");
 
     // tag::adocMongoToStoreEmbeddings[]
@@ -73,5 +66,6 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 }

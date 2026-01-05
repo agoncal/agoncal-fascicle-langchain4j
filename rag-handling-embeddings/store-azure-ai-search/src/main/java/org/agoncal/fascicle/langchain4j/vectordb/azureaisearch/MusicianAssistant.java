@@ -20,17 +20,10 @@ import dev.langchain4j.store.embedding.azure.search.AzureAiSearchEmbeddingStore;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  private static final String AZURE_SEARCH_ENDPOINT = System.getenv("AZURE_SEARCH_ENDPOINT");
-  private static final String AZURE_SEARCH_KEY = System.getenv("AZURE_SEARCH_KEY");
+  private final String AZURE_SEARCH_ENDPOINT = System.getenv("AZURE_SEARCH_ENDPOINT");
+  private final String AZURE_SEARCH_KEY = System.getenv("AZURE_SEARCH_KEY");
 
-
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useAzureAiSearchToStoreEmbeddings();
-  }
-
-  public void useAzureAiSearchToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> useAzureAiSearchToStoreEmbeddings() {
     System.out.println("### useAzureAiSearchToStoreEmbeddings");
 
     // tag::adocAzureAiSearchConnect[]
@@ -61,5 +54,6 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 }

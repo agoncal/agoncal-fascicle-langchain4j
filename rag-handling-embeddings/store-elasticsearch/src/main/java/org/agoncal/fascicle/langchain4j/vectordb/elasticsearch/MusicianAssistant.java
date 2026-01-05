@@ -22,13 +22,7 @@ import org.elasticsearch.client.RestClient;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useElasticsearchToStoreEmbeddings();
-  }
-
-  public void useElasticsearchToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> useElasticsearchToStoreEmbeddings() {
     System.out.println("### useElasticsearchToStoreEmbeddings");
 
     // tag::adocElasticsearchToStoreEmbeddingsConnect[]
@@ -61,5 +55,6 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 }

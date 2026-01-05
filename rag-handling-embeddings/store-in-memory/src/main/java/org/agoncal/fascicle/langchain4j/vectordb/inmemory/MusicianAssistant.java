@@ -19,13 +19,7 @@ import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.useInMemoryToStoreEmbeddings();
-  }
-
-  public void useInMemoryToStoreEmbeddings() {
+  public EmbeddingMatch<TextSegment> useInMemoryToStoreEmbeddings() {
     System.out.println("### useInMemoryToStoreEmbeddings");
 
     // tag::adocInMemoryToStoreEmbeddings[]
@@ -52,5 +46,6 @@ public class MusicianAssistant {
 
     System.out.println(embeddingMatch.score());
     System.out.println(embeddingMatch.embedded().text());
+    return embeddingMatch;
   }
 }

@@ -16,13 +16,7 @@ import dev.langchain4j.model.output.Response;
 // end::adocSkip[]
 public class MusicianAssistant {
 
-  public static void main(String[] args) {
-    MusicianAssistant musicianAssistant = new MusicianAssistant();
-
-    musicianAssistant.textToEmbeddingOllama();
-  }
-
-  public void textToEmbeddingOllama() {
+  public Response<Embedding> textToEmbeddingOllama() {
     System.out.println("### textToEmbeddingOllama");
 
     // tag::adocTextToEmbeddingOllama[]
@@ -36,5 +30,6 @@ public class MusicianAssistant {
 
     System.out.println(embedding.content());
     // end::adocTextToEmbeddingOllama[]
+    return embedding;
   }
 }
