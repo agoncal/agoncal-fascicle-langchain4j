@@ -25,7 +25,7 @@
     <quarkus.platform.version>3.30.5</quarkus.platform.version>
     <quarkiverse.mcp-server.version>1.2.2</quarkiverse.mcp-server.version>
     <skipITs>true</skipITs>
-    <surefire-plugin.version>3.5.2</surefire-plugin.version>
+    <surefire-plugin.version>3.5.4</surefire-plugin.version>
   </properties>
 
   <dependencyManagement>
