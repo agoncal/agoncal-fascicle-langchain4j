@@ -64,7 +64,7 @@
     <version.site.plugin>3.21.0</version.site.plugin>
     <version.source.plugin>3.4.0</version.source.plugin>
     <version.surefire.plugin>3.5.4</version.surefire.plugin>
-    <version.version.plugin>2.20.1</version.version.plugin>
+    <version.version.plugin>2.21.0</version.version.plugin>
     <version.war.plugin>3.5.1</version.war.plugin>
     <!-- Plugins flag -->
     <javadoc.disabled>true</javadoc.disabled>
