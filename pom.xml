@@ -29,7 +29,7 @@
   <properties>
     <!-- LangChain4j -->
     <version.langchain4j>1.10.0</version.langchain4j>
-    <version.langchain4j-community>1.10.0-beta18</version.langchain4j-community>
+    <version.langchain4j-community>1.11.0-beta19</version.langchain4j-community>
     <!-- Other -->
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
