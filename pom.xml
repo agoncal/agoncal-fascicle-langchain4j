@@ -39,7 +39,7 @@
     <version.okhttp>5.3.2</version.okhttp>
     <version.azure-identity>1.18.2</version.azure-identity>
     <!-- Test -->
-    <version.junit>6.0.2</version.junit>
+    <version.junit>6.0.3</version.junit>
     <version.testcontainers>2.0.3</version.testcontainers>
     <version.wiremock>3.13.2</version.wiremock>
     <!-- Core Maven Plugins -->
